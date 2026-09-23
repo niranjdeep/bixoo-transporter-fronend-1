@@ -1,0 +1,436 @@
+* {
+  box-sizing: border-box;
+}
+
+.bixoo-login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: #f4f7fb;
+}
+
+/* LEFT */
+
+.login-left {
+  width: 52%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #061a35, #0b3d68, #087db8);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.left-content {
+  width: 100%;
+  min-height: 100vh;
+  padding: 55px 65px;
+  position: relative;
+  z-index: 2;
+}
+
+.bixoo-logo {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.bixoo-logo span {
+  color: #19b5ff;
+}
+
+.portal-name {
+  font-size: 17px;
+  margin-top: 4px;
+  color: #d5e8f6;
+}
+
+.tagline-small {
+  margin-top: 35px;
+  padding-left: 14px;
+  border-left: 3px solid #18b2fa;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.hero-content {
+  margin-top: 80px;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1.05;
+  letter-spacing: -3px;
+}
+
+.hero-content h1 span {
+  color: #19b5ff;
+}
+
+.hero-content p {
+  margin-top: 25px;
+  color: #d5e8f6;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* TRUCK */
+
+.transport-visual {
+  position: relative;
+  height: 150px;
+  margin-top: 30px;
+}
+
+.road {
+  position: absolute;
+  bottom: 15px;
+  left: -80px;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.road::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  width: 80%;
+  border-top: 3px dashed rgba(255, 255, 255, 0.5);
+}
+
+.truck {
+  position: absolute;
+  right: 15%;
+  bottom: 35px;
+  font-size: 100px;
+}
+
+/* BENEFITS */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 15px;
+  max-width: 680px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.benefit:first-child {
+  padding-left: 0;
+}
+
+.benefit:last-child {
+  border-right: none;
+}
+
+.benefit-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #19b5ff;
+}
+
+.benefit strong,
+.benefit small {
+  display: block;
+}
+
+.benefit strong {
+  font-size: 13px;
+}
+
+.benefit small {
+  margin-top: 4px;
+  color: #c9deed;
+  font-size: 11px;
+}
+
+.left-footer {
+  margin-top: 50px;
+  color: #c9deed;
+  font-size: 14px;
+  font-style: italic;
+}
+
+
+/* RIGHT */
+
+.login-right {
+  width: 48%;
+  min-height: 100vh;
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  position: relative;
+}
+
+.language {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 14px;
+  color: #344054;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  border-radius: 24px;
+  padding: 45px 50px;
+  box-shadow: 0 20px 60px rgba(20, 50, 80, 0.12);
+}
+
+.card-logo {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 900;
+  color: #14213d;
+  letter-spacing: -3px;
+}
+
+.card-logo span {
+  color: #087fd1;
+}
+
+.card-portal {
+  text-align: center;
+  margin-top: 4px;
+  color: #68758a;
+  font-size: 15px;
+}
+
+.welcome {
+  text-align: center;
+  margin: 38px 0 30px;
+}
+
+.welcome h2 {
+  margin: 0;
+  color: #14213d;
+  font-size: 34px;
+}
+
+.welcome p {
+  margin-top: 9px;
+  color: #68758a;
+  font-size: 14px;
+}
+
+/* FIELD */
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.field-header label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17233a;
+}
+
+.email-link {
+  border: none;
+  background: transparent;
+  color: #087fd1;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mobile-field {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  border: 1px solid #ccd5df;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.country {
+  width: 115px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
+  background: #f5f7fa;
+  border-right: 1px solid #d8dee6;
+}
+
+.country .arrow {
+  margin-left: auto;
+  color: #777;
+}
+
+.mobile-field input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  font-size: 15px;
+}
+
+/* BUTTON */
+
+.continue-btn {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 10px;
+  background: #087fd1;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.continue-btn:hover {
+  background: #066caf;
+}
+
+.button-arrow {
+  margin-left: 12px;
+  font-size: 20px;
+}
+
+/* DIVIDER */
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.or-divider span {
+  flex: 1;
+  height: 1px;
+  background: #e2e7ed;
+}
+
+.or-divider p {
+  margin: 0;
+  color: #8a94a4;
+}
+
+/* WHATSAPP */
+
+.whatsapp-btn {
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 10px;
+  background: #edf9f4;
+  color: #17233a;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.whatsapp-icon {
+  color: #18a957;
+}
+
+.wa-arrow {
+  margin-left: auto;
+  margin-right: 15px;
+}
+
+/* REGISTER */
+
+.register {
+  text-align: center;
+  margin-top: 25px;
+  color: #68758a;
+  font-size: 14px;
+}
+
+.register button {
+  border: none;
+  background: none;
+  color: #087fd1;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/* SECURITY */
+
+.security {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #e5e9ee;
+}
+
+.security div {
+  text-align: center;
+  border-right: 1px solid #e5e9ee;
+}
+
+.security div:last-child {
+  border-right: none;
+}
+
+.security span {
+  display: block;
+  color: #087fd1;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.security small {
+  color: #68758a;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .bixoo-login {
+    display: block;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .login-card {
+    max-width: 500px;
+  }
+}

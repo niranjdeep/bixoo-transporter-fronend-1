@@ -1,0 +1,410 @@
+.documents-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f4f7fb;
+  color: #142433;
+}
+
+/* Header */
+
+.documents-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.documents-header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #dce4eb;
+  border-radius: 9px;
+  background: white;
+  color: #34495a;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.documents-label {
+  color: #087db8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.documents-header h1 {
+  margin-top: 3px;
+  font-size: 28px;
+}
+
+.documents-subtitle {
+  margin-top: 5px;
+  color: #7a8996;
+  font-size: 13px;
+}
+
+.upload-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #e1e8ee;
+}
+
+.upload-progress strong {
+  color: #087db8;
+  font-size: 20px;
+}
+
+.upload-progress span {
+  margin-top: 3px;
+  color: #7c8995;
+  font-size: 10px;
+}
+
+/* Trip Summary */
+
+.trip-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-bottom: 24px;
+  background: #dfe6ec;
+  border: 1px solid #dfe6ec;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.trip-summary > div {
+  padding: 17px 20px;
+  background: white;
+}
+
+.trip-summary span {
+  display: block;
+  margin-bottom: 6px;
+  color: #84919d;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.trip-summary strong {
+  display: block;
+  color: #34495a;
+  font-size: 13px;
+}
+
+/* Documents */
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.document-card {
+  padding: 20px;
+  background: white;
+  border: 1px solid #e1e8ee;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(20, 36, 51, 0.04);
+}
+
+.document-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 70px;
+}
+
+.document-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #eaf6fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.document-title {
+  flex: 1;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.document-title h3 {
+  font-size: 15px;
+}
+
+.document-title p {
+  margin-top: 5px;
+  color: #7b8995;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.required-badge {
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #fff1f1;
+  color: #c75a5a;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.uploaded-badge {
+  padding: 4px 7px;
+  border-radius: 5px;
+  background: #e9f8ef;
+  color: #16834a;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* Upload */
+
+.upload-box {
+  min-height: 150px;
+  margin-top: 18px;
+  border: 1.5px dashed #cbd8e1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.upload-box:hover {
+  border-color: #087db8;
+  background: #f8fcfe;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #eaf6fb;
+  color: #087db8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.upload-box strong {
+  color: #425566;
+  font-size: 12px;
+}
+
+.upload-box small {
+  margin-top: 5px;
+  color: #98a3ad;
+  font-size: 9px;
+}
+
+/* Uploaded */
+
+.uploaded-file {
+  min-height: 150px;
+  margin-top: 18px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f7fafc;
+  border: 1px solid #e2e9ee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-icon {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.file-info {
+  max-width: 100%;
+  text-align: center;
+}
+
+.file-info strong {
+  display: block;
+  overflow: hidden;
+  color: #405364;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-info small {
+  display: block;
+  margin-top: 5px;
+  color: #8996a1;
+  font-size: 9px;
+}
+
+.remove-btn {
+  margin-top: 12px;
+  padding: 6px 11px;
+  border: 1px solid #e2b2b2;
+  border-radius: 6px;
+  background: white;
+  color: #c45c5c;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+/* Info */
+
+.document-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #dcecf4;
+  border-radius: 10px;
+  background: #f3faff;
+}
+
+.info-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #087db8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.document-info strong {
+  font-size: 12px;
+}
+
+.document-info p {
+  margin-top: 4px;
+  color: #71818e;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Actions */
+
+.documents-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.secondary-btn,
+.primary-btn {
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  border: 1px solid #d6e0e7;
+  background: white;
+  color: #526372;
+}
+
+.primary-btn {
+  border: none;
+  background: #087db8;
+  color: white;
+}
+
+.primary-btn:disabled {
+  background: #b8c5ce;
+  cursor: not-allowed;
+}
+
+/* Empty */
+
+.documents-empty {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.documents-empty h2 {
+  margin-bottom: 15px;
+}
+
+.documents-empty button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #087db8;
+  color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .documents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .documents-page {
+    padding: 18px;
+  }
+
+  .documents-header {
+    align-items: flex-start;
+  }
+
+  .upload-progress {
+    display: none;
+  }
+
+  .trip-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .documents-actions {
+    flex-direction: column;
+  }
+
+  .secondary-btn,
+  .primary-btn {
+    width: 100%;
+  }
+}

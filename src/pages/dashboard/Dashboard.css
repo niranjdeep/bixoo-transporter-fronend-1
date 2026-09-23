@@ -1,0 +1,433 @@
+.dashboard-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f8fc;
+  color: #17233a;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.dashboard-label,
+.section-label,
+.match-label {
+  margin: 0 0 7px;
+  color: #087fd1;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: -1px;
+}
+
+.dashboard-subtitle {
+  margin-top: 8px;
+  color: #6b778b;
+  font-size: 14px;
+}
+
+.online-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  background: #eaf9f1;
+  color: #14804a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #20b56a;
+}
+
+
+/* STATS */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  border: 1px solid #e1e7ee;
+  background: white;
+  border-radius: 15px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(20, 50, 80, 0.08);
+}
+
+.stat-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #eaf5fd;
+  color: #087fd1;
+  font-size: 20px;
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-info span {
+  display: block;
+  color: #738095;
+  font-size: 12px;
+}
+
+.stat-info strong {
+  display: block;
+  margin-top: 5px;
+  color: #17233a;
+  font-size: 22px;
+}
+
+.stat-arrow {
+  color: #9aa6b6;
+}
+
+
+/* MAIN GRID */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  border: 1px solid #e1e7ee;
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-heading h2 {
+  margin: 5px 0 0;
+  font-size: 21px;
+}
+
+.match-distance {
+  padding: 7px 11px;
+  border-radius: 8px;
+  background: #eef6fd;
+  color: #087fd1;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.trip-status {
+  padding: 7px 11px;
+  border-radius: 8px;
+  background: #fff5e5;
+  color: #bd7100;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* ROUTE */
+
+.load-route {
+  margin: 25px 0;
+}
+
+.route-point {
+  display: flex;
+  gap: 14px;
+}
+
+.route-point > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.route-point small {
+  color: #7d899a;
+  font-size: 11px;
+}
+
+.route-point strong {
+  font-size: 15px;
+}
+
+.route-point span {
+  color: #7d899a;
+  font-size: 12px;
+}
+
+.route-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pickup {
+  background: #168de0;
+}
+
+.delivery {
+  background: #18a957;
+}
+
+.route-line {
+  width: 2px;
+  height: 30px;
+  margin: 2px 0 2px 5px;
+  background: #d6dee8;
+}
+
+
+/* LOAD DETAILS */
+
+.load-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 17px 0;
+  border-top: 1px solid #edf0f4;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.load-details small,
+.trip-info small {
+  display: block;
+  color: #7b8798;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.load-details strong,
+.trip-info strong {
+  font-size: 13px;
+}
+
+.earning {
+  color: #149653;
+}
+
+.view-load-btn,
+.outline-btn {
+  width: 100%;
+  height: 46px;
+  margin-top: 18px;
+  border-radius: 9px;
+  border: none;
+  background: #087fd1;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.outline-btn {
+  background: white;
+  color: #087fd1;
+  border: 1px solid #bcd8ec;
+}
+
+
+/* ACTIVE TRIP */
+
+.active-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 28px 0;
+  padding: 18px;
+  border-radius: 12px;
+  background: #f5f8fc;
+  font-size: 15px;
+}
+
+.active-route span {
+  color: #087fd1;
+  font-size: 22px;
+}
+
+.trip-progress {
+  margin-bottom: 22px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #718095;
+}
+
+.progress-header strong {
+  color: #087fd1;
+}
+
+.progress-track {
+  height: 7px;
+  border-radius: 10px;
+  background: #e7edf3;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 68%;
+  height: 100%;
+  background: #087fd1;
+  border-radius: inherit;
+}
+
+.trip-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+
+/* QUICK ACTIONS */
+
+.quick-section {
+  margin-top: 28px;
+}
+
+.section-title {
+  margin-bottom: 15px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.section-title p {
+  margin-top: 5px;
+  color: #7b8798;
+  font-size: 13px;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.quick-grid button {
+  border: 1px solid #e1e7ee;
+  border-radius: 14px;
+  background: white;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quick-grid button > span {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: #edf6fd;
+  color: #087fd1;
+}
+
+.quick-grid button div {
+  flex: 1;
+}
+
+.quick-grid strong,
+.quick-grid small {
+  display: block;
+}
+
+.quick-grid strong {
+  font-size: 13px;
+}
+
+.quick-grid small {
+  margin-top: 4px;
+  color: #7b8798;
+  font-size: 10px;
+}
+
+.quick-grid b {
+  color: #9aa6b6;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+  .stats-grid,
+  .quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard-page {
+    padding: 20px 15px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .stats-grid,
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header h1 {
+    font-size: 25px;
+  }
+
+  .load-details,
+  .trip-info {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}

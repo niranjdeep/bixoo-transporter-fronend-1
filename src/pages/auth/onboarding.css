@@ -1,0 +1,167 @@
+.onboarding-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 850px;
+  background: #ffffff;
+  padding: 45px 50px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(20, 50, 80, 0.1);
+}
+
+.onboarding-header {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.onboarding-logo {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -3px;
+  color: #14213d;
+}
+
+.onboarding-header p {
+  margin: 3px 0 20px;
+  color: #087fd1;
+  font-weight: 600;
+}
+
+.onboarding-header h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #14213d;
+}
+
+.onboarding-header span {
+  display: block;
+  margin-top: 8px;
+  color: #68758a;
+  font-size: 14px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+  padding: 25px;
+  border: 1px solid #e3e8ef;
+  border-radius: 15px;
+  background: #fbfcfe;
+}
+
+.form-section h3 {
+  margin: 0 0 20px;
+  color: #17233a;
+  font-size: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  color: #27364d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid #ccd5df;
+  border-radius: 9px;
+  outline: none;
+  background: white;
+  color: #17233a;
+  font-size: 14px;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: #087fd1;
+  box-shadow: 0 0 0 3px rgba(8, 127, 209, 0.08);
+}
+
+.form-field input::placeholder {
+  color: #9aa5b5;
+}
+
+.onboarding-submit {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 10px;
+  background: #087fd1;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.onboarding-submit:hover {
+  background: #066caf;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 22px;
+  color: #68758a;
+  font-size: 14px;
+}
+
+.login-link button {
+  border: none;
+  background: transparent;
+  color: #087fd1;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+@media (max-width: 650px) {
+  .onboarding-page {
+    padding: 20px 12px;
+  }
+
+  .onboarding-card {
+    padding: 30px 20px;
+    border-radius: 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field.full-width {
+    grid-column: auto;
+  }
+
+  .form-section {
+    padding: 18px;
+  }
+
+  .onboarding-header h1 {
+    font-size: 25px;
+  }
+}

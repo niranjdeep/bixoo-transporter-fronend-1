@@ -1,0 +1,345 @@
+.wallet-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f4f7fb;
+  color: #142433;
+}
+
+/* Header */
+
+.wallet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.wallet-label {
+  margin-bottom: 6px;
+  color: #087db8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.wallet-header h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.wallet-subtitle {
+  margin-top: 6px;
+  color: #7b8995;
+  font-size: 13px;
+}
+
+/* Wallet Icon */
+
+.wallet-header-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eaf6fb;
+  color: #087db8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* Summary */
+
+.wallet-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.wallet-stat {
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e1e8ee;
+  border-radius: 13px;
+  box-shadow: 0 4px 14px rgba(20, 36, 51, 0.04);
+}
+
+.wallet-stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wallet-stat-title {
+  color: #7c8995;
+  font-size: 12px;
+}
+
+.wallet-stat-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef7fb;
+  color: #087db8;
+  font-weight: 700;
+}
+
+.wallet-stat h2 {
+  margin-top: 13px;
+  font-size: 25px;
+  color: #1d3445;
+}
+
+.wallet-stat.pending .wallet-stat-icon {
+  background: #fff5e5;
+  color: #d38a18;
+}
+
+.wallet-stat.settled .wallet-stat-icon {
+  background: #eaf8f0;
+  color: #16834a;
+}
+
+/* Balance */
+
+.balance-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 25px;
+  margin-bottom: 24px;
+  border-radius: 14px;
+  background: #087db8;
+  color: white;
+  box-shadow: 0 7px 20px rgba(8, 125, 184, 0.15);
+}
+
+.balance-label {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.balance-card h2 {
+  margin-top: 6px;
+  font-size: 29px;
+}
+
+.withdraw-btn {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: #087db8;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.withdraw-btn:hover {
+  background: #f3f8fb;
+}
+
+/* Main Content */
+
+.wallet-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 22px;
+}
+
+/* Transactions */
+
+.transaction-card,
+.recent-trip-card {
+  background: white;
+  border: 1px solid #e1e8ee;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(20, 36, 51, 0.04);
+}
+
+.transaction-card {
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 21px;
+  border-bottom: 1px solid #edf1f4;
+}
+
+.card-header h2 {
+  font-size: 16px;
+}
+
+.card-header span {
+  color: #8996a1;
+  font-size: 11px;
+}
+
+/* Table */
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th {
+  padding: 12px 18px;
+  background: #f8fafb;
+  color: #87939e;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.transaction-table td {
+  padding: 15px 18px;
+  border-top: 1px solid #edf1f4;
+  color: #50616f;
+  font-size: 11px;
+}
+
+.transaction-id {
+  color: #087db8 !important;
+  font-weight: 700;
+}
+
+.trip-id {
+  color: #35495a !important;
+  font-weight: 600;
+}
+
+.route {
+  color: #6e7d89 !important;
+}
+
+.amount {
+  color: #1d3445 !important;
+  font-weight: 700;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.status-badge.pending {
+  background: #fff5e5;
+  color: #c17c14;
+}
+
+.status-badge.settled {
+  background: #e9f8ef;
+  color: #16834a;
+}
+
+/* Recent Trip */
+
+.recent-trip-card {
+  padding: 20px;
+}
+
+.recent-trip-card h2 {
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.recent-trip {
+  padding: 15px;
+  border-radius: 10px;
+  background: #f7fafc;
+  border: 1px solid #e5ebef;
+}
+
+.recent-trip-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recent-trip-top strong {
+  color: #35495a;
+  font-size: 12px;
+}
+
+.recent-trip-top span {
+  padding: 4px 7px;
+  border-radius: 5px;
+  background: #e9f8ef;
+  color: #16834a;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.recent-route {
+  margin-top: 13px;
+  color: #687885;
+  font-size: 11px;
+}
+
+.recent-earnings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e3e9ed;
+}
+
+.recent-earnings span {
+  color: #8a97a1;
+  font-size: 10px;
+}
+
+.recent-earnings strong {
+  color: #087db8;
+  font-size: 15px;
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .wallet-content {
+    grid-template-columns: 1fr;
+  }
+
+  .recent-trip-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .wallet-page {
+    padding: 18px;
+  }
+
+  .wallet-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .balance-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .withdraw-btn {
+    width: 100%;
+  }
+
+  .transaction-card {
+    overflow-x: auto;
+  }
+
+  .transaction-table {
+    min-width: 650px;
+  }
+}
