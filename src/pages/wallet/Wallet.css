@@ -1,345 +1,534 @@
+/* =====================================================
+   BIXOO WALLET
+   FIGMA STYLE
+   ===================================================== */
+
 .wallet-page {
+  width: 100%;
   min-height: 100vh;
-  padding: 30px;
-  background: #f4f7fb;
-  color: #142433;
+
+  padding: 18px 13px 90px;
+
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    180deg,
+    #dbc4f8 0%,
+    #d8c0f5 48%,
+    #d7bef4 100%
+  );
+
+  color: #1b1728;
+
+  font-family:
+    "Poppins",
+    "Inter",
+    Arial,
+    sans-serif;
 }
 
-/* Header */
+
+/* =====================================================
+   HEADER
+   ===================================================== */
 
 .wallet-header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 25px;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
 }
 
 .wallet-label {
-  margin-bottom: 6px;
-  color: #087db8;
-  font-size: 11px;
-  font-weight: 700;
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #7547c9;
+
+  font-size: 7px;
+  font-weight: 800;
+
   letter-spacing: 1px;
 }
 
 .wallet-header h1 {
-  font-size: 28px;
   margin: 0;
+
+  color: #18152a;
+
+  font-size: 21px;
+  font-weight: 800;
 }
 
-.wallet-subtitle {
-  margin-top: 6px;
-  color: #7b8995;
-  font-size: 13px;
+.wallet-header p {
+  margin: 5px 0 0;
+
+  color: #7d7488;
+
+  font-size: 8px;
 }
 
-/* Wallet Icon */
+.wallet-balance-icon {
+  width: 34px;
+  height: 34px;
 
-.wallet-header-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: #eaf6fb;
-  color: #087db8;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+
+  border-radius: 11px;
+
+  background: #eee3ff;
+
+  color: #7547c9;
+
+  font-size: 15px;
+  font-weight: 800;
 }
 
-/* Summary */
 
-.wallet-summary {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-bottom: 22px;
-}
+/* =====================================================
+   BALANCE
+   ===================================================== */
 
-.wallet-stat {
-  padding: 20px;
-  background: #ffffff;
-  border: 1px solid #e1e8ee;
-  border-radius: 13px;
-  box-shadow: 0 4px 14px rgba(20, 36, 51, 0.04);
-}
-
-.wallet-stat-top {
+.wallet-balance-card {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  padding: 17px;
+
+  margin-bottom: 10px;
+
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 16px rgba(73, 47, 105, 0.08);
 }
 
-.wallet-stat-title {
-  color: #7c8995;
-  font-size: 12px;
+.wallet-balance-card span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #91899a;
+
+  font-size: 8px;
+}
+
+.wallet-balance-card strong {
+  display: block;
+
+  color: #6540bb;
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.wallet-balance-status {
+  padding: 6px 9px;
+
+  border-radius: 8px;
+
+  background: #fff4df;
+
+  color: #c18320;
+
+  font-size: 7px !important;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   STATS
+   ===================================================== */
+
+.wallet-stats {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 9px;
+
+  margin-bottom: 19px;
+}
+
+.wallet-stat-card {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 12px;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 5px 13px rgba(73, 47, 105, 0.06);
 }
 
 .wallet-stat-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eef7fb;
-  color: #087db8;
-  font-weight: 700;
+
+  flex: 0 0 auto;
+
+  border-radius: 9px;
+
+  background: #eee5ff;
+
+  color: #7547c9;
+
+  font-size: 12px !important;
+  font-weight: 800;
 }
 
-.wallet-stat h2 {
-  margin-top: 13px;
-  font-size: 25px;
-  color: #1d3445;
+.wallet-stat-card div {
+  min-width: 0;
 }
 
-.wallet-stat.pending .wallet-stat-icon {
-  background: #fff5e5;
-  color: #d38a18;
-}
+.wallet-stat-card strong {
+  display: block;
 
-.wallet-stat.settled .wallet-stat-icon {
-  background: #eaf8f0;
-  color: #16834a;
-}
+  color: #30283b;
 
-/* Balance */
-
-.balance-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 25px;
-  margin-bottom: 24px;
-  border-radius: 14px;
-  background: #087db8;
-  color: white;
-  box-shadow: 0 7px 20px rgba(8, 125, 184, 0.15);
-}
-
-.balance-label {
-  font-size: 11px;
-  opacity: 0.8;
-}
-
-.balance-card h2 {
-  margin-top: 6px;
-  font-size: 29px;
-}
-
-.withdraw-btn {
-  padding: 11px 18px;
-  border: none;
-  border-radius: 8px;
-  background: white;
-  color: #087db8;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.withdraw-btn:hover {
-  background: #f3f8fb;
-}
-
-/* Main Content */
-
-.wallet-content {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 330px;
-  gap: 22px;
-}
-
-/* Transactions */
-
-.transaction-card,
-.recent-trip-card {
-  background: white;
-  border: 1px solid #e1e8ee;
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(20, 36, 51, 0.04);
-}
-
-.transaction-card {
-  overflow: hidden;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 19px 21px;
-  border-bottom: 1px solid #edf1f4;
-}
-
-.card-header h2 {
   font-size: 16px;
+  font-weight: 800;
 }
 
-.card-header span {
-  color: #8996a1;
-  font-size: 11px;
+.wallet-stat-card small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #91899a;
+
+  font-size: 6px;
 }
 
-/* Table */
 
-.transaction-table {
+/* =====================================================
+   SECTION
+   ===================================================== */
+
+.wallet-section {
+  margin-top: 2px;
+}
+
+.wallet-section-heading {
+  margin-bottom: 10px;
+}
+
+.wallet-section-heading span {
+  color: #7547c9;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+.wallet-section-heading h2 {
+  margin: 3px 0 0;
+
+  color: #292234;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   SETTLEMENT OPTIONS
+   ===================================================== */
+
+.settlement-option {
   width: 100%;
-  border-collapse: collapse;
-}
 
-.transaction-table th {
-  padding: 12px 18px;
-  background: #f8fafb;
-  color: #87939e;
-  font-size: 10px;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 9px;
+
+  padding: 13px;
+
+  box-sizing: border-box;
+
+  border: 1px solid transparent;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
   text-align: left;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 13px rgba(73, 47, 105, 0.055);
 }
 
-.transaction-table td {
-  padding: 15px 18px;
-  border-top: 1px solid #edf1f4;
-  color: #50616f;
-  font-size: 11px;
+.settlement-option.selected {
+  border-color: #9b79df;
+
+  background: #fbf9ff;
+
+  box-shadow:
+    0 0 0 2px rgba(117, 71, 201, 0.07);
 }
 
-.transaction-id {
-  color: #087db8 !important;
-  font-weight: 700;
-}
+.settlement-radio {
+  width: 17px;
+  height: 17px;
 
-.trip-id {
-  color: #35495a !important;
-  font-weight: 600;
-}
-
-.route {
-  color: #6e7d89 !important;
-}
-
-.amount {
-  color: #1d3445 !important;
-  font-weight: 700;
-}
-
-.status-badge {
-  display: inline-block;
-  padding: 5px 8px;
-  border-radius: 5px;
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.status-badge.pending {
-  background: #fff5e5;
-  color: #c17c14;
-}
-
-.status-badge.settled {
-  background: #e9f8ef;
-  color: #16834a;
-}
-
-/* Recent Trip */
-
-.recent-trip-card {
-  padding: 20px;
-}
-
-.recent-trip-card h2 {
-  font-size: 16px;
-  margin-bottom: 18px;
-}
-
-.recent-trip {
-  padding: 15px;
-  border-radius: 10px;
-  background: #f7fafc;
-  border: 1px solid #e5ebef;
-}
-
-.recent-trip-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  border: 1.5px solid #aaa2b2;
+
+  border-radius: 50%;
 }
 
-.recent-trip-top strong {
-  color: #35495a;
-  font-size: 12px;
+.settlement-option.selected .settlement-radio {
+  border-color: #7547c9;
 }
 
-.recent-trip-top span {
-  padding: 4px 7px;
-  border-radius: 5px;
-  background: #e9f8ef;
-  color: #16834a;
-  font-size: 8px;
-  font-weight: 700;
+.settlement-radio span {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #7547c9;
 }
 
-.recent-route {
-  margin-top: 13px;
-  color: #687885;
-  font-size: 11px;
+.settlement-content {
+  flex: 1;
+
+  min-width: 0;
 }
 
-.recent-earnings {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid #e3e9ed;
-}
+.settlement-content strong {
+  display: block;
 
-.recent-earnings span {
-  color: #8a97a1;
+  color: #30283b;
+
   font-size: 10px;
+  font-weight: 750;
 }
 
-.recent-earnings strong {
-  color: #087db8;
+.settlement-content p {
+  margin: 3px 0 0;
+
+  color: #91899a;
+
+  font-size: 7px;
+
+  line-height: 1.35;
+}
+
+.settlement-arrow {
+  color: #7547c9;
+
   font-size: 15px;
 }
 
-/* Responsive */
+.settlement-price {
+  color: #7547c9;
 
-@media (max-width: 950px) {
-  .wallet-content {
-    grid-template-columns: 1fr;
+  font-size: 9px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   CONTINUE
+   ===================================================== */
+
+.wallet-continue {
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #7547c9;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 14px rgba(117, 71, 201, 0.2);
+}
+
+.wallet-continue span {
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   SECURITY
+   ===================================================== */
+
+.wallet-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 13px;
+}
+
+.wallet-security span {
+  font-size: 9px;
+}
+
+.wallet-security p {
+  margin: 0;
+
+  color: #8b8295;
+
+  font-size: 6px;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 761px) {
+  .wallet-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 30px 40px 60px;
+
+    background: #f5f7fb;
   }
 
-  .recent-trip-card {
-    width: 100%;
+  .wallet-header h1 {
+    font-size: 28px;
+  }
+
+  .wallet-header p {
+    font-size: 12px;
+  }
+
+  .wallet-balance-card {
+    max-width: 760px;
+
+    padding: 22px;
+  }
+
+  .wallet-balance-card strong {
+    font-size: 30px;
+  }
+
+  .wallet-stats {
+    max-width: 760px;
+  }
+
+  .wallet-stat-card {
+    padding: 16px;
+  }
+
+  .wallet-stat-card strong {
+    font-size: 20px;
+  }
+
+  .wallet-stat-card small {
+    font-size: 8px;
+  }
+
+  .wallet-section {
+    max-width: 760px;
+  }
+
+  .settlement-option {
+    padding: 17px;
+  }
+
+  .settlement-content strong {
+    font-size: 12px;
+  }
+
+  .settlement-content p {
+    font-size: 8px;
+  }
+
+  .wallet-continue {
+    max-width: 760px;
+
+    height: 44px;
+
+    font-size: 10px;
   }
 }
 
-@media (max-width: 700px) {
+
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 390px) {
   .wallet-page {
-    padding: 18px;
+    padding-left: 11px;
+    padding-right: 11px;
   }
 
-  .wallet-summary {
-    grid-template-columns: 1fr;
+  .wallet-header h1 {
+    font-size: 20px;
   }
 
-  .balance-card {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 18px;
+  .wallet-balance-card {
+    padding: 14px;
   }
 
-  .withdraw-btn {
-    width: 100%;
+  .wallet-balance-card strong {
+    font-size: 22px;
   }
 
-  .transaction-card {
-    overflow-x: auto;
+  .wallet-stat-card {
+    padding: 10px;
   }
 
-  .transaction-table {
-    min-width: 650px;
+  .settlement-option {
+    padding: 11px;
   }
 }

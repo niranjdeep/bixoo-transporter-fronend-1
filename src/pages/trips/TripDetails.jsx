@@ -1,68 +1,22 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import "./TripDetails.css";
 
 function TripDetails() {
   const navigate = useNavigate();
   const { tripId } = useParams();
 
-  const [tripStatus, setTripStatus] = useState("Trip Created");
-
-  const trip = JSON.parse(
-    localStorage.getItem("active_trip") || "{}"
-  );
-
-  const tripData = {
-    tripId: trip.tripId || tripId || "TRIP-LD001",
-    loadId: trip.loadId || "LD001",
-    pickup: trip.pickup || "Mumbai, MH",
-    pickupPoint: trip.pickupPoint || "APMC Market",
-    delivery: trip.delivery || "Pune, MH",
-    deliveryPoint: trip.deliveryPoint || "Hadapsar Depot",
-    distance: trip.distance || "160 KM",
-    loadType: trip.loadType || "Wheat",
-    weight: trip.weight || "50 Tons",
-    vehicle: trip.vehicle || "20ft Truck",
-    earnings: trip.earnings || "₹18,500",
-    pickupDate: trip.pickupDate || "Today",
-    pickupTime: trip.pickupTime || "14:00 Hrs",
-  };
-
-  const handlePickup = () => {
-    setTripStatus("Pickup");
-  };
-
-  const handleLoadGoods = () => {
-    setTripStatus("Goods Loaded");
-  };
-
-  const handleStartTrip = () => {
-  setTripStatus("In Transit");
-
-  navigate(`/trips/${tripData.tripId}/live`);
-};
-
-  const getStepClass = (step) => {
-    const steps = [
-      "Trip Created",
-      "Pickup",
-      "Goods Loaded",
-      "In Transit",
-    ];
-
-    const currentIndex = steps.indexOf(tripStatus);
-    const stepIndex = steps.indexOf(step);
-
-    if (stepIndex < currentIndex) {
-      return "completed";
-    }
-
-    if (stepIndex === currentIndex) {
-      return "active";
-    }
-
-    return "";
+  const trip = {
+    id: tripId || "TR-8924",
+    status: "In Transit",
+    pickup: "Mumbai",
+    delivery: "Pune",
+    eta: "2h 45m",
+    product: "Premium Wheat (Grade A)",
+    quantity: "250 Bags",
+    weight: "12.5 Tons",
+    seller: "Rajesh Traders",
+    buyer: "Metro Mills",
+    earnings: "₹18,500",
   };
 
   return (
@@ -70,175 +24,121 @@ function TripDetails() {
 
       {/* HEADER */}
       <div className="trip-header">
+        <button
+          className="trip-back-btn"
+          onClick={() => navigate("/trips")}
+        >
+          ←
+        </button>
 
-        <div>
-          <button
-            className="trip-back-btn"
-            onClick={() => navigate("/trips")}
-          >
-            ← Back to Trips
-          </button>
-
+        <div className="trip-header-content">
           <span className="trip-page-label">
-            TRIP MANAGEMENT
+            TRIP DETAILS
           </span>
 
-          <h1>Trip Details</h1>
+          <h1>Trip #{trip.id}</h1>
 
           <p>
-            Manage your accepted load from pickup to delivery.
+            {trip.pickup} → {trip.delivery}
           </p>
         </div>
 
-        <div className="trip-status-badge">
+        <span className="trip-status-badge">
           <span></span>
-          {tripStatus}
-        </div>
-
+          {trip.status}
+        </span>
       </div>
 
 
-      {/* TRIP ID */}
+      {/* TRIP SUMMARY BAR */}
       <div className="trip-id-bar">
 
         <div>
-          <span>TRIP ID</span>
-          <strong>{tripData.tripId}</strong>
+          <small>TRIP</small>
+          <strong>#{trip.id}</strong>
         </div>
 
         <div>
-          <span>LOAD ID</span>
-          <strong>{tripData.loadId}</strong>
-        </div>
-
-        <div>
-          <span>EST. EARNINGS</span>
-          <strong className="trip-earning">
-            {tripData.earnings}
+          <small>ROUTE</small>
+          <strong>
+            {trip.pickup} → {trip.delivery}
           </strong>
+        </div>
+
+        <div>
+          <small>ETA</small>
+          <strong>{trip.eta}</strong>
         </div>
 
       </div>
 
 
+      {/* MAIN LAYOUT */}
       <div className="trip-layout">
 
-        {/* MAIN */}
-        <div className="trip-main">
+        <main className="trip-main">
 
-          {/* PROGRESS */}
+          {/* ROUTE CARD */}
           <section className="trip-card">
 
             <div className="trip-card-header">
-
               <div>
                 <span className="trip-section-label">
-                  TRIP PROGRESS
+                  LIVE ROUTE
                 </span>
 
-                <h2>Current Journey</h2>
+                <h2>
+                  {trip.pickup} → {trip.delivery}
+                </h2>
               </div>
 
-              <strong>{tripStatus}</strong>
-
-            </div>
-
-
-            <div className="trip-timeline">
-
-              <div className={`timeline-step ${getStepClass("Trip Created")}`}>
-                <div className="timeline-circle">✓</div>
-
-                <div>
-                  <strong>Trip Created</strong>
-                  <span>Load accepted successfully</span>
-                </div>
-              </div>
-
-
-              <div className="timeline-line"></div>
-
-
-              <div className={`timeline-step ${getStepClass("Pickup")}`}>
-                <div className="timeline-circle">2</div>
-
-                <div>
-                  <strong>Pickup</strong>
-                  <span>Reach pickup location</span>
-                </div>
-              </div>
-
-
-              <div className="timeline-line"></div>
-
-
-              <div className={`timeline-step ${getStepClass("Goods Loaded")}`}>
-                <div className="timeline-circle">3</div>
-
-                <div>
-                  <strong>Load Goods</strong>
-                  <span>Load and verify goods</span>
-                </div>
-              </div>
-
-
-              <div className="timeline-line"></div>
-
-
-              <div className={`timeline-step ${getStepClass("In Transit")}`}>
-                <div className="timeline-circle">4</div>
-
-                <div>
-                  <strong>Start Trip</strong>
-                  <span>Begin transportation</span>
-                </div>
-              </div>
-
-            </div>
-
-          </section>
-
-
-          {/* ROUTE */}
-          <section className="trip-card">
-
-            <div className="trip-card-header">
-
-              <div>
-                <span className="trip-section-label">
-                  ROUTE
-                </span>
-
-                <h2>Pickup & Delivery</h2>
-              </div>
-
-              <span className="trip-distance">
-                {tripData.distance}
+              <span className="route-live-badge">
+                LIVE
               </span>
+            </div>
+
+
+            {/* MAP */}
+            <div className="trip-map-placeholder">
+
+              <div className="map-road road-one"></div>
+              <div className="map-road road-two"></div>
+              <div className="map-road road-three"></div>
+
+              <div className="map-route-line"></div>
+
+              <div className="map-point pickup-point">
+                <span></span>
+                <small>Pickup</small>
+              </div>
+
+              <div className="map-point delivery-point">
+                <span></span>
+                <small>Delivery</small>
+              </div>
+
+              <div className="map-truck">
+                🚚
+              </div>
 
             </div>
 
 
-            <div className="trip-route">
+            {/* ROUTE INFO */}
+            <div className="route-info">
 
               <div className="trip-location">
-
-                <div className="location-marker pickup">
-                  P
-                </div>
+                <span className="location-marker pickup">
+                  ●
+                </span>
 
                 <div>
                   <small>Pickup</small>
-
-                  <h3>{tripData.pickup}</h3>
-
-                  <p>{tripData.pickupPoint}</p>
-
-                  <span className="pickup-time">
-                    📅 {tripData.pickupDate} · 🕐 {tripData.pickupTime}
-                  </span>
+                  <strong>Mumbai, MH</strong>
+                  <span>APMC Market</span>
                 </div>
 
+                <time>08:30 AM</time>
               </div>
 
 
@@ -246,20 +146,17 @@ function TripDetails() {
 
 
               <div className="trip-location">
-
-                <div className="location-marker delivery">
-                  D
-                </div>
+                <span className="location-marker delivery">
+                  ●
+                </span>
 
                 <div>
                   <small>Delivery</small>
-
-                  <h3>{tripData.delivery}</h3>
-
-                  <p>{tripData.deliveryPoint}</p>
-
+                  <strong>Pune, MH</strong>
+                  <span>Hadapsar Depot</span>
                 </div>
 
+                <time>02:00 PM</time>
               </div>
 
             </div>
@@ -267,42 +164,67 @@ function TripDetails() {
           </section>
 
 
-          {/* LOAD DETAILS */}
+          {/* TIMELINE */}
           <section className="trip-card">
 
             <div className="trip-card-header">
-
               <div>
                 <span className="trip-section-label">
-                  LOAD DETAILS
+                  TRIP TIMELINE
                 </span>
 
-                <h2>Goods Information</h2>
+                <h2>Trip Progress</h2>
               </div>
-
             </div>
 
 
-            <div className="goods-grid">
+            <div className="trip-timeline">
 
-              <div>
-                <span>Load Type</span>
-                <strong>{tripData.loadType}</strong>
+              <div className="timeline-step completed">
+
+                <div className="timeline-circle">
+                  ✓
+                </div>
+
+                <div>
+                  <strong>Pickup Confirmed</strong>
+                  <span>Today, 08:30 AM</span>
+                </div>
+
               </div>
 
-              <div>
-                <span>Weight</span>
-                <strong>{tripData.weight}</strong>
+
+              <div className="timeline-line active"></div>
+
+
+              <div className="timeline-step current">
+
+                <div className="timeline-circle">
+                  ●
+                </div>
+
+                <div>
+                  <strong>In Transit</strong>
+                  <span>Last updated 10 mins ago</span>
+                </div>
+
               </div>
 
-              <div>
-                <span>Vehicle</span>
-                <strong>{tripData.vehicle}</strong>
-              </div>
 
-              <div>
-                <span>Distance</span>
-                <strong>{tripData.distance}</strong>
+              <div className="timeline-line"></div>
+
+
+              <div className="timeline-step">
+
+                <div className="timeline-circle">
+                  3
+                </div>
+
+                <div>
+                  <strong>Delivery</strong>
+                  <span>Estimated Today, 02:00 PM</span>
+                </div>
+
               </div>
 
             </div>
@@ -310,91 +232,152 @@ function TripDetails() {
           </section>
 
 
-          {/* ACTION */}
-          <section className="trip-action-card">
+          {/* GOODS */}
+          <section className="trip-card">
 
-            {tripStatus === "Trip Created" && (
-              <>
-                <div>
-                  <h3>Ready for Pickup?</h3>
+            <span className="trip-section-label">
+              LOAD DETAILS
+            </span>
 
-                  <p>
-                    Proceed to the pickup location and update your trip.
-                  </p>
-                </div>
+            <div className="goods-card">
 
-                <button
-                  onClick={handlePickup}
-                  className="primary-trip-btn"
-                >
-                  Start Pickup →
-                </button>
-              </>
-            )}
+              <div className="goods-icon">
+                ◈
+              </div>
 
+              <div className="goods-content">
+                <h3>{trip.product}</h3>
 
-            {tripStatus === "Pickup" && (
-              <>
-                <div>
-                  <h3>At Pickup Location</h3>
+                <p>
+                  {trip.quantity} • {trip.weight}
+                </p>
+              </div>
 
-                  <p>
-                    Confirm the goods and proceed with loading.
-                  </p>
-                </div>
+              <span className="goods-status">
+                Confirmed
+              </span>
 
-                <button
-                  onClick={handleLoadGoods}
-                  className="primary-trip-btn"
-                >
-                  Load Goods →
-                </button>
-              </>
-            )}
+            </div>
 
 
-            {tripStatus === "Goods Loaded" && (
-              <>
-                <div>
-                  <h3>Goods Loaded</h3>
+            <div className="trip-note-card">
+              <span>Note</span>
 
-                  <p>
-                    Verify the load and start your trip.
-                  </p>
-                </div>
-
-                <button
-                  onClick={handleStartTrip}
-                  className="primary-trip-btn"
-                >
-                  Start Trip →
-                </button>
-              </>
-            )}
-
-
-            {tripStatus === "In Transit" && (
-              <>
-                <div>
-                  <h3>Trip Started</h3>
-
-                  <p>
-                    Your trip is now in transit.
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => navigate("/trips")}
-                  className="primary-trip-btn"
-                >
-                  Manage Trip →
-                </button>
-              </>
-            )}
+              <p>
+                Keep the cargo dry and secure during
+                transportation. Handle the wheat bags
+                carefully during loading and unloading.
+              </p>
+            </div>
 
           </section>
 
-        </div>
+
+          {/* CONTACTS */}
+          <section className="contacts-card">
+
+            <div className="trip-card-header">
+              <div>
+                <span className="trip-section-label">
+                  CONTACTS
+                </span>
+
+                <h2>Trip Contacts</h2>
+              </div>
+            </div>
+
+
+            {/* SELLER */}
+            <div className="contact-item">
+
+              <div className="contact-avatar seller">
+                RT
+              </div>
+
+              <div className="contact-info">
+                <small>SELLER</small>
+                <strong>{trip.seller}</strong>
+              </div>
+
+              <div className="contact-actions">
+                <button
+                  onClick={() =>
+                    navigate(`/trips/${trip.id}/chat`)
+                  }
+                >
+                  💬
+                </button>
+
+                <button>
+                  ☎
+                </button>
+              </div>
+
+            </div>
+
+
+            {/* BUYER */}
+            <div className="contact-item">
+
+              <div className="contact-avatar buyer">
+                MM
+              </div>
+
+              <div className="contact-info">
+                <small>BUYER</small>
+                <strong>{trip.buyer}</strong>
+              </div>
+
+              <div className="contact-actions">
+                <button
+                  onClick={() =>
+                    navigate(`/trips/${trip.id}/chat`)
+                  }
+                >
+                  💬
+                </button>
+
+                <button>
+                  ☎
+                </button>
+              </div>
+
+            </div>
+
+          </section>
+
+
+          {/* CONFIRM DELIVERY */}
+          <section className="confirm-delivery-card">
+
+            <div>
+              <span className="confirm-icon">
+                ✓
+              </span>
+
+              <div>
+                <strong>Ready to confirm delivery?</strong>
+
+                <p>
+                  Confirm only after the cargo has
+                  been successfully delivered.
+                </p>
+              </div>
+            </div>
+
+            <button
+              className="primary-trip-btn"
+              onClick={() =>
+                navigate(`/trips/${trip.id}/delivery`)
+              }
+            >
+              Confirm Delivery
+              <span>→</span>
+            </button>
+
+          </section>
+
+        </main>
 
 
         {/* SIDEBAR */}
@@ -402,33 +385,40 @@ function TripDetails() {
 
           <div className="trip-summary-card">
 
-            <h3>Trip Summary</h3>
+            <span className="trip-section-label">
+              TRIP SUMMARY
+            </span>
 
             <div className="summary-item">
-              <span>Trip ID</span>
-              <strong>{tripData.tripId}</strong>
+              <small>Trip ID</small>
+              <strong>#{trip.id}</strong>
             </div>
 
             <div className="summary-item">
-              <span>Load</span>
-              <strong>{tripData.weight}</strong>
+              <small>Distance</small>
+              <strong>160 KM</strong>
             </div>
 
             <div className="summary-item">
-              <span>Vehicle</span>
-              <strong>{tripData.vehicle}</strong>
+              <small>Vehicle</small>
+              <strong>20ft Truck</strong>
             </div>
 
             <div className="summary-item">
-              <span>Distance</span>
-              <strong>{tripData.distance}</strong>
+              <small>Load</small>
+              <strong>50 Tons Wheat</strong>
             </div>
 
             <div className="summary-item">
-              <span>Expected Earnings</span>
-              <strong className="summary-earning">
-                {tripData.earnings}
+              <small>Status</small>
+              <strong className="summary-status">
+                In Transit
               </strong>
+            </div>
+
+            <div className="summary-earning">
+              <small>Estimated Earnings</small>
+              <strong>{trip.earnings}</strong>
             </div>
 
           </div>
@@ -440,15 +430,18 @@ function TripDetails() {
               ?
             </div>
 
-            <h3>Need Help?</h3>
+            <div>
+              <strong>Need Help?</strong>
 
-            <p>
-              Contact the buyer or consignee for pickup and delivery coordination.
-            </p>
+              <p>
+                Contact BIXOO support for
+                assistance with this trip.
+              </p>
 
-            <button>
-              Open Trip Chat →
-            </button>
+              <button>
+                Contact Support →
+              </button>
+            </div>
 
           </div>
 

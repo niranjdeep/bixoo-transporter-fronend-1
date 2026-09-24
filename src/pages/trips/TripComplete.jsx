@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./TripComplete.css";
 
 function TripComplete() {
   const { tripId } = useParams();
@@ -11,7 +12,11 @@ function TripComplete() {
     const savedTrip = localStorage.getItem("active_trip");
 
     if (savedTrip) {
-      setTrip(JSON.parse(savedTrip));
+      try {
+        setTrip(JSON.parse(savedTrip));
+      } catch (error) {
+        setTrip(null);
+      }
     }
   }, []);
 
@@ -22,187 +27,151 @@ function TripComplete() {
 
   if (!trip) {
     return (
-      <div
-        style={{
-          padding: "40px",
-          textAlign: "center",
-        }}
-      >
-        <h2>Trip not found</h2>
+      <div className="trip-complete-page">
+        <div className="trip-complete-empty">
+          <h2>Trip not found</h2>
 
-        <button onClick={() => navigate("/trips")}>
-          Back to My Trips
-        </button>
+          <button onClick={() => navigate("/trips")}>
+            Back to My Trips
+          </button>
+        </div>
       </div>
     );
   }
 
+  const currentTripId = trip.tripId || tripId || "TRIP-LD001";
+
+  const pickup =
+    trip.pickupLocation ||
+    trip.pickup ||
+    "Mumbai, MH";
+
+  const delivery =
+    trip.deliveryLocation ||
+    trip.delivery ||
+    "Pune, MH";
+
+  const load =
+    trip.loadType ||
+    trip.load ||
+    "Wheat";
+
+  const earnings =
+    trip.earnings ||
+    "18,500";
+
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        padding: "40px",
-        background: "#f4f7fb",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "700px",
-          margin: "0 auto",
-          padding: "35px",
-          background: "#ffffff",
-          borderRadius: "16px",
-          textAlign: "center",
-          boxShadow: "0 4px 18px rgba(20,36,51,0.08)",
-        }}
-      >
-        <div
-          style={{
-            width: "70px",
-            height: "70px",
-            margin: "0 auto 20px",
-            borderRadius: "50%",
-            background: "#e9f8ef",
-            color: "#16834a",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "32px",
-          }}
-        >
+    <div className="trip-complete-page">
+
+      <div className="trip-complete-card">
+
+        {/* Success */}
+
+        <div className="trip-complete-icon">
           ✓
         </div>
 
-        <p
-          style={{
-            color: "#087db8",
-            fontSize: "12px",
-            fontWeight: "700",
-            letterSpacing: "1px",
-          }}
-        >
+        <p className="trip-complete-label">
           TRIP COMPLETED
         </p>
 
-        <h1
-          style={{
-            marginTop: "8px",
-            color: "#142433",
-          }}
-        >
+        <h1>
           Trip Completed Successfully
         </h1>
 
-        <p
-          style={{
-            marginTop: "10px",
-            color: "#718096",
-          }}
-        >
+        <p className="trip-complete-subtitle">
           Your delivery has been completed successfully.
         </p>
 
-        <div
-          style={{
-            marginTop: "30px",
-            padding: "20px",
-            borderRadius: "10px",
-            background: "#f7fafc",
-            textAlign: "left",
-          }}
-        >
-          <p>
-            <strong>Trip ID:</strong> {trip.tripId || tripId}
-          </p>
+        {/* Trip Summary */}
 
-          <p style={{ marginTop: "10px" }}>
-            <strong>Route:</strong>{" "}
-            {trip.pickupLocation || "Mumbai, MH"} →{" "}
-            {trip.deliveryLocation || "Pune, MH"}
-          </p>
+        <div className="complete-summary">
 
-          <p style={{ marginTop: "10px" }}>
-            <strong>Load:</strong>{" "}
-            {trip.loadType || "Wheat"}
-          </p>
+          <div className="complete-summary-row">
+            <span>Trip ID</span>
+            <strong>
+              {currentTripId}
+            </strong>
+          </div>
 
-          <p style={{ marginTop: "10px" }}>
-            <strong>Earnings:</strong>{" "}
-            ₹{trip.earnings || "18,500"}
-          </p>
+          <div className="complete-summary-row">
+            <span>Route</span>
+            <strong>
+              {pickup} → {delivery}
+            </strong>
+          </div>
+
+          <div className="complete-summary-row">
+            <span>Load</span>
+            <strong>
+              {load}
+            </strong>
+          </div>
+
+          <div className="complete-summary-row">
+            <span>Vehicle</span>
+            <strong>
+              {trip.vehicle || "20ft Truck"}
+            </strong>
+          </div>
+
         </div>
 
-        <div
-          style={{
-            marginTop: "25px",
-            padding: "18px",
-            borderRadius: "10px",
-            background: "#fff9ed",
-            textAlign: "left",
-          }}
-        >
-          <strong>Settlement Status</strong>
+        {/* Earnings */}
 
-          <p
-            style={{
-              marginTop: "7px",
-              color: "#82745d",
-              fontSize: "13px",
-            }}
-          >
-            Your trip earnings have been added to the
-            settlement process.
+        <div className="complete-earning">
+
+          <small>
+            Trip Earnings
+          </small>
+
+          <strong>
+            ₹{String(earnings).replace("₹", "")}
+          </strong>
+
+        </div>
+
+        {/* Settlement */}
+
+        <div className="settlement-card">
+
+          <strong>
+            Settlement Status
+          </strong>
+
+          <p>
+            Your trip earnings have been added
+            to the settlement process.
           </p>
 
-          <p
-            style={{
-              marginTop: "8px",
-              color: "#087db8",
-              fontWeight: "700",
-            }}
-          >
+          <p className="settlement-status">
             Pending Settlement
           </p>
+
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "12px",
-            marginTop: "30px",
-          }}
-        >
+        {/* Actions */}
+
+        <div className="complete-actions">
+
           <button
+            className="complete-trips-btn"
             onClick={() => navigate("/trips")}
-            style={{
-              padding: "12px 20px",
-              border: "1px solid #d7e0e7",
-              borderRadius: "8px",
-              background: "#ffffff",
-              color: "#526372",
-              cursor: "pointer",
-            }}
           >
             My Trips
           </button>
 
           <button
+            className="complete-wallet-btn"
             onClick={handleWallet}
-            style={{
-              padding: "12px 20px",
-              border: "none",
-              borderRadius: "8px",
-              background: "#087db8",
-              color: "#ffffff",
-              cursor: "pointer",
-              fontWeight: "600",
-            }}
           >
             View Wallet →
           </button>
+
         </div>
+
       </div>
+
     </div>
   );
 }

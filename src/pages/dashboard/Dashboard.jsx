@@ -1,362 +1,316 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import "./Dashboard.css";
 
 function Dashboard() {
   const navigate = useNavigate();
 
-  const transporterName =
-    JSON.parse(localStorage.getItem("transporter_profile") || "{}")
-      .name || "Transporter";
+  const transporterProfile = JSON.parse(
+    localStorage.getItem("transporter_profile") || "{}"
+  );
 
-  const [activeTrip] = useState(() => {
-    return JSON.parse(localStorage.getItem("active_trip") || "null");
-  });
-
-  const stats = [
+  const availableLoads = [
     {
-      title: "Available Loads",
-      value: "12",
-      icon: "▣",
-      action: () => navigate("/loads"),
+      type: "NEW LOAD",
+      distance: "12 km away",
+      pickup: "Riyadh",
+      delivery: "Dammam",
+      tons: "25 Tons",
+      category: "Construction Materials",
+      start: "Starts at 10:00 AM",
     },
     {
-      title: "Today's Available",
-      value: "08",
-      icon: "◷",
-      action: () => navigate("/loads"),
-    },
-    {
-      title: "Today's Completed",
-      value: "05",
-      icon: "✓",
-      action: () => navigate("/trips"),
-    },
-    {
-      title: "Pending Settlements",
-      value: "₹24,500",
-      icon: "₹",
-      action: () => navigate("/wallet"),
+      type: "SCHEDULED",
+      distance: "15 km away",
+      pickup: "Jeddah",
+      delivery: "Medina",
+      tons: "18 Tons",
+      category: "Food Items",
+      start: "Starts at 11:30 AM",
     },
   ];
 
   return (
-    <div className="dashboard-page">
+    <div className="bixoo-dashboard">
 
-      {/* HEADER */}
+      {/* TOP HEADER */}
+      <header className="dashboard-top">
 
-      <div className="dashboard-header">
-
-        <div>
-          <p className="dashboard-label">
-            TRANSPORTER DASHBOARD
-          </p>
-
-          <h1>
-            Good Evening, {transporterName} 👋
-          </h1>
-
-          <p className="dashboard-subtitle">
-            Find loads, manage your trips and grow your business.
-          </p>
+        <div className="bixoo-logo">
+          bix<span>oo</span>
         </div>
 
-        <div className="online-status">
-          <span className="status-dot"></span>
-          <span>Online</span>
+        <button
+          className="top-shortcut"
+          onClick={() => navigate("/trips")}
+        >
+          <div className="shortcut-icon">↕</div>
+          <div>
+            <strong>My Trips</strong>
+            <small>Active & history</small>
+          </div>
+        </button>
+
+        <button
+          className="top-shortcut loads-shortcut"
+          onClick={() => navigate("/loads")}
+        >
+          <div className="shortcut-icon">▣</div>
+          <div>
+            <strong>Loads</strong>
+            <small>Available freight</small>
+          </div>
+          <span className="load-count">12</span>
+        </button>
+
+      </header>
+
+
+      {/* SEARCH */}
+      <div className="dashboard-search-row">
+
+        <div className="dashboard-search">
+          <span className="search-icon">⌕</span>
+
+          <input
+            type="text"
+            placeholder="Search for loads, locations..."
+          />
         </div>
+
+        <button className="round-action">
+          ♧
+        </button>
+
+        <button className="round-action">
+          ▱
+        </button>
 
       </div>
 
 
-      {/* STATS */}
-
-      <div className="stats-grid">
-
-        {stats.map((stat) => (
-          <button
-            key={stat.title}
-            className="stat-card"
-            onClick={stat.action}
-          >
-            <div className="stat-icon">
-              {stat.icon}
-            </div>
-
-            <div className="stat-info">
-              <span>{stat.title}</span>
-              <strong>{stat.value}</strong>
-            </div>
-
-            <span className="stat-arrow">
-              →
-            </span>
-          </button>
-        ))}
-
-      </div>
-
-
-      {/* MAIN CONTENT */}
-
-      <div className="dashboard-grid">
-
-        {/* DIRECT MATCH */}
-
-        <section className="dashboard-card direct-match">
-
-          <div className="card-heading">
-
-            <div>
-              <span className="match-label">
-                DIRECT MATCH
-              </span>
-
-              <h2>New Load Available</h2>
-            </div>
-
-            <span className="match-distance">
-              160 KM
-            </span>
-
-          </div>
-
-          <div className="load-route">
-
-            <div className="route-point">
-              <span className="route-dot pickup"></span>
-
-              <div>
-                <small>Pickup</small>
-                <strong>Mumbai, MH</strong>
-                <span>APMC Market</span>
-              </div>
-            </div>
-
-            <div className="route-line"></div>
-
-            <div className="route-point">
-              <span className="route-dot delivery"></span>
-
-              <div>
-                <small>Delivery</small>
-                <strong>Pune, MH</strong>
-                <span>Hadapsar Depot</span>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="load-details">
-
-            <div>
-              <small>Load</small>
-              <strong>50 Tons Wheat</strong>
-            </div>
-
-            <div>
-              <small>Vehicle</small>
-              <strong>20ft Truck</strong>
-            </div>
-
-            <div>
-              <small>Est. Earnings</small>
-              <strong className="earning">
-                ₹18,500
-              </strong>
-            </div>
-
-          </div>
-
-          <button
-            className="view-load-btn"
-            onClick={() => navigate("/loads")}
-          >
-            View Load →
-          </button>
-
-        </section>
-
-
-        {/* ACTIVE TRIP */}
-
-        <section className="dashboard-card">
-
-          <div className="card-heading">
-
-            <div>
-              <span className="section-label">
-                ACTIVE TRIP
-              </span>
-
-              <h2>
-                {activeTrip ? "Current Trip" : "No Active Trip"}
-              </h2>
-            </div>
-
-            {activeTrip && (
-              <span className="trip-status">
-                {activeTrip.status || "Trip Created"}
-              </span>
-            )}
-
-          </div>
-
-          {activeTrip ? (
-            <>
-              <div className="active-route">
-
-                <strong>
-                  {activeTrip.pickup || "Mumbai"}
-                </strong>
-
-                <span>→</span>
-
-                <strong>
-                  {activeTrip.delivery || "Pune"}
-                </strong>
-
-              </div>
-
-
-              <div className="trip-progress">
-
-                <div className="progress-header">
-                  <span>Trip Progress</span>
-                  <strong>68%</strong>
-                </div>
-
-                <div className="progress-track">
-                  <div className="progress-fill"></div>
-                </div>
-
-              </div>
-
-
-              <div className="trip-info">
-
-                <div>
-                  <small>Load</small>
-                  <strong>
-                    {activeTrip.load || "50 Tons Wheat"}
-                  </strong>
-                </div>
-
-                <div>
-                  <small>Distance</small>
-                  <strong>
-                    {activeTrip.distance || "160 KM"}
-                  </strong>
-                </div>
-
-                <div>
-                  <small>Vehicle</small>
-                  <strong>
-                    {activeTrip.vehicle || "20ft Truck"}
-                  </strong>
-                </div>
-
-              </div>
-
-
-              <button
-                className="outline-btn"
-                onClick={() =>
-                  navigate(`/trips/${activeTrip.tripId}`)
-                }
-              >
-                View Trip →
-              </button>
-
-            </>
-          ) : (
-
-            <div className="no-active-trip">
-
-              <p>
-                You don't have an active trip right now.
-              </p>
-
-              <button
-                className="outline-btn"
-                onClick={() => navigate("/loads")}
-              >
-                Find Available Loads →
-              </button>
-
-            </div>
-
-          )}
-
-        </section>
-
-      </div>
-
-
-      {/* QUICK ACTIONS */}
-
-      <section className="quick-section">
-
-        <div className="section-title">
-          <h2>Quick Actions</h2>
-          <p>
-            Manage your transportation activities
-          </p>
-        </div>
-
-        <div className="quick-grid">
+      {/* AVAILABLE LOADS */}
+      <section className="dashboard-section">
+
+        <div className="section-header">
+          <h2>Available Loads</h2>
 
           <button onClick={() => navigate("/loads")}>
-            <span>▣</span>
-
-            <div>
-              <strong>Find Loads</strong>
-              <small>Browse available loads</small>
-            </div>
-
-            <b>→</b>
+            View All
           </button>
+        </div>
 
 
-          <button onClick={() => navigate("/trips")}>
-            <span>⌖</span>
+        <div className="available-loads">
 
-            <div>
-              <strong>My Trips</strong>
-              <small>Manage your trips</small>
-            </div>
+          {availableLoads.map((load, index) => (
+            <button
+              className="load-card"
+              key={index}
+              onClick={() => navigate("/loads")}
+            >
 
-            <b>→</b>
-          </button>
+              <div className="load-card-top">
+
+                <span
+                  className={`load-badge ${
+                    load.type === "SCHEDULED"
+                      ? "scheduled"
+                      : "new"
+                  }`}
+                >
+                  {load.type}
+                </span>
+
+                <span className="load-distance">
+                  {load.distance}
+                </span>
+
+              </div>
 
 
-          <button onClick={() => navigate("/wallet")}>
-            <span>₹</span>
+              <div className="route-container">
 
-            <div>
-              <strong>Wallet</strong>
-              <small>View earnings</small>
-            </div>
+                <div className="route-row">
 
-            <b>→</b>
-          </button>
+                  <span className="route-marker pickup-marker">
+                    ○
+                  </span>
+
+                  <strong>{load.pickup}</strong>
+
+                </div>
 
 
-          <button onClick={() => navigate("/profile")}>
-            <span>♙</span>
+                <div className="route-row">
 
-            <div>
-              <strong>Profile</strong>
-              <small>Manage your profile</small>
-            </div>
+                  <span className="route-marker delivery-marker">
+                    ♧
+                  </span>
 
-            <b>→</b>
-          </button>
+                  <strong>{load.delivery}</strong>
+
+                </div>
+
+              </div>
+
+
+              <div className="load-card-divider"></div>
+
+
+              <div className="load-card-bottom">
+
+                <span>
+                  {load.tons} • {load.category}
+                </span>
+
+                <span>
+                  {load.start}
+                </span>
+
+              </div>
+
+            </button>
+          ))}
 
         </div>
 
       </section>
+
+
+      {/* MY TRIPS */}
+      <section className="dashboard-section trips-section">
+
+        <div className="section-header">
+          <h2>My Trips</h2>
+
+          <button onClick={() => navigate("/trips")}>
+            View All
+          </button>
+        </div>
+
+
+        <button
+          className="my-trip-card"
+          onClick={() => navigate("/trips")}
+        >
+
+          <div className="trip-image-area">
+
+            <div className="trip-image-placeholder">
+              <div className="truck-illustration">
+                🚚
+              </div>
+            </div>
+
+
+            <div className="trip-overlay">
+
+              <strong>Dammam → Riyadh</strong>
+
+              <span className="transit-badge">
+                In Transit
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div className="trip-card-footer">
+
+            <div>
+              <strong>20 Tons</strong>
+
+              <span>
+                ◉ Total: 340 km
+              </span>
+            </div>
+
+            <span className="navigation-button">
+              ◢
+            </span>
+
+          </div>
+
+        </button>
+
+      </section>
+
+
+      {/* OPERATIONAL SUMMARY */}
+      <section className="dashboard-section summary-section">
+
+        <div className="section-header">
+          <h2>Operational Summary</h2>
+        </div>
+
+
+        <div className="summary-grid">
+
+          <div className="summary-card">
+            <strong>12</strong>
+            <span>Available Loads</span>
+          </div>
+
+          <div className="summary-card">
+            <strong>45</strong>
+            <span>Today's Available</span>
+          </div>
+
+          <div className="summary-card">
+            <strong>8</strong>
+            <span>Today's Completed</span>
+          </div>
+
+          <div className="summary-card">
+            <strong>1</strong>
+            <span>Pending Settlements</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* BOTTOM ACTIONS */}
+      <div className="dashboard-bottom">
+
+        <div className="bottom-pill">
+
+          <button
+            onClick={() => navigate("/wallet")}
+          >
+            <span>▣</span>
+            <strong>Wallet</strong>
+          </button>
+
+
+          <div className="bottom-divider"></div>
+
+
+          <button
+            onClick={() => navigate("/profile")}
+          >
+            <span>♙</span>
+            <strong>Profile</strong>
+          </button>
+
+        </div>
+
+
+        <button className="online-button">
+
+          <span className="power-icon">
+            ◉
+          </span>
+
+          <strong>ONLINE</strong>
+
+          <span className="online-dot"></span>
+
+        </button>
+
+      </div>
 
     </div>
   );

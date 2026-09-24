@@ -1,342 +1,323 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import "./TripChat.css";
 
 function TripChat() {
-  const { tripId } = useParams();
   const navigate = useNavigate();
+  const { tripId } = useParams();
 
-  const [trip, setTrip] = useState(null);
   const [message, setMessage] = useState("");
 
   const [messages, setMessages] = useState([
     {
       id: 1,
-      sender: "consignee",
-      text: "Please share your current location and ETA.",
-      time: "10:42 AM",
+      type: "received",
+      text: "Please share your current location once you reach the highway.",
+      time: "10:32 AM",
     },
     {
       id: 2,
-      sender: "transporter",
-      text: "I am currently near Pune Highway.",
-      time: "10:45 AM",
+      type: "sent",
+      text: "Sure. I will share the live location.",
+      time: "10:34 AM",
+    },
+    {
+      id: 3,
+      type: "received",
+      text: "Please send the gate photo when you reach the unloading point.",
+      time: "10:36 AM",
     },
   ]);
-
-  useEffect(() => {
-    const savedTrip = localStorage.getItem("active_trip");
-
-    if (savedTrip) {
-      setTrip(JSON.parse(savedTrip));
-    }
-  }, []);
 
   const sendMessage = () => {
     const trimmedMessage = message.trim();
 
     if (!trimmedMessage) return;
 
-    const newMessage = {
-      id: Date.now(),
-      sender: "transporter",
-      text: trimmedMessage,
-      time: new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-    };
-
-    setMessages((prev) => [...prev, newMessage]);
-    setMessage("");
-  };
-
-  const sendQuickMessage = (text) => {
     setMessages((prev) => [
       ...prev,
       {
         id: Date.now(),
-        sender: "transporter",
-        text,
-        time: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
+        type: "sent",
+        text: trimmedMessage,
+        time: "Now",
       },
     ]);
+
+    setMessage("");
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      sendMessage();
+  const sendLiveLocation = () => {
+    if (!navigator.geolocation) {
+      alert("Location is not supported by this browser.");
+      return;
     }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: Date.now(),
+            type: "location",
+            latitude,
+            longitude,
+            time: "Now",
+          },
+        ]);
+      },
+      () => {
+        alert("Location permission was not granted.");
+      }
+    );
   };
 
-  if (!trip) {
-    return (
-      <div className="trip-chat-page">
-        <div className="chat-empty">
-          <h2>Trip not found</h2>
-          <button onClick={() => navigate("/trips")}>
-            Back to My Trips
-          </button>
-        </div>
-      </div>
-    );
-  }
+  const sendGatePhoto = () => {
+    document.getElementById("gate-photo-input")?.click();
+  };
+
+  const handleGatePhoto = (event) => {
+    const file = event.target.files?.[0];
+
+    if (!file) return;
+
+    const imageUrl = URL.createObjectURL(file);
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        type: "photo",
+        image: imageUrl,
+        time: "Now",
+      },
+    ]);
+
+    event.target.value = "";
+  };
 
   return (
     <div className="trip-chat-page">
 
       {/* Header */}
-      <div className="chat-header">
-        <div className="chat-header-left">
-          <button
-            className="back-btn"
-            onClick={() => navigate(`/trips/${tripId}/live`)}
-          >
-            ←
-          </button>
+      <div className="trip-chat-header">
 
-          <div>
-            <p className="chat-label">TRIP COMMUNICATION</p>
-            <h1>Direct Chat</h1>
-            <p className="chat-trip-id">{trip.tripId}</p>
-          </div>
+        <button
+          className="trip-chat-back"
+          onClick={() => navigate(`/trips/${tripId}`)}
+        >
+          ←
+        </button>
+
+        <div className="chat-header-info">
+          <span>TRIP CHAT</span>
+          <h1>Logistics Chat</h1>
+          <p>Trip #{tripId || "TR-LD001"}</p>
         </div>
 
-        <div className="chat-status">
-          <span></span>
-          Consignee Online
-        </div>
+        <button
+          className="chat-call-button"
+          onClick={() => alert("Calling buyer...")}
+        >
+          ☎
+        </button>
+
       </div>
 
-      <div className="chat-layout">
+      {/* Contact */}
+      <div className="chat-contact-card">
 
-        {/* Chat Section */}
-        <div className="chat-card">
+        <div className="contact-avatar">
+          M
+        </div>
 
-          <div className="contact-header">
-            <div className="contact-avatar">
-              C
-            </div>
+        <div className="contact-details">
+          <strong>Metro Mills</strong>
+          <span>Buyer / Consignee</span>
 
-            <div>
-              <h2>Consignee</h2>
-              <p>Online • Available for coordination</p>
-            </div>
-
-            <button
-              className="call-btn"
-              onClick={() => alert("Calling consignee...")}
-            >
-              ☎ Call
-            </button>
+          <div className="contact-online">
+            <i></i>
+            Online
           </div>
+        </div>
 
-          <div className="messages-area">
+        <button
+          className="contact-call"
+          onClick={() => alert("Calling Metro Mills...")}
+        >
+          ☎
+        </button>
 
-            <div className="date-divider">
-              <span>Today</span>
-            </div>
+      </div>
 
-            {messages.map((item) => (
+      {/* Quick Actions */}
+      <div className="chat-quick-actions">
+
+        <button onClick={sendLiveLocation}>
+          <span>⌖</span>
+          <small>Live Location</small>
+        </button>
+
+        <button onClick={sendGatePhoto}>
+          <span>▣</span>
+          <small>Gate Photo</small>
+        </button>
+
+      </div>
+
+      <input
+        id="gate-photo-input"
+        type="file"
+        accept="image/*"
+        capture="environment"
+        hidden
+        onChange={handleGatePhoto}
+      />
+
+      {/* Chat */}
+      <div className="chat-messages">
+
+        <div className="chat-date">
+          TODAY
+        </div>
+
+        {messages.map((item) => {
+
+          if (item.type === "location") {
+            return (
               <div
+                className="message-row sent-row"
                 key={item.id}
-                className={`message-row ${
-                  item.sender === "transporter"
-                    ? "sent"
-                    : "received"
-                }`}
               >
-                <div className="message-bubble">
-                  <p>{item.text}</p>
-                  <small>{item.time}</small>
+                <div className="location-message">
+
+                  <div className="location-map">
+                    <div className="map-road road-one"></div>
+                    <div className="map-road road-two"></div>
+                    <div className="map-pin">●</div>
+                  </div>
+
+                  <div className="location-content">
+                    <strong>Live Location</strong>
+
+                    <span>
+                      {item.latitude.toFixed(4)},{" "}
+                      {item.longitude.toFixed(4)}
+                    </span>
+
+                    <small>
+                      Shared just now
+                    </small>
+                  </div>
+
                 </div>
               </div>
-            ))}
+            );
+          }
 
-          </div>
-
-          {/* Quick Messages */}
-          <div className="quick-section">
-            <p>Quick Messages</p>
-
-            <div className="quick-buttons">
-              <button
-                onClick={() =>
-                  sendQuickMessage(
-                    "I am on the way. Current ETA is 1 hour 45 minutes."
-                  )
-                }
+          if (item.type === "photo") {
+            return (
+              <div
+                className="message-row sent-row"
+                key={item.id}
               >
-                🚚 On the way
-              </button>
+                <div className="photo-message">
+                  <img
+                    src={item.image}
+                    alt="Gate"
+                  />
 
-              <button
-                onClick={() =>
-                  sendQuickMessage(
-                    "I will reach the delivery location shortly."
-                  )
-                }
+                  <div>
+                    <strong>Gate Photo</strong>
+                    <small>{item.time}</small>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <div
+              className={`message-row ${
+                item.type === "sent"
+                  ? "sent-row"
+                  : "received-row"
+              }`}
+              key={item.id}
+            >
+              <div
+                className={`chat-bubble ${
+                  item.type === "sent"
+                    ? "sent-bubble"
+                    : "received-bubble"
+                }`}
               >
-                📍 Reaching soon
-              </button>
-
-              <button
-                onClick={() =>
-                  sendQuickMessage(
-                    "Please keep the unloading bay ready."
-                  )
-                }
-              >
-                🏭 Keep bay ready
-              </button>
-
-              <button
-                onClick={() =>
-                  sendQuickMessage(
-                    "There is a delay due to traffic."
-                  )
-                }
-              >
-                ⚠ Traffic delay
-              </button>
-            </div>
-          </div>
-
-          {/* Message Input */}
-          <div className="message-input-area">
-            <textarea
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type a message..."
-              rows="1"
-            />
-
-            <button
-              className="send-btn"
-              onClick={sendMessage}
-            >
-              Send
-            </button>
-          </div>
-
-        </div>
-
-        {/* Coordination Panel */}
-        <div className="coordination-panel">
-
-          <div className="coord-card">
-            <h3>Trip Information</h3>
-
-            <div className="coord-row">
-              <span>Pickup</span>
-              <strong>
-                {trip.pickupLocation || "Mumbai, MH"}
-              </strong>
-            </div>
-
-            <div className="coord-row">
-              <span>Delivery</span>
-              <strong>
-                {trip.deliveryLocation || "Pune, MH"}
-              </strong>
-            </div>
-
-            <div className="coord-row">
-              <span>Load</span>
-              <strong>
-                {trip.loadType || "Wheat"}
-              </strong>
-            </div>
-
-            <div className="coord-row">
-              <span>Vehicle</span>
-              <strong>
-                {trip.vehicle || "20ft Truck"}
-              </strong>
-            </div>
-          </div>
-
-          <div className="coord-card">
-            <h3>Share Information</h3>
-
-            <button
-              className="share-action"
-              onClick={() =>
-                alert("Live location shared with consignee.")
-              }
-            >
-              <span className="action-icon">📍</span>
-              <div>
-                <strong>Share Live Location</strong>
-                <small>Send current GPS location</small>
+                <p>{item.text}</p>
+                <small>{item.time}</small>
               </div>
-              <span>→</span>
-            </button>
-
-            <button
-              className="share-action"
-              onClick={() =>
-                alert("ETA shared with consignee.")
-              }
-            >
-              <span className="action-icon">⏱</span>
-              <div>
-                <strong>Share ETA</strong>
-                <small>Estimated arrival time</small>
-              </div>
-              <span>→</span>
-            </button>
-
-            <button
-              className="share-action"
-              onClick={() =>
-                alert("Gate photo upload will be connected later.")
-              }
-            >
-              <span className="action-icon">📷</span>
-              <div>
-                <strong>Gate Photo</strong>
-                <small>Share delivery gate photo</small>
-              </div>
-              <span>→</span>
-            </button>
-
-            <button
-              className="share-action"
-              onClick={() =>
-                alert("E-Way Bill sharing will be connected later.")
-              }
-            >
-              <span className="action-icon">📄</span>
-              <div>
-                <strong>E-Way Bill</strong>
-                <small>Share logistics document</small>
-              </div>
-              <span>→</span>
-            </button>
-          </div>
-
-          <div className="help-card">
-            <span>!</span>
-
-            <div>
-              <strong>Need assistance?</strong>
-              <p>
-                Contact BIXOO support if you face any issue
-                during your trip.
-              </p>
             </div>
-          </div>
-
-        </div>
+          );
+        })}
 
       </div>
+
+      {/* Unloading Coordination */}
+      <div className="unloading-card">
+
+        <div className="unloading-icon">
+          ✓
+        </div>
+
+        <div>
+          <strong>Unloading Coordination</strong>
+          <span>
+            Confirm when you reach the unloading gate.
+          </span>
+        </div>
+
+        <button
+          onClick={() =>
+            navigate(`/trips/${tripId}/delivery`)
+          }
+        >
+          Open
+        </button>
+
+      </div>
+
+      {/* Message Input */}
+      <div className="chat-input-area">
+
+        <button
+          className="chat-attach"
+          onClick={sendGatePhoto}
+        >
+          +
+        </button>
+
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              sendMessage();
+            }
+          }}
+          placeholder="Type a message..."
+        />
+
+        <button
+          className="chat-send"
+          onClick={sendMessage}
+        >
+          ↑
+        </button>
+
+      </div>
+
     </div>
   );
 }

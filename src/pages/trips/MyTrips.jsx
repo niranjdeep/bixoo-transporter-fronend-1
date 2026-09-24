@@ -1,378 +1,270 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import "./MyTrips.css";
 
 function MyTrips() {
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("active");
 
-  const activeTrip = JSON.parse(
+  const savedTrip = JSON.parse(
     localStorage.getItem("active_trip") || "null"
   );
 
   const trips = [
     {
-      id: activeTrip?.tripId || "TRIP-LD001",
-      loadId: activeTrip?.loadId || "LD001",
-      pickup: activeTrip?.pickup || "Mumbai, MH",
-      pickupPoint: activeTrip?.pickupPoint || "APMC Market",
-      delivery: activeTrip?.delivery || "Pune, MH",
-      deliveryPoint:
-        activeTrip?.deliveryPoint || "Hadapsar Depot",
-      load: activeTrip?.weight || "50 Tons Wheat",
-      vehicle: activeTrip?.vehicle || "20ft Truck",
-      distance: activeTrip?.distance || "160 KM",
-      earnings: activeTrip?.earnings || "₹18,500",
-      status: activeTrip ? "In Transit" : "Trip Created",
+      id: savedTrip?.tripId || "TR-LD001",
+      loadId: savedTrip?.loadId || "LD001",
+      pickup: savedTrip?.pickup || "Mumbai",
+      pickupPoint: savedTrip?.pickupPoint || "APMC Market",
+      delivery: savedTrip?.delivery || "Pune",
+      deliveryPoint: savedTrip?.deliveryPoint || "Hadapsar Depot",
+      weight: savedTrip?.weight || "50 Tons",
+      load: savedTrip?.loadType || "Wheat",
+      vehicle: savedTrip?.vehicle || "20ft Truck",
+      distance: savedTrip?.distance || "160 KM",
+      payout: savedTrip?.earnings || "₹18,500",
+      status: savedTrip ? "In Transit" : "Accepted",
       type: "active",
     },
     {
-      id: "TRIP-1002",
+      id: "TR-1002",
       loadId: "LD008",
-      pickup: "Chennai, TN",
+      pickup: "Chennai",
       pickupPoint: "Guindy Industrial Area",
-      delivery: "Bengaluru, KA",
+      delivery: "Bengaluru",
       deliveryPoint: "Peenya Depot",
-      load: "20 Tons Rice",
+      weight: "20 Tons",
+      load: "Rice",
       vehicle: "Container",
       distance: "350 KM",
-      earnings: "₹28,500",
+      payout: "₹28,500",
       status: "Delivered",
       type: "completed",
     },
     {
-      id: "TRIP-1001",
+      id: "TR-1001",
       loadId: "LD005",
-      pickup: "Coimbatore, TN",
+      pickup: "Coimbatore",
       pickupPoint: "Industrial Estate",
-      delivery: "Madurai, TN",
+      delivery: "Madurai",
       deliveryPoint: "Warehouse",
-      load: "10 Tons Machinery",
+      weight: "10 Tons",
+      load: "Machinery",
       vehicle: "Truck",
       distance: "215 KM",
-      earnings: "₹16,500",
+      payout: "₹16,500",
       status: "Delivered",
       type: "completed",
     },
   ];
 
-  const activeTrips = trips.filter(
-    (trip) => trip.type === "active"
+  const filteredTrips = trips.filter(
+    (trip) => trip.type === activeTab
   );
 
-  const completedTrips = trips.filter(
-    (trip) => trip.type === "completed"
-  );
+  const openTrip = (trip) => {
+    if (trip.type === "active") {
+      navigate(`/trips/${trip.id}`);
+    } else {
+      navigate(`/trips/${trip.id}`);
+    }
+  };
 
   return (
     <div className="my-trips-page">
 
       {/* HEADER */}
       <div className="my-trips-header">
-
         <div>
-          <span className="trips-page-label">
-            TRANSPORT OPERATIONS
+          <span className="my-trips-label">
+            TRANSPORTER
           </span>
 
-          <h1>My Trips</h1>
+          <h1>My Accepted Loads</h1>
 
           <p>
-            Manage your active and completed transportation trips.
+            Manage your accepted and completed trips.
           </p>
         </div>
 
+        <div className="trips-online">
+          <span></span>
+          Online
+        </div>
+      </div>
+
+
+      {/* TABS */}
+      <div className="trips-tabs">
+
         <button
-          className="find-loads-btn"
-          onClick={() => navigate("/loads")}
+          className={
+            activeTab === "active"
+              ? "trip-tab active"
+              : "trip-tab"
+          }
+          onClick={() => setActiveTab("active")}
         >
-          + Find New Loads
+          In Progress
+        </button>
+
+        <button
+          className={
+            activeTab === "completed"
+              ? "trip-tab active"
+              : "trip-tab"
+          }
+          onClick={() => setActiveTab("completed")}
+        >
+          Completed
         </button>
 
       </div>
 
 
-      {/* SUMMARY */}
-      <div className="trip-summary-grid">
+      {/* TRIPS */}
+      <div className="my-trips-list">
 
-        <div className="trip-stat-card">
-          <span className="trip-stat-icon active-icon">
-            ◉
-          </span>
-
-          <div>
-            <small>Active Trips</small>
-            <strong>{activeTrips.length}</strong>
-          </div>
-        </div>
-
-        <div className="trip-stat-card">
-          <span className="trip-stat-icon completed-icon">
-            ✓
-          </span>
-
-          <div>
-            <small>Completed Trips</small>
-            <strong>{completedTrips.length}</strong>
-          </div>
-        </div>
-
-        <div className="trip-stat-card">
-          <span className="trip-stat-icon distance-icon">
-            ↗
-          </span>
-
-          <div>
-            <small>Total Distance</small>
-            <strong>725 KM</strong>
-          </div>
-        </div>
-
-        <div className="trip-stat-card">
-          <span className="trip-stat-icon earning-icon">
-            ₹
-          </span>
-
-          <div>
-            <small>Total Earnings</small>
-            <strong>₹63,500</strong>
-          </div>
-        </div>
-
-      </div>
-
-
-      {/* ACTIVE TRIPS */}
-      <section className="trips-section">
-
-        <div className="trips-section-heading">
-
-          <div>
-            <span>ACTIVE</span>
-            <h2>Current Trips</h2>
-          </div>
-
-          <strong>
-            {activeTrips.length} Active
-          </strong>
-
-        </div>
-
-
-        {activeTrips.length > 0 ? (
-          <div className="trips-list">
-
-            {activeTrips.map((trip) => (
-
-              <div
-                className="trip-list-card active-trip"
-                key={trip.id}
-              >
-
-                <div className="trip-list-top">
-
-                  <div>
-                    <span className="trip-status active">
-                      ● {trip.status}
-                    </span>
-
-                    <span className="trip-number">
-                      {trip.id}
-                    </span>
-                  </div>
-
-                  <span className="trip-distance">
-                    {trip.distance}
-                  </span>
-
-                </div>
-
-
-                <div className="trip-route-row">
-
-                  <div className="trip-route-location">
-
-                    <span className="route-marker pickup-marker">
-                      P
-                    </span>
-
-                    <div>
-                      <small>Pickup</small>
-                      <strong>{trip.pickup}</strong>
-                      <span>{trip.pickupPoint}</span>
-                    </div>
-
-                  </div>
-
-
-                  <div className="route-arrow">
-                    →
-                  </div>
-
-
-                  <div className="trip-route-location">
-
-                    <span className="route-marker delivery-marker">
-                      D
-                    </span>
-
-                    <div>
-                      <small>Delivery</small>
-                      <strong>{trip.delivery}</strong>
-                      <span>{trip.deliveryPoint}</span>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                <div className="trip-card-details">
-
-                  <div>
-                    <small>Load</small>
-                    <strong>{trip.load}</strong>
-                  </div>
-
-                  <div>
-                    <small>Vehicle</small>
-                    <strong>{trip.vehicle}</strong>
-                  </div>
-
-                  <div>
-                    <small>Estimated Earnings</small>
-                    <strong className="trip-earnings">
-                      {trip.earnings}
-                    </strong>
-                  </div>
-
-                </div>
-
-
-                <div className="trip-card-footer">
-
-                  <span>
-                    Load ID: {trip.loadId}
-                  </span>
-
-                  <button
-                    onClick={() =>
-                      navigate(`/trips/${trip.id}`)
-                    }
-                  >
-                    Manage Trip →
-                  </button>
-
-                </div>
-
-              </div>
-
-            ))}
-
+        {filteredTrips.length === 0 ? (
+          <div className="empty-trips">
+            <div>◎</div>
+            <strong>No trips found</strong>
+            <p>
+              Your {activeTab === "active" ? "active" : "completed"}{" "}
+              trips will appear here.
+            </p>
           </div>
         ) : (
-          <div className="empty-trips">
-            <div>▣</div>
-
-            <h3>No Active Trips</h3>
-
-            <p>
-              Find a suitable load and start your next trip.
-            </p>
-
-            <button
-              onClick={() => navigate("/loads")}
-            >
-              Find Loads
-            </button>
-          </div>
-        )}
-
-      </section>
-
-
-      {/* COMPLETED */}
-      <section className="trips-section completed-section">
-
-        <div className="trips-section-heading">
-
-          <div>
-            <span>HISTORY</span>
-            <h2>Completed Trips</h2>
-          </div>
-
-          <strong>
-            {completedTrips.length} Completed
-          </strong>
-
-        </div>
-
-
-        <div className="completed-list">
-
-          {completedTrips.map((trip) => (
+          filteredTrips.map((trip) => (
 
             <div
-              className="completed-trip-card"
+              className="my-trip-card"
               key={trip.id}
             >
 
-              <div className="completed-main">
+              {/* CARD TOP */}
+              <div className="my-trip-top">
 
-                <div className="completed-icon">
-                  ✓
+                <div>
+                  <span className="trip-card-id">
+                    #{trip.id}
+                  </span>
+
+                  <span
+                    className={
+                      trip.type === "active"
+                        ? "trip-status active-status"
+                        : "trip-status completed-status"
+                    }
+                  >
+                    {trip.status}
+                  </span>
+                </div>
+
+                <div className="trip-payout">
+                  <small>Payout</small>
+                  <strong>{trip.payout}</strong>
+                </div>
+
+              </div>
+
+
+              {/* ROUTE */}
+              <div className="my-trip-route">
+
+                <div className="my-route-place">
+
+                  <span className="my-route-dot pickup"></span>
+
+                  <div>
+                    <small>Pickup</small>
+                    <strong>{trip.pickup}</strong>
+                    <span>{trip.pickupPoint}</span>
+                  </div>
+
+                </div>
+
+
+                <div className="my-route-line"></div>
+
+
+                <div className="my-route-place">
+
+                  <span className="my-route-dot delivery"></span>
+
+                  <div>
+                    <small>Delivery</small>
+                    <strong>{trip.delivery}</strong>
+                    <span>{trip.deliveryPoint}</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              {/* INFO */}
+              <div className="my-trip-info">
+
+                <div>
+                  <small>Vehicle</small>
+                  <strong>{trip.vehicle}</strong>
                 </div>
 
                 <div>
+                  <small>Load</small>
+                  <strong>
+                    {trip.weight} {trip.load}
+                  </strong>
+                </div>
 
-                  <div className="completed-title">
-
-                    <strong>{trip.id}</strong>
-
-                    <span>
-                      Delivered
-                    </span>
-
-                  </div>
-
-                  <p>
-                    {trip.pickup} → {trip.delivery}
-                  </p>
-
-                  <small>
-                    {trip.load} · {trip.distance}
-                  </small>
-
+                <div>
+                  <small>Distance</small>
+                  <strong>{trip.distance}</strong>
                 </div>
 
               </div>
 
 
-              <div className="completed-earning">
+              {/* ACTIONS */}
+              <div className="my-trip-actions">
 
-                <small>Earnings</small>
+                <button
+                  className="trip-details-btn"
+                  onClick={() => openTrip(trip)}
+                >
+                  Trip Details
+                  <span>→</span>
+                </button>
 
-                <strong>
-                  {trip.earnings}
-                </strong>
+                {trip.type === "active" ? (
+                  <button
+                    className="trip-navigate-btn"
+                    onClick={() =>
+                      navigate(`/trips/${trip.id}/live`)
+                    }
+                  >
+                    Navigate
+                    <span>↗</span>
+                  </button>
+                ) : (
+                  <button
+                    className="trip-view-btn"
+                    onClick={() => openTrip(trip)}
+                  >
+                    View Trip
+                    <span>→</span>
+                  </button>
+                )}
 
               </div>
 
-
-              <button
-                onClick={() =>
-                  navigate(`/trips/${trip.id}`)
-                }
-              >
-                View
-              </button>
-
             </div>
 
-          ))}
+          ))
+        )}
 
-        </div>
-
-      </section>
+      </div>
 
     </div>
   );

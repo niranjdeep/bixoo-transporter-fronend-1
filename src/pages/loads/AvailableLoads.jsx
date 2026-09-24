@@ -7,266 +7,143 @@ function AvailableLoads() {
   const loads = [
     {
       id: "LD001",
-      pickup: "Mumbai, MH",
-      pickupPoint: "APMC Market",
-      delivery: "Pune, MH",
-      deliveryPoint: "Hadapsar Depot",
-      distance: "160 KM",
-      load: "50 Tons Wheat",
-      vehicle: "20ft Truck",
-      date: "Today, 14:00 Hrs",
-      earnings: "₹18,500",
-      match: "Direct Match",
+      status: "NEW LOAD",
+      distance: "12 km away",
+      pickup: "Riyadh",
+      delivery: "Dammam",
+      weight: "25 Tons",
+      type: "Construction Materials",
+      start: "10:00 AM",
     },
     {
       id: "LD002",
-      pickup: "Chennai, TN",
-      pickupPoint: "Koyambedu",
-      delivery: "Bengaluru, KA",
-      deliveryPoint: "Yeshwanthpur",
-      distance: "350 KM",
-      load: "15 Tons Rice",
-      vehicle: "Open Truck",
-      date: "Tomorrow, 08:00 Hrs",
-      earnings: "₹24,000",
-      match: "Suitable",
-    },
-    {
-      id: "LD003",
-      pickup: "Coimbatore, TN",
-      pickupPoint: "Industrial Area",
-      delivery: "Madurai, TN",
-      deliveryPoint: "Warehouse",
-      distance: "215 KM",
-      load: "10 Tons Machinery",
-      vehicle: "Container",
-      date: "Tomorrow, 11:30 Hrs",
-      earnings: "₹16,500",
-      match: "Suitable",
+      status: "SCHEDULED",
+      distance: "15 km away",
+      pickup: "Jeddah",
+      delivery: "Medina",
+      weight: "18 Tons",
+      type: "Food Items",
+      start: "11:30 AM",
     },
   ];
 
   return (
-    <div className="loads-page">
+    <div className="available-loads-page">
 
-      <div className="loads-header">
+      {/* HEADER */}
+      <div className="available-loads-header">
         <div>
-          <span className="page-label">TRANSPORT MARKETPLACE</span>
+          <span className="available-label">
+            TRANSPORTER
+          </span>
 
           <h1>Available Loads</h1>
 
           <p>
-            Find suitable loads and choose your next trip.
+            Find loads that match your vehicle and availability.
           </p>
         </div>
 
-        <div className="online-badge">
+        <div className="available-online">
           <span></span>
           Online
         </div>
       </div>
 
+      {/* SEARCH */}
+      <div className="available-search">
+        <span className="search-icon">⌕</span>
 
-      {/* FILTERS */}
+        <input
+          type="text"
+          placeholder="Search for loads, locations..."
+        />
 
-      <div className="loads-filters">
-
-        <div className="search-box">
-          <span>⌕</span>
-
-          <input
-            type="text"
-            placeholder="Search pickup or delivery location"
-          />
-        </div>
-
-        <select>
-          <option>All Load Types</option>
-          <option>Agriculture</option>
-          <option>Machinery</option>
-          <option>Raw Materials</option>
-        </select>
-
-        <select>
-          <option>All Vehicles</option>
-          <option>Mini Truck</option>
-          <option>Truck</option>
-          <option>Container</option>
-          <option>Trailer</option>
-        </select>
-
-        <button className="filter-btn">
-          Filters
+        <button type="button" className="search-filter">
+          ☰
         </button>
-
       </div>
 
+      {/* SECTION HEADER */}
+      <div className="available-section-title">
+        <h2>Available Loads</h2>
 
-      {/* SUMMARY */}
-
-      <div className="loads-summary">
-
-        <div>
-          <strong>12</strong>
-          <span>Available Loads</span>
-        </div>
-
-        <div>
-          <strong>04</strong>
-          <span>Direct Matches</span>
-        </div>
-
-        <div>
-          <strong>08</strong>
-          <span>Today's Loads</span>
-        </div>
-
+        <button
+          type="button"
+          onClick={() => navigate("/loads")}
+        >
+          View All
+        </button>
       </div>
 
+      {/* LOAD CARDS */}
+      <div className="available-load-list">
 
-      {/* LOAD LIST */}
+        {loads.map((load) => (
+          <div
+            className="available-load-card"
+            key={load.id}
+            onClick={() => navigate(`/loads/${load.id}`)}
+          >
 
-      <div className="loads-section">
+            {/* CARD HEADER */}
+            <div className="available-card-header">
 
-        <div className="section-heading">
-          <div>
-            <h2>Loads Near You</h2>
-            <p>Based on your vehicle and availability.</p>
-          </div>
+              <span
+                className={`load-status ${
+                  load.status === "NEW LOAD"
+                    ? "new-load"
+                    : "scheduled-load"
+                }`}
+              >
+                {load.status}
+              </span>
 
-          <span>12 Loads</span>
-        </div>
+              <span className="load-distance">
+                {load.distance}
+              </span>
 
+            </div>
 
-        <div className="loads-list">
+            {/* ROUTE */}
+            <div className="available-route">
 
-          {loads.map((load) => (
+              <div className="route-place">
+                <span className="route-marker pickup-marker">
+                  ◉
+                </span>
 
-            <div
-              className="load-card"
-              key={load.id}
-            >
-
-              <div className="load-card-top">
-
-                <div>
-                  <span
-                    className={
-                      load.match === "Direct Match"
-                        ? "match-badge direct"
-                        : "match-badge"
-                    }
-                  >
-                    {load.match}
-                  </span>
-
-                  <span className="load-id">
-                    {load.id}
-                  </span>
-                </div>
-
-                <div className="distance">
-                  {load.distance}
-                </div>
-
+                <strong>{load.pickup}</strong>
               </div>
 
+              <div className="route-place">
+                <span className="route-marker delivery-marker">
+                  ♧
+                </span>
 
-              {/* ROUTE */}
-
-              <div className="load-route">
-
-                <div className="location">
-
-                  <span className="location-dot pickup-dot"></span>
-
-                  <div>
-                    <small>Pickup</small>
-
-                    <strong>{load.pickup}</strong>
-
-                    <span>{load.pickupPoint}</span>
-                  </div>
-
-                </div>
-
-                <div className="route-line"></div>
-
-                <div className="location">
-
-                  <span className="location-dot delivery-dot"></span>
-
-                  <div>
-                    <small>Delivery</small>
-
-                    <strong>{load.delivery}</strong>
-
-                    <span>{load.deliveryPoint}</span>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* DETAILS */}
-
-              <div className="load-info">
-
-                <div>
-                  <small>Load</small>
-                  <strong>{load.load}</strong>
-                </div>
-
-                <div>
-                  <small>Vehicle</small>
-                  <strong>{load.vehicle}</strong>
-                </div>
-
-                <div>
-                  <small>Pickup</small>
-                  <strong>{load.date}</strong>
-                </div>
-
-                <div>
-                  <small>Est. Earnings</small>
-                  <strong className="load-earning">
-                    {load.earnings}
-                  </strong>
-                </div>
-
-              </div>
-
-
-              {/* ACTION */}
-
-              <div className="load-actions">
-
-                <button
-                  className="details-btn"
-                  onClick={() =>
-                    navigate(`/loads/${load.id}`)
-                  }
-                >
-                  View Details
-                </button>
-
-                <button
-                  className="accept-btn"
-                  onClick={() =>
-                    navigate(`/loads/${load.id}`)
-                  }
-                >
-                  View & Accept →
-                </button>
-
+                <strong>{load.delivery}</strong>
               </div>
 
             </div>
 
-          ))}
+            {/* DIVIDER */}
+            <div className="load-divider"></div>
 
-        </div>
+            {/* DETAILS */}
+            <div className="load-bottom">
+
+              <div className="load-description">
+                {load.weight} • {load.type}
+              </div>
+
+              <div className="load-start">
+                Starts at {load.start}
+              </div>
+
+            </div>
+
+          </div>
+        ))}
 
       </div>
 

@@ -1,32 +1,18 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Wallet.css";
 
 function Wallet() {
-  const transactions = [
-    {
-      id: "SET-1004",
-      tripId: "TRIP-LD001",
-      date: "22 Sep 2026",
-      route: "Mumbai → Pune",
-      amount: "₹18,500",
-      status: "Pending",
-    },
-    {
-      id: "SET-1003",
-      tripId: "TRIP-1002",
-      date: "20 Sep 2026",
-      route: "Chennai → Bengaluru",
-      amount: "₹28,500",
-      status: "Settled",
-    },
-    {
-      id: "SET-1002",
-      tripId: "TRIP-1001",
-      date: "18 Sep 2026",
-      route: "Coimbatore → Madurai",
-      amount: "₹16,500",
-      status: "Settled",
-    },
-  ];
+  const navigate = useNavigate();
+  const [plan, setPlan] = useState("weekly");
+
+  const handleContinue = () => {
+    if (plan === "weekly") {
+      navigate("/wallet/weekly-settlement");
+    } else {
+      navigate("/wallet/payment");
+    }
+  };
 
   return (
     <div className="wallet-page">
@@ -34,160 +20,119 @@ function Wallet() {
       {/* Header */}
       <div className="wallet-header">
         <div>
-          <p className="wallet-label">TRANSPORTER WALLET</p>
-          <h1>Earnings & Settlements</h1>
-          <p>
-            Track your completed-trip earnings, pending settlements and payment history.
-          </p>
+          <span className="wallet-label">TRANSPORTER WALLET</span>
+          <h1>Wallet & Settlement</h1>
+          <p>Manage your earnings and settlements.</p>
         </div>
 
-        <div className="wallet-header-icon">₹</div>
-      </div>
-
-      {/* Summary Cards */}
-      <div className="wallet-summary">
-
-        <div className="wallet-stat">
-          <div className="wallet-stat-top">
-            <span className="wallet-stat-title">Total Earnings</span>
-            <span className="wallet-stat-icon">₹</span>
-          </div>
-          <h2>₹63,500</h2>
-          <small>All completed trips</small>
-        </div>
-
-        <div className="wallet-stat pending">
-          <div className="wallet-stat-top">
-            <span className="wallet-stat-title">Pending Settlement</span>
-            <span className="wallet-stat-icon">◷</span>
-          </div>
-          <h2>₹18,500</h2>
-          <small>Awaiting settlement</small>
-        </div>
-
-        <div className="wallet-stat settled">
-          <div className="wallet-stat-top">
-            <span className="wallet-stat-title">Settled Earnings</span>
-            <span className="wallet-stat-icon">✓</span>
-          </div>
-          <h2>₹45,000</h2>
-          <small>Successfully settled</small>
-        </div>
-
+        <div className="wallet-balance-icon">₹</div>
       </div>
 
       {/* Balance */}
-      <div className="balance-card">
+      <div className="wallet-balance-card">
         <div>
-          <p className="balance-label">AVAILABLE BALANCE</p>
-          <h2>₹45,000</h2>
-          <span>Ready for settlement</span>
+          <span>Current Pending Balance</span>
+          <strong>₹24,500</strong>
         </div>
 
-        <button
-          className="withdraw-btn"
-          onClick={() => alert("Withdrawal feature will be connected later.")}
-        >
-          Withdraw →
-        </button>
+        <div className="wallet-balance-status">
+          Pending
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="wallet-content">
+      {/* Stats */}
+      <div className="wallet-stats">
 
-        {/* Transactions */}
-        <div className="transaction-card">
-
-          <div className="section-heading">
-            <div>
-              <h2>Settlement History</h2>
-              <p>Your recent earnings and settlement transactions.</p>
-            </div>
-
-            <button className="view-all-btn">
-              View All
-            </button>
-          </div>
-
-          <div className="transaction-list">
-
-            {transactions.map((transaction) => (
-              <div className="transaction-row" key={transaction.id}>
-
-                <div className="transaction-icon">
-                  ₹
-                </div>
-
-                <div className="transaction-info">
-                  <strong>{transaction.id}</strong>
-                  <span>{transaction.tripId}</span>
-                  <small>
-                    {transaction.date} • {transaction.route}
-                  </small>
-                </div>
-
-                <div className="transaction-amount">
-                  <strong>{transaction.amount}</strong>
-
-                  <span
-                    className={
-                      transaction.status === "Settled"
-                        ? "status settled-status"
-                        : "status pending-status"
-                    }
-                  >
-                    {transaction.status}
-                  </span>
-                </div>
-
-              </div>
-            ))}
-
+        <div className="wallet-stat-card">
+          <span className="wallet-stat-icon">✓</span>
+          <div>
+            <strong>12</strong>
+            <small>Trips Completed Today</small>
           </div>
         </div>
 
-        {/* Recent Completed Trip */}
-        <div className="recent-trip-card">
-
-          <div className="section-heading">
-            <div>
-              <h2>Recent Completed Trip</h2>
-              <p>Latest trip added to your earnings.</p>
-            </div>
+        <div className="wallet-stat-card">
+          <span className="wallet-stat-icon">↗</span>
+          <div>
+            <strong>148</strong>
+            <small>Total Accepted Trips</small>
           </div>
-
-          <div className="recent-trip-route">
-            <div className="route-point">
-              <span className="route-dot pickup-dot"></span>
-              <div>
-                <small>PICKUP</small>
-                <strong>Mumbai, MH</strong>
-              </div>
-            </div>
-
-            <div className="route-line"></div>
-
-            <div className="route-point">
-              <span className="route-dot delivery-dot"></span>
-              <div>
-                <small>DELIVERY</small>
-                <strong>Pune, MH</strong>
-              </div>
-            </div>
-          </div>
-
-          <div className="trip-earnings">
-            <span>Trip Earnings</span>
-            <strong>₹18,500</strong>
-          </div>
-
-          <div className="trip-status">
-            <span>✓</span>
-            Trip Completed
-          </div>
-
         </div>
 
+      </div>
+
+      {/* Settlement Plan */}
+      <div className="wallet-section">
+
+        <div className="wallet-section-heading">
+          <div>
+            <span>SETTLEMENT</span>
+            <h2>Choose Settlement Plan</h2>
+          </div>
+        </div>
+
+        {/* Weekly */}
+        <button
+          className={`settlement-option ${
+            plan === "weekly" ? "selected" : ""
+          }`}
+          onClick={() => setPlan("weekly")}
+        >
+          <div className="settlement-radio">
+            {plan === "weekly" && <span></span>}
+          </div>
+
+          <div className="settlement-content">
+            <strong>Weekly Settlement</strong>
+            <p>
+              Settle your completed trips every week.
+            </p>
+          </div>
+
+          <span className="settlement-arrow">→</span>
+        </button>
+
+        {/* Monthly */}
+        <button
+          className={`settlement-option ${
+            plan === "monthly" ? "selected" : ""
+          }`}
+          onClick={() => setPlan("monthly")}
+        >
+          <div className="settlement-radio">
+            {plan === "monthly" && <span></span>}
+          </div>
+
+          <div className="settlement-content">
+            <strong>Monthly Subscription</strong>
+            <p>
+              Pay a fixed monthly subscription for settlement.
+            </p>
+          </div>
+
+          <span className="settlement-price">
+            ₹2,499
+          </span>
+        </button>
+
+      </div>
+
+      {/* Continue */}
+      <button
+        className="wallet-continue"
+        onClick={handleContinue}
+      >
+        Continue to Payment
+        <span>→</span>
+      </button>
+
+      {/* Security */}
+      <div className="wallet-security">
+        <span>🔒</span>
+        <p>
+          Your payment and settlement information
+          is securely protected.
+        </p>
       </div>
 
     </div>
