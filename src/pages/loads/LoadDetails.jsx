@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom";
-
 import "./LoadDetails.css";
 
 function LoadDetails() {
@@ -8,7 +7,6 @@ function LoadDetails() {
 
   const load = {
     id: loadId || "LD001",
-    match: "Direct Match",
     distance: "160 KM",
     earnings: "₹18,500",
 
@@ -18,339 +16,590 @@ function LoadDetails() {
     delivery: "Pune, MH",
     deliveryPoint: "Hadapsar Depot",
 
-    loadType: "Wheat",
-    weight: "50 Tons",
+    load: "50 Tons Wheat",
+    vehicle: "20ft Truck (Open)",
 
-    vehicle: "20ft Truck",
-    vehicleType: "Open Truck",
-
-    pickupDate: "Today",
+    pickupDate: "Today, 24 Oct",
     pickupTime: "14:00 Hrs",
-
-    deliveryDate: "Today",
-    estimatedDelivery: "19:30 Hrs",
   };
 
   const handleAccept = () => {
-    const trip = {
-      tripId: `TRIP-${load.id}`,
+    const activeTrip = {
+      tripId: `TR-${load.id}`,
       loadId: load.id,
-      status: "Trip Created",
-      ...load,
+
+      pickup: load.pickup,
+      pickupPoint: load.pickupPoint,
+
+      delivery: load.delivery,
+      deliveryPoint: load.deliveryPoint,
+
+      weight: load.load,
+      loadType: "Wheat",
+
+      vehicle: load.vehicle,
+
+      distance: load.distance,
+      earnings: load.earnings,
+
+      pickupDate: load.pickupDate,
+      pickupTime: load.pickupTime,
+
+      status: "Accepted",
     };
 
     localStorage.setItem(
       "active_trip",
-      JSON.stringify(trip)
+      JSON.stringify(activeTrip)
     );
 
-    navigate(`/trips/${trip.tripId}`);
+    navigate("/trips");
   };
 
-  const handleReject = () => {
+  const handleDecline = () => {
     navigate("/loads");
   };
 
   return (
     <div className="load-details-page">
 
-      {/* HEADER */}
-      <div className="details-header">
+      {/* =================================
+          NEW ORDER CARD
+      ================================= */}
 
-        <div>
-          <button
-            className="back-btn"
-            onClick={() => navigate("/loads")}
+      <div className="new-order-card">
+
+        {/* TOP PURPLE LINE */}
+        <div className="new-order-top-line"></div>
+
+
+        {/* =================================
+            BELL
+        ================================= */}
+
+        <div className="new-order-bell">
+
+          <svg
+            viewBox="0 0 64 64"
+            className="bell-icon"
+            aria-hidden="true"
           >
-            ← Back to Loads
-          </button>
+            <path
+              d="M18 28C18 19.7 24.3 13 32 13s14 6.7 14 15v7c0 3.4 1.3 6.7 3.7 9.2L52 47H12l2.3-2.8C16.7 41.7 18 38.4 18 35v-7Z"
+              fill="currentColor"
+            />
 
-          <div className="header-title-row">
+            <path
+              d="M26 52c1.4 3.2 3.4 4.8 6 4.8s4.6-1.6 6-4.8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
 
-            <div>
-              <span className="page-label">
-                LOAD DETAILS
+            <path
+              d="M11 25c0-5.4 2.1-10 6-13.3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+
+            <path
+              d="M53 25c0-5.4-2.1-10-6-13.3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+          </svg>
+
+        </div>
+
+
+        {/* =================================
+            HEADING
+        ================================= */}
+
+        <div className="new-order-heading">
+
+          <h1>
+            NEW ORDER AVAILABLE
+          </h1>
+
+          <p>
+            Tap accept to secure this load
+            <br />
+            immediately.
+          </p>
+
+        </div>
+
+
+        {/* =================================
+            ORDER DETAILS
+        ================================= */}
+
+        <div className="order-details-card">
+
+          {/* MATCH + EARNINGS */}
+
+          <div className="order-detail-header">
+
+            <div className="direct-match">
+
+              <span className="match-dot"></span>
+
+              <span>
+                DIRECT MATCH
               </span>
 
-              <h1>New Order Available</h1>
+              <span>
+                •
+              </span>
 
-              <p>
-                Review the load details before accepting this trip.
-              </p>
-            </div>
-
-            <div className="direct-match-badge">
-              <span>✓</span>
-              Direct Match
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-
-      {/* MAIN CONTENT */}
-      <div className="details-layout">
-
-        {/* LEFT */}
-        <div className="details-main">
-
-          {/* ROUTE CARD */}
-          <section className="details-card">
-
-            <div className="card-top">
-
-              <div>
-                <span className="section-label">
-                  TRANSPORT ROUTE
-                </span>
-
-                <h2>
-                  {load.pickup} → {load.delivery}
-                </h2>
-              </div>
-
-              <div className="distance-box">
-                <strong>{load.distance}</strong>
-                <span>Total Distance</span>
-              </div>
+              <span>
+                {load.distance}
+              </span>
 
             </div>
 
 
-            <div className="route-details">
+            <div className="estimated-earning">
 
-              <div className="route-location">
+              <small>
+                Est. Earnings
+              </small>
 
-                <div className="route-icon pickup">
-                  P
-                </div>
-
-                <div>
-                  <small>Pickup Location</small>
-
-                  <h3>{load.pickup}</h3>
-
-                  <p>{load.pickupPoint}</p>
-
-                  <div className="time-info">
-                    <span>📅 {load.pickupDate}</span>
-                    <span>🕐 {load.pickupTime}</span>
-                  </div>
-                </div>
-
-              </div>
-
-
-              <div className="route-connector">
-                <span></span>
-              </div>
-
-
-              <div className="route-location">
-
-                <div className="route-icon delivery">
-                  D
-                </div>
-
-                <div>
-                  <small>Delivery Location</small>
-
-                  <h3>{load.delivery}</h3>
-
-                  <p>{load.deliveryPoint}</p>
-
-                  <div className="time-info">
-                    <span>📅 {load.deliveryDate}</span>
-                    <span>
-                      🕐 Est. {load.estimatedDelivery}
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-          </section>
-
-
-          {/* LOAD INFORMATION */}
-          <section className="details-card">
-
-            <div className="section-heading">
-
-              <div>
-                <span className="section-label">
-                  LOAD INFORMATION
-                </span>
-
-                <h2>Load Requirements</h2>
-              </div>
-
-            </div>
-
-
-            <div className="information-grid">
-
-              <div className="info-item">
-                <span>Load Type</span>
-                <strong>{load.loadType}</strong>
-              </div>
-
-              <div className="info-item">
-                <span>Total Weight</span>
-                <strong>{load.weight}</strong>
-              </div>
-
-              <div className="info-item">
-                <span>Vehicle Required</span>
-                <strong>{load.vehicle}</strong>
-              </div>
-
-              <div className="info-item">
-                <span>Vehicle Type</span>
-                <strong>{load.vehicleType}</strong>
-              </div>
-
-            </div>
-
-          </section>
-
-
-          {/* OPERATIONAL INFORMATION */}
-          <section className="details-card">
-
-            <div className="section-heading">
-
-              <div>
-                <span className="section-label">
-                  TRIP INFORMATION
-                </span>
-
-                <h2>Before You Accept</h2>
-              </div>
-
-            </div>
-
-            <div className="check-list">
-
-              <div>
-                <span>✓</span>
-                <p>
-                  Check vehicle suitability for the required load.
-                </p>
-              </div>
-
-              <div>
-                <span>✓</span>
-                <p>
-                  Confirm pickup date and time before accepting.
-                </p>
-              </div>
-
-              <div>
-                <span>✓</span>
-                <p>
-                  Ensure the vehicle is available for the complete trip.
-                </p>
-              </div>
-
-              <div>
-                <span>✓</span>
-                <p>
-                  Coordinate with the buyer or consignee for delivery.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-        {/* RIGHT SIDEBAR */}
-        <aside className="details-sidebar">
-
-          <div className="earnings-card">
-
-            <span>ESTIMATED EARNINGS</span>
-
-            <strong>{load.earnings}</strong>
-
-            <p>
-              Estimated trip earnings
-            </p>
-
-          </div>
-
-
-          <div className="summary-card">
-
-            <div className="summary-header">
-              <h3>Load Summary</h3>
-
-              <span>{load.id}</span>
-            </div>
-
-
-            <div className="summary-row">
-              <span>Distance</span>
-              <strong>{load.distance}</strong>
-            </div>
-
-            <div className="summary-row">
-              <span>Load</span>
-              <strong>{load.weight}</strong>
-            </div>
-
-            <div className="summary-row">
-              <span>Vehicle</span>
-              <strong>{load.vehicle}</strong>
-            </div>
-
-            <div className="summary-row">
-              <span>Pickup</span>
-              <strong>{load.pickupTime}</strong>
-            </div>
-
-            <div className="summary-row">
-              <span>Status</span>
-
-              <strong className="available-status">
-                Available
+              <strong>
+                {load.earnings}
               </strong>
+
             </div>
 
           </div>
 
 
-          <div className="action-card">
+          <div className="details-divider"></div>
+
+
+          {/* =================================
+              PICKUP
+          ================================= */}
+
+          <div className="order-location">
+
+            <div className="location-marker pickup-marker">
+              <span></span>
+            </div>
+
+            <div className="location-content">
+
+              <small>
+                Pickup
+              </small>
+
+              <strong>
+                {load.pickup}
+                <em>
+                  {" "}({load.pickupPoint})
+                </em>
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* ROUTE LINE */}
+
+          <div className="order-location-line"></div>
+
+
+          {/* =================================
+              DELIVERY
+          ================================= */}
+
+          <div className="order-location">
+
+            <div className="location-marker delivery-marker">
+              <span></span>
+            </div>
+
+            <div className="location-content">
+
+              <small>
+                Delivery
+              </small>
+
+              <strong>
+                {load.delivery}
+                <em>
+                  {" "}({load.deliveryPoint})
+                </em>
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div className="details-divider"></div>
+
+
+          {/* =================================
+              LOAD + VEHICLE
+          ================================= */}
+
+          <div className="order-info-grid">
+
+            <div className="order-info-item">
+
+              <div className="info-icon">
+
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3v18M7 8l5-5 5 5M7 16l5 5 5-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+
+              </div>
+
+              <div>
+
+                <small>
+                  Load
+                </small>
+
+                <strong>
+                  {load.load}
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div className="order-info-item">
+
+              <div className="info-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                  <path
+                    d="M3 7h12v10H3z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  />
+
+                  <path
+                    d="M15 10h3l3 3v4h-6z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  />
+
+                  <circle
+                    cx="7"
+                    cy="18"
+                    r="2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  />
+
+                  <circle
+                    cx="18"
+                    cy="18"
+                    r="2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  />
+
+                </svg>
+
+              </div>
+
+              <div>
+
+                <small>
+                  Vehicle
+                </small>
+
+                <strong>
+                  {load.vehicle}
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* =================================
+              DATE + TIME
+          ================================= */}
+
+          <div className="order-info-grid">
+
+            <div className="order-info-item">
+
+              <div className="info-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                  <rect
+                    x="4"
+                    y="5"
+                    width="16"
+                    height="15"
+                    rx="2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  />
+
+                  <path
+                    d="M8 3v4M16 3v4M4 9h16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+
+                </svg>
+
+              </div>
+
+              <div>
+
+                <small>
+                  Pickup Date
+                </small>
+
+                <strong>
+                  {load.pickupDate}
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div className="order-info-item">
+
+              <div className="info-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="8.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  />
+
+                  <path
+                    d="M12 7v5l3 2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+
+                </svg>
+
+              </div>
+
+              <div>
+
+                <small>
+                  Time
+                </small>
+
+                <strong className="purple-text">
+                  {load.pickupTime}
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* =================================
+            RESPONSE
+        ================================= */}
+
+        <div className="response-area">
+
+          <div className="respond-label">
+
+            <span>
+              ‹‹
+            </span>
+
+            <strong>
+              SWIPE TO
+              <br />
+              RESPOND
+            </strong>
+
+            <span>
+              ››
+            </span>
+
+          </div>
+
+
+          <div className="respond-subtitle">
+            Reject
+            <span>&lt;&gt;</span>
+            Accept
+          </div>
+
+
+          {/* =================================
+              ACTION BAR
+          ================================= */}
+
+          <div className="order-actions">
+
+            {/* DECLINE */}
 
             <button
-              className="accept-load-btn"
+              type="button"
+              className="decline-button"
+              onClick={handleDecline}
+            >
+
+              <span className="action-circle">
+
+                <svg viewBox="0 0 32 32">
+
+                  <path
+                    d="M8 18c2-6 14-6 16 0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+
+                  <path
+                    d="M8 18v5M24 18v5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+
+                  <path
+                    d="M6 19l3-1M26 19l-3-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+
+                </svg>
+
+              </span>
+
+            </button>
+
+
+            {/* CENTER */}
+
+            <div className="swipe-center">
+
+              <span className="swipe-arrows">
+                ‹‹
+              </span>
+
+              <div className="swipe-text">
+                SWIPE TO
+                <br />
+                RESPOND
+              </div>
+
+              <span className="swipe-arrows">
+                ››
+              </span>
+
+            </div>
+
+
+            {/* ACCEPT */}
+
+            <button
+              type="button"
+              className="accept-button"
               onClick={handleAccept}
             >
-              <span>✓</span>
-              Accept Load
-            </button>
 
-            <button
-              className="reject-load-btn"
-              onClick={handleReject}
-            >
-              Reject / Go Back
-            </button>
+              <span className="action-circle">
 
-            <small>
-              By accepting, this load will be added to your active trips.
-            </small>
+                <svg viewBox="0 0 32 32">
+
+                  <path
+                    d="M8 18c2-6 14-6 16 0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+
+                  <path
+                    d="M8 18v5M24 18v5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+
+                  <path
+                    d="M6 19l3-1M26 19l-3-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+
+                </svg>
+
+              </span>
+
+            </button>
 
           </div>
 
-        </aside>
+
+          <div className="action-labels">
+
+            <span>
+              DECLINE
+            </span>
+
+            <span>
+              ACCEPT
+            </span>
+
+          </div>
+
+        </div>
 
       </div>
 

@@ -63,11 +63,11 @@ function MyTrips() {
   );
 
   const openTrip = (trip) => {
-    if (trip.type === "active") {
-      navigate(`/trips/${trip.id}`);
-    } else {
-      navigate(`/trips/${trip.id}`);
-    }
+    navigate(`/trips/${trip.id}`);
+  };
+
+  const navigateLive = (trip) => {
+    navigate(`/trips/${trip.id}/live`);
   };
 
   return (
@@ -75,6 +75,7 @@ function MyTrips() {
 
       {/* HEADER */}
       <div className="my-trips-header">
+
         <div>
           <span className="my-trips-label">
             TRANSPORTER
@@ -83,21 +84,22 @@ function MyTrips() {
           <h1>My Accepted Loads</h1>
 
           <p>
-            Manage your accepted and completed trips.
+            Track your active and completed transporter trips.
           </p>
         </div>
 
-        <div className="trips-online">
-          <span></span>
-          Online
+        <div className="my-trips-count">
+          {trips.length}
         </div>
+
       </div>
 
 
       {/* TABS */}
-      <div className="trips-tabs">
+      <div className="my-trips-tabs">
 
         <button
+          type="button"
           className={
             activeTab === "active"
               ? "trip-tab active"
@@ -106,9 +108,15 @@ function MyTrips() {
           onClick={() => setActiveTab("active")}
         >
           In Progress
+
+          <span>
+            {trips.filter((trip) => trip.type === "active").length}
+          </span>
         </button>
 
+
         <button
+          type="button"
           className={
             activeTab === "completed"
               ? "trip-tab active"
@@ -117,6 +125,14 @@ function MyTrips() {
           onClick={() => setActiveTab("completed")}
         >
           Completed
+
+          <span>
+            {
+              trips.filter(
+                (trip) => trip.type === "completed"
+              ).length
+            }
+          </span>
         </button>
 
       </div>
@@ -127,12 +143,17 @@ function MyTrips() {
 
         {filteredTrips.length === 0 ? (
           <div className="empty-trips">
-            <div>◎</div>
-            <strong>No trips found</strong>
+
+            <div className="empty-trips-icon">
+              🚚
+            </div>
+
+            <h2>No Trips Found</h2>
+
             <p>
-              Your {activeTab === "active" ? "active" : "completed"}{" "}
-              trips will appear here.
+              Your completed or active trips will appear here.
             </p>
+
           </div>
         ) : (
           filteredTrips.map((trip) => (
@@ -142,29 +163,47 @@ function MyTrips() {
               key={trip.id}
             >
 
-              {/* CARD TOP */}
-              <div className="my-trip-top">
+              {/* CARD HEADER */}
+              <div className="my-trip-card-header">
 
                 <div>
-                  <span className="trip-card-id">
-                    #{trip.id}
+                  <span className="trip-order-label">
+                    ORDER ID
                   </span>
 
-                  <span
-                    className={
-                      trip.type === "active"
-                        ? "trip-status active-status"
-                        : "trip-status completed-status"
-                    }
-                  >
-                    {trip.status}
-                  </span>
+                  <strong>
+                    #{trip.id}
+                  </strong>
                 </div>
 
                 <div className="trip-payout">
                   <small>Payout</small>
-                  <strong>{trip.payout}</strong>
+
+                  <strong>
+                    {trip.payout}
+                  </strong>
                 </div>
+
+              </div>
+
+
+              {/* STATUS */}
+              <div className="my-trip-status-row">
+
+                <span
+                  className={
+                    trip.type === "completed"
+                      ? "trip-status completed"
+                      : "trip-status progress"
+                  }
+                >
+                  <i></i>
+                  {trip.status}
+                </span>
+
+                <span className="trip-load-id">
+                  {trip.loadId}
+                </span>
 
               </div>
 
@@ -172,30 +211,44 @@ function MyTrips() {
               {/* ROUTE */}
               <div className="my-trip-route">
 
-                <div className="my-route-place">
+                <div className="trip-route-point">
 
-                  <span className="my-route-dot pickup"></span>
+                  <span className="route-dot pickup"></span>
 
                   <div>
                     <small>Pickup</small>
-                    <strong>{trip.pickup}</strong>
-                    <span>{trip.pickupPoint}</span>
+
+                    <strong>
+                      {trip.pickup}
+                    </strong>
+
+                    <p>
+                      {trip.pickupPoint}
+                    </p>
                   </div>
 
                 </div>
 
 
-                <div className="my-route-line"></div>
+                <div className="trip-route-connector">
+                  <span></span>
+                </div>
 
 
-                <div className="my-route-place">
+                <div className="trip-route-point">
 
-                  <span className="my-route-dot delivery"></span>
+                  <span className="route-dot delivery"></span>
 
                   <div>
                     <small>Delivery</small>
-                    <strong>{trip.delivery}</strong>
-                    <span>{trip.deliveryPoint}</span>
+
+                    <strong>
+                      {trip.delivery}
+                    </strong>
+
+                    <p>
+                      {trip.deliveryPoint}
+                    </p>
                   </div>
 
                 </div>
@@ -203,23 +256,26 @@ function MyTrips() {
               </div>
 
 
-              {/* INFO */}
+              {/* TRIP INFO */}
               <div className="my-trip-info">
 
                 <div>
-                  <small>Vehicle</small>
+                  <span>Load</span>
+                  <strong>{trip.load}</strong>
+                </div>
+
+                <div>
+                  <span>Weight</span>
+                  <strong>{trip.weight}</strong>
+                </div>
+
+                <div>
+                  <span>Vehicle</span>
                   <strong>{trip.vehicle}</strong>
                 </div>
 
                 <div>
-                  <small>Load</small>
-                  <strong>
-                    {trip.weight} {trip.load}
-                  </strong>
-                </div>
-
-                <div>
-                  <small>Distance</small>
+                  <span>Distance</span>
                   <strong>{trip.distance}</strong>
                 </div>
 
@@ -230,6 +286,7 @@ function MyTrips() {
               <div className="my-trip-actions">
 
                 <button
+                  type="button"
                   className="trip-details-btn"
                   onClick={() => openTrip(trip)}
                 >
@@ -237,23 +294,23 @@ function MyTrips() {
                   <span>→</span>
                 </button>
 
+
                 {trip.type === "active" ? (
                   <button
+                    type="button"
                     className="trip-navigate-btn"
-                    onClick={() =>
-                      navigate(`/trips/${trip.id}/live`)
-                    }
+                    onClick={() => navigateLive(trip)}
                   >
+                    <span>⌖</span>
                     Navigate
-                    <span>↗</span>
                   </button>
                 ) : (
                   <button
+                    type="button"
                     className="trip-view-btn"
                     onClick={() => openTrip(trip)}
                   >
                     View Trip
-                    <span>→</span>
                   </button>
                 )}
 

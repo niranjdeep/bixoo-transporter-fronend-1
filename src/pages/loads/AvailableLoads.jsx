@@ -27,46 +27,76 @@ function AvailableLoads() {
     },
   ];
 
+  const handleLoadClick = (loadId) => {
+    navigate(`/loads/${loadId}`);
+  };
+
   return (
     <div className="available-loads-page">
 
-      {/* HEADER */}
+      {/* =========================
+          HEADER
+      ========================== */}
+
       <div className="available-loads-header">
+
         <div>
           <span className="available-label">
             TRANSPORTER
           </span>
 
-          <h1>Available Loads</h1>
+          <h1>
+            Available Loads
+          </h1>
 
           <p>
             Find loads that match your vehicle and availability.
           </p>
         </div>
 
+
         <div className="available-online">
           <span></span>
           Online
         </div>
+
       </div>
 
-      {/* SEARCH */}
+
+      {/* =========================
+          SEARCH
+      ========================== */}
+
       <div className="available-search">
-        <span className="search-icon">⌕</span>
+
+        <span className="search-icon">
+          ⌕
+        </span>
 
         <input
           type="text"
           placeholder="Search for loads, locations..."
         />
 
-        <button type="button" className="search-filter">
+        <button
+          type="button"
+          className="search-filter"
+        >
           ☰
         </button>
+
       </div>
 
-      {/* SECTION HEADER */}
+
+      {/* =========================
+          SECTION TITLE
+      ========================== */}
+
       <div className="available-section-title">
-        <h2>Available Loads</h2>
+
+        <h2>
+          Available Loads
+        </h2>
 
         <button
           type="button"
@@ -74,19 +104,26 @@ function AvailableLoads() {
         >
           View All
         </button>
+
       </div>
 
-      {/* LOAD CARDS */}
+
+      {/* =========================
+          LOAD LIST
+      ========================== */}
+
       <div className="available-load-list">
 
         {loads.map((load) => (
+
           <div
             className="available-load-card"
             key={load.id}
-            onClick={() => navigate(`/loads/${load.id}`)}
+            onClick={() => handleLoadClick(load.id)}
           >
 
             {/* CARD HEADER */}
+
             <div className="available-card-header">
 
               <span
@@ -99,42 +136,65 @@ function AvailableLoads() {
                 {load.status}
               </span>
 
+
               <span className="load-distance">
                 {load.distance}
               </span>
 
             </div>
 
+
             {/* ROUTE */}
+
             <div className="available-route">
 
+              {/* PICKUP */}
+
               <div className="route-place">
+
                 <span className="route-marker pickup-marker">
-                  ◉
+                  ●
                 </span>
 
-                <strong>{load.pickup}</strong>
+                <strong>
+                  {load.pickup}
+                </strong>
+
               </div>
 
+
+              {/* DELIVERY */}
+
               <div className="route-place">
+
                 <span className="route-marker delivery-marker">
-                  ♧
+                  ◆
                 </span>
 
-                <strong>{load.delivery}</strong>
+                <strong>
+                  {load.delivery}
+                </strong>
+
               </div>
 
             </div>
 
+
             {/* DIVIDER */}
+
             <div className="load-divider"></div>
 
-            {/* DETAILS */}
+
+            {/* LOAD INFO */}
+
             <div className="load-bottom">
 
               <div className="load-description">
-                {load.weight} • {load.type}
+                {load.weight}
+                {" • "}
+                {load.type}
               </div>
+
 
               <div className="load-start">
                 Starts at {load.start}
@@ -143,6 +203,7 @@ function AvailableLoads() {
             </div>
 
           </div>
+
         ))}
 
       </div>

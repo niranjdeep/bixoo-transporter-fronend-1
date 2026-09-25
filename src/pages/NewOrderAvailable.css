@@ -1,342 +1,345 @@
-/* =====================================================
+/* =========================================================
    BIXOO - NEW ORDER AVAILABLE
-   FIGMA STYLE
-   ===================================================== */
+   Mobile First / Figma Style
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
 
 .new-order-page {
-  width: 100%;
   min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(91, 69, 145, 0.18),
+      transparent 38%
+    ),
+    #080c19;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
 
-  padding: 30px 14px;
-
-  box-sizing: border-box;
-
-  background: #121a2d;
+  padding: 14px 10px 30px;
 
   font-family:
     "Poppins",
     "Inter",
     Arial,
     sans-serif;
+
+  color: #17152a;
 }
 
 
-/* =====================================================
+/* =========================================================
    MAIN CARD
-   ===================================================== */
+   ========================================================= */
 
 .new-order-card {
-  position: relative;
-
   width: 100%;
-  max-width: 440px;
-
-  padding: 54px 27px 28px;
-
-  box-sizing: border-box;
+  max-width: 360px;
 
   background: #ffffff;
 
-  border-radius: 30px;
+  border-radius: 22px;
 
   overflow: hidden;
 
+  position: relative;
+
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.2);
+    0 18px 50px rgba(0, 0, 0, 0.35);
 }
 
 
-/* =====================================================
-   PURPLE TOP BORDER
-   ===================================================== */
+/* =========================================================
+   PURPLE TOP LINE
+   ========================================================= */
 
 .new-order-top-line {
-  position: absolute;
+  width: 100%;
+  height: 5px;
 
-  top: 0;
-  left: 0;
-  right: 0;
-
-  height: 12px;
-
-  background: linear-gradient(
-    90deg,
-    #7138cf,
-    #9149dc
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #6f35d9,
+      #8d55ed,
+      #6f35d9
+    );
 }
 
 
-/* =====================================================
+/* =========================================================
    BELL
-   ===================================================== */
+   ========================================================= */
 
 .new-order-bell {
-  width: 84px;
-  height: 84px;
+  width: 54px;
+  height: 54px;
+
+  margin: 24px auto 14px;
+
+  border-radius: 50%;
+
+  background: #f0e8ff;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin: 0 auto 24px;
-
-  border-radius: 50%;
-
-  background: #d5b5ff;
-
   box-shadow:
-    0 8px 20px rgba(126, 66, 210, 0.2);
+    inset 0 0 0 1px rgba(112, 58, 217, 0.08);
 }
 
 .new-order-bell span {
-  color: #7437c8;
-
-  font-size: 40px;
-
-  transform: rotate(180deg);
+  font-size: 24px;
+  line-height: 1;
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADING
-   ===================================================== */
+   ========================================================= */
 
-.new-order-card h1 {
+.new-order-heading {
+  text-align: center;
+
+  padding: 0 20px;
+}
+
+.new-order-heading h1 {
   margin: 0;
 
-  color: #121a2d;
-
-  font-size: 27px;
+  font-size: 18px;
+  line-height: 1.25;
 
   font-weight: 800;
 
-  line-height: 1.15;
+  letter-spacing: 0.7px;
 
-  text-align: center;
+  color: #19172b;
 }
 
-.new-order-subtitle {
-  margin: 13px 0 27px;
+.new-order-heading p {
+  margin: 9px 0 20px;
 
-  color: #777582;
+  color: #77748a;
 
-  font-size: 14px;
+  font-size: 11px;
+  line-height: 1.55;
 
-  line-height: 1.5;
-
-  text-align: center;
+  font-weight: 500;
 }
 
 
-/* =====================================================
-   ORDER DETAILS
-   ===================================================== */
+/* =========================================================
+   ORDER DETAILS CARD
+   ========================================================= */
 
 .order-details-card {
-  width: 100%;
+  margin: 0 14px;
 
-  padding: 20px;
+  padding: 15px;
 
-  box-sizing: border-box;
+  background: #f8f7fc;
 
-  background: #fbf8ff;
+  border: 1px solid #ebe8f3;
 
-  border: 1px solid #e2d9ee;
-
-  border-radius: 21px;
+  border-radius: 15px;
 }
 
 
-/* =====================================================
-   MATCH + EARNINGS
-   ===================================================== */
+/* =========================================================
+   HEADER - DIRECT MATCH / EARNINGS
+   ========================================================= */
 
 .order-detail-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 
-  gap: 15px;
+  gap: 10px;
 }
 
 .direct-match {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  gap: 5px;
 
-  gap: 8px;
+  min-width: 0;
 
-  padding: 8px 13px;
+  color: #6841b9;
 
-  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 800;
 
-  background: #eee2ff;
-
-  color: #7038c8;
-
-  font-size: 12px;
-
-  font-weight: 750;
-
-  white-space: nowrap;
+  letter-spacing: 0.25px;
 }
 
 .match-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 6px;
 
   border-radius: 50%;
 
-  background: #7638cf;
+  background: #7848d7;
+}
+
+.match-separator {
+  color: #a29ab5;
 }
 
 .estimated-earning {
-  display: flex;
-  flex-direction: column;
+  text-align: right;
 
-  align-items: flex-end;
+  flex-shrink: 0;
 }
 
 .estimated-earning small {
-  color: #817b88;
+  display: block;
 
-  font-size: 10px;
+  margin-bottom: 2px;
+
+  color: #9691a2;
+
+  font-size: 8px;
+  font-weight: 600;
 }
 
 .estimated-earning strong {
-  margin-top: 2px;
+  display: block;
 
-  color: #7138ca;
+  color: #6d35d5;
 
-  font-size: 23px;
-
+  font-size: 14px;
   font-weight: 800;
 }
 
 
-/* =====================================================
+/* =========================================================
    DIVIDER
-   ===================================================== */
+   ========================================================= */
 
 .details-divider {
   width: 100%;
-
   height: 1px;
 
-  margin: 16px 0;
+  margin: 13px 0;
 
-  background: #e9e3ee;
+  background: #e8e5ef;
 }
 
 
-/* =====================================================
-   LOCATIONS
-   ===================================================== */
+/* =========================================================
+   LOCATION
+   ========================================================= */
 
 .order-location {
-  position: relative;
-
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 
-  gap: 12px;
+  gap: 10px;
+
+  min-height: 42px;
 }
 
-.order-location > div {
+.order-dot {
+  width: 10px;
+  height: 10px;
+
+  flex: 0 0 10px;
+
+  border-radius: 50%;
+
+  position: relative;
+}
+
+.order-dot.pickup {
+  background: #7443d7;
+
+  box-shadow:
+    0 0 0 4px #eee6ff;
+}
+
+.order-dot.delivery {
+  background: #28a76c;
+
+  box-shadow:
+    0 0 0 4px #e1f5eb;
+}
+
+.location-content {
   min-width: 0;
 }
 
-.order-location small {
+.location-content small {
   display: block;
 
   margin-bottom: 3px;
 
-  color: #8d8792;
+  color: #918b9d;
 
-  font-size: 11px;
+  font-size: 8px;
+  font-weight: 600;
 }
 
-.order-location strong {
+.location-content strong {
   display: block;
 
-  color: #252231;
+  color: #262238;
 
-  font-size: 15px;
-
-  font-weight: 750;
-
+  font-size: 11px;
   line-height: 1.35;
+
+  font-weight: 700;
 }
 
-.order-location strong em {
-  color: #77727e;
-
-  font-size: 13px;
+.location-content em {
+  color: #817b8e;
 
   font-style: normal;
 
   font-weight: 500;
 }
 
-.order-dot {
-  width: 13px;
-  height: 13px;
 
-  flex: 0 0 auto;
-
-  margin-top: 3px;
-
-  border-radius: 50%;
-
-  box-sizing: border-box;
-}
-
-.order-dot.pickup {
-  background: #783bcf;
-
-  border: 3px solid #783bcf;
-
-  box-shadow:
-    0 0 0 4px rgba(120, 59, 207, 0.12);
-}
-
-.order-dot.delivery {
-  background: #ffffff;
-
-  border: 3px solid #783bcf;
-}
+/* =========================================================
+   ROUTE LINE
+   ========================================================= */
 
 .order-location-line {
-  width: 2px;
-  height: 23px;
+  width: 1px;
+  height: 18px;
 
-  margin-left: 5px;
+  margin-left: 4px;
 
-  background: #cfb7ec;
+  border-left: 1px dashed #bbb5c9;
 }
 
 
-/* =====================================================
+/* =========================================================
    INFO GRID
-   ===================================================== */
+   ========================================================= */
 
 .order-info-grid {
   display: grid;
 
   grid-template-columns: 1fr 1fr;
 
-  gap: 18px;
+  gap: 12px;
 
   margin-top: 13px;
 }
 
-.order-info-grid > div {
+.order-info-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 
   gap: 8px;
 
@@ -344,319 +347,413 @@
 }
 
 .info-icon {
-  flex: 0 0 auto;
+  width: 27px;
+  height: 27px;
 
-  color: #773bcb;
+  flex: 0 0 27px;
 
-  font-size: 17px;
+  border-radius: 8px;
+
+  background: #eee8fb;
+
+  color: #7141c8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.order-info-grid > div > div {
+.order-info-item > div {
   min-width: 0;
 }
 
-.order-info-grid small {
+.order-info-item small {
   display: block;
 
   margin-bottom: 3px;
 
-  color: #88818d;
+  color: #9691a2;
 
-  font-size: 10px;
+  font-size: 7px;
+  font-weight: 600;
 }
 
-.order-info-grid strong {
+.order-info-item strong {
   display: block;
 
-  color: #282431;
+  color: #29263a;
 
-  font-size: 13px;
-
-  font-weight: 650;
-
+  font-size: 9px;
   line-height: 1.3;
+
+  font-weight: 700;
+
+  word-break: break-word;
 }
 
 .purple-text {
-  color: #7438c9 !important;
+  color: #6e3bd0 !important;
 }
 
 
-/* =====================================================
-   SWIPE AREA
-   ===================================================== */
+/* =========================================================
+   RESPONSE AREA
+   ========================================================= */
 
 .respond-label {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 15px;
+  gap: 9px;
 
-  margin-top: 23px;
+  margin-top: 18px;
 
-  color: #687082;
+  color: #9a96a7;
 
-  font-size: 12px;
-
-  font-weight: 700;
+  font-size: 8px;
+  font-weight: 800;
 
   letter-spacing: 1px;
 }
 
-.respond-label span {
-  color: #7e8290;
+.respond-arrow {
+  color: #a49ead;
 
-  font-size: 22px;
+  font-size: 15px;
+  line-height: 1;
 }
 
 .respond-subtitle {
-  margin-top: 4px;
-
-  color: #9296a1;
-
-  font-size: 10px;
+  margin-top: 5px;
 
   text-align: center;
+
+  color: #aaa6b3;
+
+  font-size: 8px;
+  font-weight: 500;
+}
+
+.respond-subtitle span {
+  margin: 0 5px;
+
+  color: #c3bfca;
 }
 
 
-/* =====================================================
-   ACTION BAR
-   ===================================================== */
+/* =========================================================
+   ACTIONS
+   ========================================================= */
 
 .order-actions {
-  position: relative;
+  display: grid;
 
-  display: flex;
+  grid-template-columns: 56px minmax(80px, 1fr) 56px;
+
   align-items: center;
-  justify-content: space-between;
 
-  height: 74px;
+  gap: 10px;
 
-  margin-top: 9px;
-
-  padding: 0 9px;
-
-  box-sizing: border-box;
-
-  border-radius: 42px;
-
-  background: #172039;
-
-  box-shadow:
-    0 7px 16px rgba(24, 32, 57, 0.24);
+  margin: 13px 14px 17px;
 }
 
 
-/* =====================================================
-   DECLINE / ACCEPT
-   ===================================================== */
+/* =========================================================
+   DECLINE / ACCEPT BUTTONS
+   ========================================================= */
 
 .decline-button,
 .accept-button {
-  position: relative;
-  z-index: 2;
-
-  width: 58px;
+  width: 56px;
   height: 58px;
+
+  border: 0;
+
+  border-radius: 13px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  flex: 0 0 auto;
-
-  border: none;
-
-  border-radius: 50%;
+  gap: 3px;
 
   cursor: pointer;
 
-  color: #ffffff;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.decline-button:active,
+.accept-button:active {
+  transform: scale(0.95);
 }
 
 .decline-button {
-  background: #e31919;
+  background: #fff0f0;
+
+  color: #e54848;
+
+  border: 1px solid #ffd9d9;
 }
 
 .accept-button {
-  background: #7b3bd1;
+  background: #7540d5;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px rgba(117, 64, 213, 0.28);
 }
 
-.decline-button span,
-.accept-button span {
-  font-size: 19px;
+.action-icon {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+  font-weight: 800;
 
   line-height: 1;
 }
 
+.decline-button .action-icon {
+  background: #ffe0e0;
+}
+
+.accept-button .action-icon {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .decline-button small,
 .accept-button small {
-  position: absolute;
-
-  top: 64px;
-
-  font-size: 10px;
+  font-size: 7px;
 
   font-weight: 800;
-}
 
-.decline-button small {
-  color: #727889;
-}
-
-.accept-button small {
-  color: #783bcf;
+  letter-spacing: 0.4px;
 }
 
 
-/* =====================================================
+/* =========================================================
    SWIPE TRACK
-   ===================================================== */
+   ========================================================= */
 
 .swipe-track {
-  position: absolute;
+  height: 46px;
 
-  left: 68px;
-  right: 68px;
+  position: relative;
 
-  height: 100%;
+  border-radius: 24px;
+
+  background: #f2eff8;
+
+  border: 1px solid #e6e1f0;
+
+  overflow: hidden;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.swipe-track::before {
-  content: "‹‹     SWIPE TO RESPOND     ››";
+.swipe-track-line {
+  position: absolute;
 
-  color: #ffffff;
+  left: 17px;
+  right: 17px;
 
-  font-size: 10px;
+  height: 2px;
 
-  font-weight: 650;
+  background: #d7d1e2;
+}
 
-  letter-spacing: 0.7px;
+.swipe-dot {
+  width: 26px;
+  height: 26px;
 
-  text-align: center;
+  position: relative;
+
+  z-index: 2;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  border: 1px solid #ddd6e9;
+
+  box-shadow:
+    0 3px 8px rgba(44, 31, 71, 0.12);
+}
+
+.swipe-arrow {
+  position: absolute;
+
+  right: 12px;
+
+  z-index: 3;
+
+  color: #7a4bd0;
+
+  font-size: 15px;
+
+  font-weight: 800;
 }
 
 
-/* =====================================================
-   TABLET / DESKTOP
-   ===================================================== */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-@media (min-width: 761px) {
+@media (width >= 480px) {
   .new-order-page {
-    padding: 50px 20px;
+    padding: 25px 16px 40px;
   }
 
   .new-order-card {
-    max-width: 500px;
-
-    padding: 65px 34px 32px;
-  }
-
-  .new-order-card h1 {
-    font-size: 31px;
-  }
-
-  .new-order-subtitle {
-    font-size: 15px;
+    max-width: 390px;
   }
 
   .order-details-card {
-    padding: 23px;
-  }
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-   ===================================================== */
-
-@media (max-width: 390px) {
-  .new-order-page {
-    padding: 20px 10px;
-  }
-
-  .new-order-card {
-    padding: 48px 18px 27px;
-
-    border-radius: 26px;
-  }
-
-  .new-order-bell {
-    width: 72px;
-    height: 72px;
-
-    margin-bottom: 20px;
-  }
-
-  .new-order-bell span {
-    font-size: 34px;
-  }
-
-  .new-order-card h1 {
-    font-size: 23px;
-  }
-
-  .new-order-subtitle {
-    font-size: 12px;
-
-    margin-bottom: 22px;
-  }
-
-  .order-details-card {
-    padding: 16px;
-
-    border-radius: 18px;
-  }
-
-  .direct-match {
-    padding: 7px 9px;
-
-    font-size: 9px;
-  }
-
-  .estimated-earning strong {
-    font-size: 19px;
-  }
-
-  .order-location strong {
-    font-size: 13px;
-  }
-
-  .order-location strong em {
-    font-size: 11px;
-  }
-
-  .order-info-grid {
-    gap: 10px;
-  }
-
-  .order-info-grid strong {
-    font-size: 11px;
+    margin-left: 18px;
+    margin-right: 18px;
   }
 
   .order-actions {
-    height: 68px;
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (width >= 768px) {
+  .new-order-page {
+    min-height: 100vh;
+
+    align-items: center;
+
+    padding: 40px 20px;
+  }
+
+  .new-order-card {
+    max-width: 420px;
+
+    border-radius: 25px;
+  }
+
+  .new-order-bell {
+    width: 60px;
+    height: 60px;
+
+    margin-top: 28px;
+  }
+
+  .new-order-heading h1 {
+    font-size: 20px;
+  }
+
+  .new-order-heading p {
+    font-size: 12px;
+  }
+
+  .order-details-card {
+    margin-left: 20px;
+    margin-right: 20px;
+
+    padding: 18px;
+  }
+
+  .direct-match {
+    font-size: 10px;
+  }
+
+  .estimated-earning strong {
+    font-size: 16px;
+  }
+
+  .location-content strong {
+    font-size: 12px;
+  }
+
+  .order-info-item strong {
+    font-size: 10px;
+  }
+
+  .order-actions {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 22px;
+
+    grid-template-columns: 64px minmax(100px, 1fr) 64px;
   }
 
   .decline-button,
   .accept-button {
-    width: 53px;
-    height: 53px;
+    width: 64px;
+    height: 62px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (width < 340px) {
+  .new-order-page {
+    padding-left: 7px;
+    padding-right: 7px;
   }
 
-  .swipe-track {
-    left: 62px;
-    right: 62px;
+  .new-order-card {
+    border-radius: 18px;
   }
 
-  .swipe-track::before {
-    font-size: 8px;
+  .order-details-card {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 12px;
+  }
+
+  .order-info-grid {
+    gap: 7px;
+  }
+
+  .order-info-item {
+    gap: 5px;
+  }
+
+  .info-icon {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+
+  .order-actions {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    grid-template-columns: 52px minmax(70px, 1fr) 52px;
+    gap: 7px;
+  }
+
+  .decline-button,
+  .accept-button {
+    width: 52px;
+    height: 55px;
   }
 }

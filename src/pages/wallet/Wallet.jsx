@@ -4,13 +4,13 @@ import "./Wallet.css";
 
 function Wallet() {
   const navigate = useNavigate();
-  const [plan, setPlan] = useState("weekly");
+  const [selectedPlan, setSelectedPlan] = useState("weekly");
 
   const handleContinue = () => {
-    if (plan === "weekly") {
+    if (selectedPlan === "weekly") {
       navigate("/wallet/weekly-settlement");
     } else {
-      navigate("/wallet/payment");
+      navigate("/wallet/secure-payment");
     }
   };
 
@@ -19,120 +19,205 @@ function Wallet() {
 
       {/* Header */}
       <div className="wallet-header">
+
         <div>
-          <span className="wallet-label">TRANSPORTER WALLET</span>
-          <h1>Wallet & Settlement</h1>
-          <p>Manage your earnings and settlements.</p>
+          <span className="wallet-label">
+            TRANSPORTER WALLET
+          </span>
+
+          <h1>Wallet</h1>
+
+          <p>
+            Manage your earnings and settlements.
+          </p>
         </div>
 
-        <div className="wallet-balance-icon">₹</div>
+        <div className="wallet-icon">
+          ₹
+        </div>
+
       </div>
 
-      {/* Balance */}
-      <div className="wallet-balance-card">
-        <div>
-          <span>Current Pending Balance</span>
-          <strong>₹24,500</strong>
-        </div>
 
-        <div className="wallet-balance-status">
-          Pending
-        </div>
-      </div>
+      {/* Balance Card */}
+      <section className="wallet-balance-card">
 
-      {/* Stats */}
-      <div className="wallet-stats">
-
-        <div className="wallet-stat-card">
-          <span className="wallet-stat-icon">✓</span>
+        <div className="wallet-balance-top">
           <div>
+            <span>Current Pending Balance</span>
+
+            <strong>₹24,500</strong>
+          </div>
+
+          <div className="balance-wallet-icon">
+            ₹
+          </div>
+        </div>
+
+        <div className="balance-divider"></div>
+
+        <div className="balance-footer">
+
+          <div>
+            <span>Trips Completed Today</span>
             <strong>12</strong>
-            <small>Trips Completed Today</small>
           </div>
-        </div>
 
-        <div className="wallet-stat-card">
-          <span className="wallet-stat-icon">↗</span>
           <div>
+            <span>Total Accepted Trips</span>
             <strong>148</strong>
-            <small>Total Accepted Trips</small>
           </div>
+
         </div>
 
-      </div>
+      </section>
+
 
       {/* Settlement Plan */}
-      <div className="wallet-section">
+      <section className="settlement-section">
 
         <div className="wallet-section-heading">
+
           <div>
             <span>SETTLEMENT</span>
             <h2>Choose Settlement Plan</h2>
           </div>
+
         </div>
+
 
         {/* Weekly */}
         <button
-          className={`settlement-option ${
-            plan === "weekly" ? "selected" : ""
-          }`}
-          onClick={() => setPlan("weekly")}
+          type="button"
+          className={
+            selectedPlan === "weekly"
+              ? "settlement-option selected"
+              : "settlement-option"
+          }
+          onClick={() => setSelectedPlan("weekly")}
         >
-          <div className="settlement-radio">
-            {plan === "weekly" && <span></span>}
+
+          <div className="settlement-option-icon weekly-icon">
+            ↗
           </div>
 
-          <div className="settlement-content">
+          <div className="settlement-option-content">
+
             <strong>Weekly Settlement</strong>
+
             <p>
               Settle your completed trips every week.
             </p>
+
           </div>
 
-          <span className="settlement-arrow">→</span>
+          <span className="settlement-radio">
+            {selectedPlan === "weekly" && (
+              <i></i>
+            )}
+          </span>
+
         </button>
+
 
         {/* Monthly */}
         <button
-          className={`settlement-option ${
-            plan === "monthly" ? "selected" : ""
-          }`}
-          onClick={() => setPlan("monthly")}
+          type="button"
+          className={
+            selectedPlan === "monthly"
+              ? "settlement-option selected"
+              : "settlement-option"
+          }
+          onClick={() => setSelectedPlan("monthly")}
         >
-          <div className="settlement-radio">
-            {plan === "monthly" && <span></span>}
+
+          <div className="settlement-option-icon monthly-icon">
+            ◷
           </div>
 
-          <div className="settlement-content">
+          <div className="settlement-option-content">
+
             <strong>Monthly Subscription</strong>
+
             <p>
-              Pay a fixed monthly subscription for settlement.
+              Manage settlements with a monthly plan.
             </p>
+
           </div>
 
-          <span className="settlement-price">
-            ₹2,499
+          <span className="settlement-radio">
+            {selectedPlan === "monthly" && (
+              <i></i>
+            )}
           </span>
+
         </button>
 
-      </div>
+      </section>
+
+
+      {/* Selected Plan Summary */}
+      <section className="wallet-summary-card">
+
+        <div className="summary-heading">
+          <span>SELECTED PLAN</span>
+
+          <strong>
+            {selectedPlan === "weekly"
+              ? "Weekly Settlement"
+              : "Monthly Subscription"}
+          </strong>
+        </div>
+
+
+        {selectedPlan === "weekly" ? (
+          <div className="summary-row">
+
+            <div>
+              <span>Available Balance</span>
+              <strong>₹24,500</strong>
+            </div>
+
+            <div>
+              <span>Settlement Cycle</span>
+              <strong>Weekly</strong>
+            </div>
+
+          </div>
+        ) : (
+          <div className="summary-row">
+
+            <div>
+              <span>Subscription</span>
+              <strong>₹2,499</strong>
+            </div>
+
+            <div>
+              <span>Billing</span>
+              <strong>Monthly</strong>
+            </div>
+
+          </div>
+        )}
+
+      </section>
+
 
       {/* Continue */}
       <button
-        className="wallet-continue"
+        type="button"
+        className="wallet-continue-button"
         onClick={handleContinue}
       >
         Continue to Payment
+
         <span>→</span>
       </button>
 
-      {/* Security */}
-      <div className="wallet-security">
+
+      <div className="wallet-secure-note">
         <span>🔒</span>
-        <p>
-          Your payment and settlement information
-          is securely protected.
-        </p>
+        Secure settlement powered by BIXOO
       </div>
 
     </div>

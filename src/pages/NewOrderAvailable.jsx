@@ -12,74 +12,80 @@ function NewOrderAvailable() {
     const activeTrip = {
       tripId: "TR-LD001",
       loadId: "LD001",
+
       pickup: "Mumbai, MH",
       pickupPoint: "APMC Market",
+
       delivery: "Pune, MH",
       deliveryPoint: "Hadapsar Depot",
+
       weight: "50 Tons Wheat",
       loadType: "Wheat",
+
       vehicle: "20ft Truck (Open)",
+
       distance: "160 KM",
       earnings: "₹18,500",
-      status: "In Transit",
+
+      pickupDate: "Today, 24 Oct",
+      pickupTime: "14:00 Hrs",
+
+      status: "Accepted",
     };
 
-    localStorage.setItem(
-      "active_trip",
-      JSON.stringify(activeTrip)
-    );
+    localStorage.setItem("active_trip", JSON.stringify(activeTrip));
 
     navigate("/trips");
   };
 
   return (
     <div className="new-order-page">
-
       <div className="new-order-card">
 
         {/* Purple Top Border */}
         <div className="new-order-top-line"></div>
 
-        {/* Bell */}
+        {/* Notification Icon */}
         <div className="new-order-bell">
-          <span>♟</span>
+          <span>🔔</span>
         </div>
 
         {/* Heading */}
-        <h1>NEW ORDER AVAILABLE</h1>
+        <div className="new-order-heading">
+          <h1>NEW ORDER AVAILABLE</h1>
 
-        <p className="new-order-subtitle">
-          Tap accept to secure this load
-          <br />
-          immediately.
-        </p>
+          <p>
+            Tap accept to secure this load
+            <br />
+            immediately.
+          </p>
+        </div>
 
-        {/* Order Information */}
+        {/* Order Details */}
         <div className="order-details-card">
 
           {/* Match + Earnings */}
           <div className="order-detail-header">
-
-            <span className="direct-match">
+            <div className="direct-match">
               <span className="match-dot"></span>
-              DIRECT MATCH • 160 KM
-            </span>
+              <span>DIRECT MATCH</span>
+              <span className="match-separator">•</span>
+              <span>160 KM</span>
+            </div>
 
             <div className="estimated-earning">
               <small>Est. Earnings</small>
               <strong>₹18,500</strong>
             </div>
-
           </div>
 
           <div className="details-divider"></div>
 
           {/* Pickup */}
           <div className="order-location">
-
             <span className="order-dot pickup"></span>
 
-            <div>
+            <div className="location-content">
               <small>Pickup</small>
 
               <strong>
@@ -87,18 +93,16 @@ function NewOrderAvailable() {
                 <em> (APMC Market)</em>
               </strong>
             </div>
-
           </div>
 
-          {/* Vertical Line */}
+          {/* Route Line */}
           <div className="order-location-line"></div>
 
           {/* Delivery */}
           <div className="order-location">
-
             <span className="order-dot delivery"></span>
 
-            <div>
+            <div className="location-content">
               <small>Delivery</small>
 
               <strong>
@@ -106,15 +110,14 @@ function NewOrderAvailable() {
                 <em> (Hadapsar Depot)</em>
               </strong>
             </div>
-
           </div>
 
           <div className="details-divider"></div>
 
-          {/* Load / Vehicle */}
+          {/* Load + Vehicle */}
           <div className="order-info-grid">
 
-            <div>
+            <div className="order-info-item">
               <span className="info-icon">◈</span>
 
               <div>
@@ -123,7 +126,7 @@ function NewOrderAvailable() {
               </div>
             </div>
 
-            <div>
+            <div className="order-info-item">
               <span className="info-icon">▣</span>
 
               <div>
@@ -134,10 +137,10 @@ function NewOrderAvailable() {
 
           </div>
 
-          {/* Date / Time */}
+          {/* Date + Time */}
           <div className="order-info-grid">
 
-            <div>
+            <div className="order-info-item">
               <span className="info-icon">▣</span>
 
               <div>
@@ -146,7 +149,7 @@ function NewOrderAvailable() {
               </div>
             </div>
 
-            <div>
+            <div className="order-info-item">
               <span className="info-icon">◷</span>
 
               <div>
@@ -158,50 +161,58 @@ function NewOrderAvailable() {
             </div>
 
           </div>
-
         </div>
 
-        {/* Swipe Label */}
+        {/* Swipe Instruction */}
         <div className="respond-label">
-          <span>‹‹</span>
-          SWIPE TO RESPOND
-          <span>››</span>
+          <span className="respond-arrow left">‹‹</span>
+
+          <span>SWIPE TO RESPOND</span>
+
+          <span className="respond-arrow right">››</span>
         </div>
 
         <div className="respond-subtitle">
-          Reject &lt;&gt; Accept
+          Reject <span>•</span> Accept
         </div>
 
-        {/* Bottom Action */}
+        {/* Bottom Actions */}
         <div className="order-actions">
 
           {/* Decline */}
           <button
+            type="button"
             className="decline-button"
             onClick={handleDecline}
           >
-            <span>☎</span>
+            <span className="action-icon">×</span>
+
             <small>DECLINE</small>
           </button>
 
           {/* Swipe Track */}
           <div className="swipe-track">
-            <span></span>
+            <div className="swipe-track-line"></div>
+
+            <span className="swipe-dot"></span>
+
+            <span className="swipe-arrow">→</span>
           </div>
 
           {/* Accept */}
           <button
+            type="button"
             className="accept-button"
             onClick={handleAccept}
           >
-            <span>☎</span>
+            <span className="action-icon">✓</span>
+
             <small>ACCEPT</small>
           </button>
 
         </div>
 
       </div>
-
     </div>
   );
 }
