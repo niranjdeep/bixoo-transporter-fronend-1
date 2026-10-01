@@ -1,11 +1,15 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+<<<<<<< HEAD
 import { useAuth } from "../context/AuthContext";
 import LoadingSpinner from "./LoadingSpinner";
 import Button from "./ui/Button";
+=======
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
 function ProtectedRoute() {
   const location = useLocation();
 
+<<<<<<< HEAD
   const { user, loading, error, restoreSession, logout } = useAuth();
   if (loading) return <LoadingSpinner label="Checking your session..." />;
   if (error) return (
@@ -19,6 +23,12 @@ function ProtectedRoute() {
   );
 
   if (!user) {
+=======
+  const isLoggedIn =
+    localStorage.getItem("transporter_logged_in") === "true";
+
+  if (!isLoggedIn) {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
     return (
       <Navigate
         to="/login"
@@ -31,4 +41,8 @@ function ProtectedRoute() {
   return <Outlet />;
 }
 
+<<<<<<< HEAD
 export default ProtectedRoute;
+=======
+export default ProtectedRoute;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e

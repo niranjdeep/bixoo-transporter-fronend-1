@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Shared Trip Page Styles */
 .trip-page {
   width: 100%;
@@ -258,3 +259,1364 @@
     max-width: 900px;
   }
 }
+=======
+/* =========================================================
+   BIXOO - LIVE TRIP
+   Figma style responsive layout
+========================================================= */
+
+.live-trip-page {
+  min-height: 100vh;
+  padding: 32px 38px 60px;
+  background: #f4f6fb;
+  color: #17152a;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.live-trip-page *,
+.live-trip-page *::before,
+.live-trip-page *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.live-trip-header {
+  max-width: 1180px;
+  margin: 0 auto 22px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.live-trip-header > div:first-child {
+  min-width: 0;
+}
+
+.live-back-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0 0 14px;
+
+  color: #6d3fc5;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.live-back-btn:hover {
+  color: #5228a5;
+}
+
+.live-page-label {
+  display: block;
+  margin-bottom: 6px;
+
+  color: #7b3fc2;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.live-trip-header h1 {
+  margin: 0;
+
+  color: #17152a;
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.live-trip-header p {
+  margin: 7px 0 0;
+
+  color: #716d7b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.live-status {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border-radius: 999px;
+  background: #eee8ff;
+
+  color: #6937b5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.live-status span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: #35b86b;
+
+  box-shadow: 0 0 0 4px rgba(53, 184, 107, 0.12);
+}
+
+/* =========================================================
+   TRIP SUMMARY BAR
+========================================================= */
+
+.live-trip-bar {
+  max-width: 1180px;
+  margin: 0 auto 24px;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.55fr 1fr 0.9fr;
+
+  border: 1px solid #e7e2ee;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow: 0 8px 24px rgba(62, 42, 94, 0.06);
+
+  overflow: hidden;
+}
+
+.live-trip-bar > div {
+  min-width: 0;
+  padding: 17px 20px;
+
+  border-right: 1px solid #eeeaf2;
+}
+
+.live-trip-bar > div:last-child {
+  border-right: none;
+}
+
+.live-trip-bar span {
+  display: block;
+  margin-bottom: 6px;
+
+  color: #918c99;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+}
+
+.live-trip-bar strong {
+  display: block;
+
+  color: #282433;
+  font-size: 14px;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+.live-trip-bar .live-earning {
+  color: #713bc0;
+  font-size: 15px;
+}
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.live-trip-layout {
+  max-width: 1180px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.8fr);
+  gap: 22px;
+
+  align-items: start;
+}
+
+.live-main {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.live-sidebar {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* =========================================================
+   COMMON CARD
+========================================================= */
+
+.map-card,
+.live-card,
+.delivery-card,
+.progress-card,
+.coordination-card,
+.trip-info-card {
+  border: 1px solid #e8e3ef;
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow: 0 10px 28px rgba(72, 47, 105, 0.07);
+}
+
+/* =========================================================
+   MAP CARD
+========================================================= */
+
+.map-card {
+  padding: 22px;
+  overflow: hidden;
+}
+
+.map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 16px;
+}
+
+.map-header > div:first-child span {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #8a8393;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.map-header h2 {
+  margin: 0;
+
+  color: #211d2d;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.gps-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 11px;
+
+  border-radius: 999px;
+  background: #edf9f1;
+
+  color: #269257;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.gps-status span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: #35b86b;
+}
+
+/* =========================================================
+   FAKE MAP
+========================================================= */
+
+.fake-map {
+  position: relative;
+
+  width: 100%;
+  height: 315px;
+
+  overflow: hidden;
+
+  border: 1px solid #dce3e9;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      28deg,
+      transparent 47%,
+      rgba(255, 255, 255, 0.9) 48%,
+      rgba(255, 255, 255, 0.9) 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      145deg,
+      transparent 42%,
+      rgba(255, 255, 255, 0.82) 43%,
+      rgba(255, 255, 255, 0.82) 45%,
+      transparent 46%
+    ),
+    #dcebdc;
+}
+
+/* map blocks */
+.map-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.65;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(121, 150, 125, 0.16) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(121, 150, 125, 0.16) 1px,
+      transparent 1px
+    );
+
+  background-size: 52px 52px;
+}
+
+/* route */
+.map-route-line {
+  position: absolute;
+
+  left: 9%;
+  right: 10%;
+  top: 52%;
+
+  height: 7px;
+
+  border-radius: 999px;
+
+  background: #7442d1;
+
+  transform: rotate(-10deg);
+
+  box-shadow:
+    0 0 0 3px rgba(116, 66, 209, 0.15),
+    0 5px 10px rgba(116, 66, 209, 0.18);
+
+  z-index: 3;
+}
+
+/* pickup */
+.map-pickup {
+  position: absolute;
+
+  left: 8%;
+  top: 63%;
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.map-pickup span,
+.map-delivery span {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.16);
+}
+
+.map-pickup span {
+  background: #35a961;
+}
+
+.map-pickup small,
+.map-delivery small {
+  padding: 4px 7px;
+
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #34303c;
+  font-size: 9px;
+  font-weight: 700;
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* truck */
+.map-truck {
+  position: absolute;
+
+  left: 50%;
+  top: 41%;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+
+  background: #7b3fc9;
+
+  font-size: 24px;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+
+  box-shadow:
+    0 8px 18px rgba(73, 42, 116, 0.25),
+    0 0 0 5px rgba(123, 63, 201, 0.14);
+}
+
+/* delivery */
+.map-delivery {
+  position: absolute;
+
+  right: 8%;
+  top: 23%;
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.map-delivery span {
+  background: #dd5a5a;
+}
+
+/* current location */
+.map-location-label {
+  position: absolute;
+
+  left: 50%;
+  bottom: 17px;
+
+  z-index: 7;
+
+  min-width: 160px;
+
+  padding: 10px 13px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  color: #77717e;
+  font-size: 9px;
+  font-weight: 600;
+
+  transform: translateX(-50%);
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.12);
+}
+
+.map-location-label strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #282330;
+  font-size: 11px;
+}
+
+/* =========================================================
+   MAP CONTROLS
+========================================================= */
+
+.map-controls {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+
+  margin-top: 14px;
+
+  border: 1px solid #ece8f0;
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.map-controls > div {
+  padding: 12px 14px;
+
+  border-right: 1px solid #ece8f0;
+}
+
+.map-controls > div:last-child {
+  border-right: none;
+}
+
+.map-controls small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #99939f;
+  font-size: 9px;
+}
+
+.map-controls strong {
+  display: block;
+
+  color: #292532;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   SHARE LIVE LOCATION
+========================================================= */
+
+.live-card {
+  padding: 20px;
+}
+
+.live-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.live-icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #f0e8ff;
+
+  color: #713bc0;
+  font-size: 22px;
+}
+
+.live-card h3 {
+  margin: 0 0 5px;
+
+  color: #24202e;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.live-card p {
+  margin: 0;
+
+  color: #77717e;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.chat-consignee-btn {
+  margin-top: 12px;
+
+  border: none;
+  border-radius: 9px;
+
+  padding: 9px 12px;
+
+  background: #f2ecff;
+
+  color: #713bc0;
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.location-btn {
+  margin-top: 16px;
+
+  width: 100%;
+  min-height: 42px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #743dcc;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 7px 15px rgba(116, 61, 204, 0.18);
+}
+
+.location-btn:hover {
+  background: #6330b5;
+}
+
+.location-btn.shared {
+  background: #2da866;
+}
+
+/* =========================================================
+   DELIVERY CARD
+========================================================= */
+
+.delivery-card {
+  padding: 22px;
+}
+
+.delivery-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #eeeaf2;
+}
+
+.delivery-heading > div:first-child > span {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #8c8692;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.delivery-heading h2 {
+  margin: 0 0 4px;
+
+  color: #241f2e;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.delivery-heading p {
+  margin: 0;
+
+  color: #716b78;
+  font-size: 11px;
+}
+
+.delivery-eta {
+  min-width: 150px;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  background: #f7f3ff;
+}
+
+.delivery-eta small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #8e8797;
+  font-size: 8px;
+}
+
+.delivery-eta strong {
+  color: #6d38bb;
+  font-size: 11px;
+}
+
+/* delivery info */
+.delivery-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 17px;
+
+  gap: 12px;
+}
+
+.delivery-info-grid > div {
+  padding: 13px;
+
+  border-radius: 11px;
+
+  background: #faf9fc;
+}
+
+.delivery-info-grid span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #928c99;
+  font-size: 9px;
+}
+
+.delivery-info-grid strong {
+  display: block;
+
+  color: #292532;
+  font-size: 12px;
+}
+
+/* actions */
+.delivery-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 17px;
+}
+
+.secondary-action,
+.complete-delivery-btn {
+  min-height: 40px;
+
+  padding: 0 13px;
+
+  border-radius: 9px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.secondary-action {
+  border: 1px solid #ded8e7;
+  background: #ffffff;
+
+  color: #5e5966;
+}
+
+.secondary-action:hover {
+  background: #f7f4fb;
+}
+
+.complete-delivery-btn {
+  margin-left: auto;
+
+  border: none;
+  background: #743dcc;
+
+  color: #ffffff;
+
+  box-shadow: 0 6px 14px rgba(116, 61, 204, 0.18);
+}
+
+/* =========================================================
+   PROGRESS CARD
+========================================================= */
+
+.progress-card {
+  padding: 20px;
+}
+
+.progress-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.progress-card-header span,
+.coordination-header span:first-child {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #918b98;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+}
+
+.progress-card-header h3,
+.coordination-header h3 {
+  margin: 0;
+
+  color: #282330;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.progress-card-header > strong {
+  color: #713bc0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.progress-track {
+  width: 100%;
+  height: 9px;
+
+  margin-top: 16px;
+
+  border-radius: 999px;
+
+  background: #eeeaf3;
+
+  overflow: hidden;
+}
+
+.progress-value {
+  width: 68%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #8b51d5,
+    #6e38c3
+  );
+}
+
+.progress-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 9px;
+
+  color: #817b87;
+  font-size: 9px;
+}
+
+/* =========================================================
+   COORDINATION
+========================================================= */
+
+.coordination-card {
+  padding: 20px;
+}
+
+.coordination-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.online-dot {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 5px;
+
+  padding: 5px 8px;
+
+  border-radius: 999px;
+
+  background: #edf9f1;
+
+  color: #2a9859 !important;
+
+  font-size: 9px !important;
+  letter-spacing: 0 !important;
+}
+
+.online-dot::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #36b96a;
+}
+
+.consignee {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  margin-top: 18px;
+  padding: 12px;
+
+  border-radius: 12px;
+
+  background: #faf9fc;
+}
+
+.consignee-avatar {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e9ddff;
+
+  color: #6d38b8;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.consignee strong {
+  display: block;
+
+  color: #2c2735;
+  font-size: 12px;
+}
+
+.consignee small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #8c8692;
+  font-size: 9px;
+}
+
+/* quick messages */
+.quick-messages {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 13px;
+}
+
+.quick-messages button {
+  border: 1px solid #e1dce8;
+  border-radius: 999px;
+
+  padding: 7px 9px;
+
+  background: #ffffff;
+
+  color: #716a79;
+  font-size: 8px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.quick-messages button:hover {
+  border-color: #bda6df;
+  color: #713bc0;
+  background: #faf7ff;
+}
+
+/* message */
+.message-box {
+  display: flex;
+  gap: 7px;
+
+  margin-top: 13px;
+}
+
+.message-box textarea {
+  width: 100%;
+  min-height: 44px;
+  max-height: 90px;
+
+  resize: vertical;
+
+  border: 1px solid #ded9e5;
+  border-radius: 10px;
+
+  padding: 10px;
+
+  outline: none;
+
+  color: #292532;
+  background: #ffffff;
+
+  font-family: inherit;
+  font-size: 10px;
+}
+
+.message-box textarea:focus {
+  border-color: #8c5ad0;
+  box-shadow: 0 0 0 3px rgba(140, 90, 208, 0.1);
+}
+
+.message-box button {
+  align-self: flex-end;
+
+  min-width: 58px;
+  height: 40px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #743dcc;
+
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   TRIP INFORMATION
+========================================================= */
+
+.trip-info-card {
+  padding: 20px;
+}
+
+.trip-info-card h3 {
+  margin: 0 0 14px;
+
+  color: #282330;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.trip-info-card > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 11px 0;
+
+  border-top: 1px solid #eeeaf2;
+}
+
+.trip-info-card span {
+  color: #8b8591;
+  font-size: 10px;
+}
+
+.trip-info-card strong {
+  color: #2c2734;
+  font-size: 11px;
+  font-weight: 700;
+
+  text-align: right;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .live-trip-page {
+    padding: 25px 25px 50px;
+  }
+
+  .live-trip-layout {
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  }
+
+  .live-trip-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .live-trip-bar > div:nth-child(2) {
+    border-right: none;
+  }
+
+  .live-trip-bar > div:nth-child(-n + 2) {
+    border-bottom: 1px solid #eeeaf2;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+  .live-trip-page {
+    min-height: 100vh;
+
+    padding: 18px 14px 40px;
+
+    background:
+      linear-gradient(
+        180deg,
+        #dfcff7 0%,
+        #e7ddf5 45%,
+        #f3eef9 100%
+      );
+  }
+
+  .live-trip-header {
+    margin-bottom: 15px;
+
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .live-trip-header h1 {
+    font-size: 27px;
+  }
+
+  .live-trip-header p {
+    font-size: 11px;
+  }
+
+  .live-status {
+    align-self: flex-start;
+  }
+
+  .live-trip-bar {
+    grid-template-columns: 1fr 1fr;
+
+    border-radius: 16px;
+  }
+
+  .live-trip-bar > div {
+    padding: 13px;
+  }
+
+  .live-trip-bar span {
+    font-size: 8px;
+  }
+
+  .live-trip-bar strong {
+    font-size: 11px;
+  }
+
+  .live-trip-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .live-sidebar {
+    gap: 14px;
+  }
+
+  .map-card,
+  .live-card,
+  .delivery-card,
+  .progress-card,
+  .coordination-card,
+  .trip-info-card {
+    border-radius: 18px;
+  }
+
+  .map-card {
+    padding: 15px;
+  }
+
+  .map-header {
+    align-items: flex-start;
+  }
+
+  .map-header h2 {
+    font-size: 17px;
+  }
+
+  .gps-status {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+
+  .fake-map {
+    height: 245px;
+  }
+
+  .map-truck {
+    width: 43px;
+    height: 43px;
+    font-size: 20px;
+  }
+
+  .map-pickup {
+    left: 6%;
+    top: 66%;
+  }
+
+  .map-delivery {
+    right: 6%;
+    top: 20%;
+  }
+
+  .map-pickup span,
+  .map-delivery span {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+  }
+
+  .map-location-label {
+    min-width: 145px;
+
+    padding: 8px 10px;
+
+    bottom: 10px;
+  }
+
+  .map-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .map-controls > div:first-child {
+    grid-column: 1 / -1;
+
+    border-right: none;
+    border-bottom: 1px solid #ece8f0;
+  }
+
+  .map-controls > div:nth-child(2) {
+    border-right: 1px solid #ece8f0;
+  }
+
+  .live-card {
+    padding: 15px;
+  }
+
+  .live-card-content {
+    gap: 10px;
+  }
+
+  .live-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    font-size: 18px;
+  }
+
+  .live-card h3 {
+    font-size: 15px;
+  }
+
+  .live-card p {
+    font-size: 10px;
+  }
+
+  .delivery-card {
+    padding: 15px;
+  }
+
+  .delivery-heading {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .delivery-heading h2 {
+    font-size: 18px;
+  }
+
+  .delivery-eta {
+    width: 100%;
+  }
+
+  .delivery-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .delivery-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .complete-delivery-btn {
+    grid-column: 1 / -1;
+
+    margin-left: 0;
+  }
+
+  .progress-card,
+  .coordination-card,
+  .trip-info-card {
+    padding: 15px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .live-trip-page {
+    padding: 14px 10px 30px;
+  }
+
+  .live-trip-header h1 {
+    font-size: 24px;
+  }
+
+  .live-trip-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .live-trip-bar > div,
+  .live-trip-bar > div:nth-child(2) {
+    border-right: none;
+    border-bottom: 1px solid #eeeaf2;
+  }
+
+  .live-trip-bar > div:last-child {
+    border-bottom: none;
+  }
+
+  .fake-map {
+    height: 220px;
+  }
+
+  .delivery-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .complete-delivery-btn {
+    grid-column: auto;
+  }
+
+  .message-box {
+    flex-direction: column;
+  }
+
+  .message-box button {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REMOVE DEFAULT BUTTON / FORM LOOK
+========================================================= */
+
+.live-trip-page button {
+  font-family: inherit;
+}
+
+.live-trip-page button:focus-visible {
+  outline: 3px solid rgba(116, 61, 204, 0.25);
+  outline-offset: 2px;
+}
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e

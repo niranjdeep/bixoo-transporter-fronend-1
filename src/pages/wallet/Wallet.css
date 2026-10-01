@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .wallet-page {
   width: 100%;
   max-width: 1200px;
@@ -294,3 +295,632 @@
 }
 
 .wallet-page .wallet-continue-btn { margin-top: 32px; width: 100%; justify-content: center; height: 52px; font-size: 16px; border-radius: 12px; }
+=======
+* {
+  box-sizing: border-box;
+}
+
+.wallet-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 14px 12px 105px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ddd0f3 0%,
+      #d9c9f0 45%,
+      #d6c5ee 100%
+    );
+
+  color: #1b1930;
+
+  font-family:
+    "Poppins",
+    "Inter",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.wallet-header {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.wallet-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #7752aa;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.wallet-header h1 {
+  margin: 0;
+
+  color: #242037;
+
+  font-size: 19px;
+  line-height: 1.25;
+
+  font-weight: 800;
+}
+
+.wallet-header p {
+  margin: 6px 0 0;
+
+  color: #80798d;
+
+  font-size: 8px;
+}
+
+.wallet-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #7040c9;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  box-shadow:
+    0 5px 15px rgba(72, 45, 110, 0.08);
+}
+
+
+/* =========================================================
+   BALANCE CARD
+   ========================================================= */
+
+.wallet-balance-card {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 0 auto 13px;
+
+  padding: 16px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7040ce 0%,
+      #8250db 100%
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 10px 25px rgba(105, 57, 194, 0.25);
+}
+
+.wallet-balance-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.wallet-balance-top span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.wallet-balance-top strong {
+  display: block;
+
+  font-size: 25px;
+  line-height: 1.1;
+
+  font-weight: 800;
+}
+
+.balance-wallet-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.balance-divider {
+  height: 1px;
+
+  margin: 16px 0 12px;
+
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.balance-footer {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+}
+
+.balance-footer div:last-child {
+  text-align: right;
+}
+
+.balance-footer span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 7px;
+}
+
+.balance-footer strong {
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   SETTLEMENT SECTION
+   ========================================================= */
+
+.settlement-section {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 0 auto 12px;
+}
+
+.wallet-section-heading {
+  margin-bottom: 9px;
+}
+
+.wallet-section-heading span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #8061ad;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+.wallet-section-heading h2 {
+  margin: 0;
+
+  color: #29253a;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PLAN OPTION
+   ========================================================= */
+
+.settlement-option {
+  width: 100%;
+
+  min-height: 72px;
+
+  margin-bottom: 8px;
+  padding: 11px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border: 1px solid #e8e2f0;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.settlement-option.selected {
+  border-color: #8a62d5;
+
+  background: #fcfaff;
+
+  box-shadow:
+    0 5px 15px rgba(104, 61, 174, 0.08);
+}
+
+.settlement-option-icon {
+  width: 35px;
+  height: 35px;
+
+  flex: 0 0 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.weekly-icon {
+  background: #eee7fc;
+  color: #7040ca;
+}
+
+.monthly-icon {
+  background: #e6f6ed;
+  color: #238b59;
+}
+
+.settlement-option-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.settlement-option-content strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #302b3f;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.settlement-option-content p {
+  margin: 0;
+
+  color: #9690a1;
+
+  font-size: 7px;
+  line-height: 1.4;
+}
+
+.settlement-radio {
+  width: 18px;
+  height: 18px;
+
+  flex: 0 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #c7c0d2;
+
+  border-radius: 50%;
+}
+
+.settlement-option.selected .settlement-radio {
+  border-color: #7040ca;
+}
+
+.settlement-radio i {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #7040ca;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.wallet-summary-card {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 0 auto 13px;
+
+  padding: 13px;
+
+  border: 1px solid #e9e4f0;
+
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.summary-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 11px;
+}
+
+.summary-heading span {
+  color: #9b95a5;
+
+  font-size: 6px;
+  font-weight: 800;
+
+  letter-spacing: 0.6px;
+}
+
+.summary-heading strong {
+  color: #6e3dc8;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.summary-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.summary-row div:last-child {
+  text-align: right;
+}
+
+.summary-row span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #9a94a4;
+
+  font-size: 6px;
+}
+
+.summary-row strong {
+  color: #332e41;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CONTINUE
+   ========================================================= */
+
+.wallet-continue-button {
+  width: 100%;
+  max-width: 390px;
+
+  height: 45px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7040d0,
+      #8251dc
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 18px rgba(112, 64, 208, 0.23);
+}
+
+.wallet-continue-button span {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   SECURITY
+   ========================================================= */
+
+.wallet-secure-note {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 10px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  color: #8d8799;
+
+  font-size: 6px;
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (width < 340px) {
+
+  .wallet-page {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .wallet-balance-card {
+    padding: 13px;
+  }
+
+  .wallet-balance-top strong {
+    font-size: 22px;
+  }
+
+  .settlement-option {
+    padding: 9px;
+  }
+
+  .settlement-option-content strong {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (width >= 600px) {
+
+  .wallet-page {
+    padding: 24px 20px 60px;
+  }
+
+  .wallet-header,
+  .wallet-balance-card,
+  .settlement-section,
+  .wallet-summary-card,
+  .wallet-continue-button,
+  .wallet-secure-note {
+    max-width: 620px;
+  }
+
+  .wallet-header h1 {
+    font-size: 22px;
+  }
+
+  .wallet-balance-top strong {
+    font-size: 29px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (width >= 900px) {
+
+  .wallet-page {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 30px 35px 60px;
+  }
+
+  .wallet-header,
+  .wallet-balance-card,
+  .settlement-section,
+  .wallet-summary-card,
+  .wallet-continue-button,
+  .wallet-secure-note {
+    max-width: 760px;
+  }
+
+  .wallet-header h1 {
+    font-size: 25px;
+  }
+
+  .wallet-balance-card {
+    padding: 20px;
+  }
+
+  .wallet-balance-top strong {
+    font-size: 32px;
+  }
+
+  .settlement-option {
+    min-height: 82px;
+
+    padding: 14px;
+  }
+
+  .settlement-option-content strong {
+    font-size: 11px;
+  }
+
+  .settlement-option-content p {
+    font-size: 8px;
+  }
+
+  .wallet-continue-button {
+    height: 50px;
+
+    font-size: 10px;
+  }
+}
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e

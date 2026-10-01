@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 @import "./styles/tokens.css";
 
 *,
 *::before,
 *::after {
+=======
+* {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,6 +16,7 @@ html,
 body,
 #root {
   width: 100%;
+<<<<<<< HEAD
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -20,11 +25,19 @@ html {
   font-family: var(--font-family);
   font-size: var(--font-body);
   line-height: 1.5;
+=======
+  min-height: 100%;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
+<<<<<<< HEAD
   background: var(--ui-background);
   color: var(--ui-text);
 }
@@ -40,3 +53,7 @@ svg { flex-shrink: 0; }
 img {
   max-width: 100%;
 }
+=======
+  background: #f4f8fd;
+}
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e

@@ -1,4 +1,766 @@
+<<<<<<< HEAD
 /*
    BIXOO - NEW ORDER AVAILABLE
    Mobile First / Figma Style
    ========================================================= */
+=======
+/* =========================================================
+   BIXOO - NEW ORDER AVAILABLE
+   Mobile First / Figma Style
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.new-order-page {
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(91, 69, 145, 0.18),
+      transparent 38%
+    ),
+    #080c19;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 14px 10px 30px;
+
+  font-family:
+    "Poppins",
+    "Inter",
+    Arial,
+    sans-serif;
+
+  color: #17152a;
+}
+
+
+/* =========================================================
+   MAIN CARD
+   ========================================================= */
+
+.new-order-card {
+  width: 100%;
+  max-width: 360px;
+
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   PURPLE TOP LINE
+   ========================================================= */
+
+.new-order-top-line {
+  width: 100%;
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6f35d9,
+      #8d55ed,
+      #6f35d9
+    );
+}
+
+
+/* =========================================================
+   BELL
+   ========================================================= */
+
+.new-order-bell {
+  width: 54px;
+  height: 54px;
+
+  margin: 24px auto 14px;
+
+  border-radius: 50%;
+
+  background: #f0e8ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(112, 58, 217, 0.08);
+}
+
+.new-order-bell span {
+  font-size: 24px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.new-order-heading {
+  text-align: center;
+
+  padding: 0 20px;
+}
+
+.new-order-heading h1 {
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 1.25;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+
+  color: #19172b;
+}
+
+.new-order-heading p {
+  margin: 9px 0 20px;
+
+  color: #77748a;
+
+  font-size: 11px;
+  line-height: 1.55;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   ORDER DETAILS CARD
+   ========================================================= */
+
+.order-details-card {
+  margin: 0 14px;
+
+  padding: 15px;
+
+  background: #f8f7fc;
+
+  border: 1px solid #ebe8f3;
+
+  border-radius: 15px;
+}
+
+
+/* =========================================================
+   HEADER - DIRECT MATCH / EARNINGS
+   ========================================================= */
+
+.order-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.direct-match {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  min-width: 0;
+
+  color: #6841b9;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.25px;
+}
+
+.match-dot {
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 6px;
+
+  border-radius: 50%;
+
+  background: #7848d7;
+}
+
+.match-separator {
+  color: #a29ab5;
+}
+
+.estimated-earning {
+  text-align: right;
+
+  flex-shrink: 0;
+}
+
+.estimated-earning small {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #9691a2;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.estimated-earning strong {
+  display: block;
+
+  color: #6d35d5;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.details-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 13px 0;
+
+  background: #e8e5ef;
+}
+
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.order-location {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 42px;
+}
+
+.order-dot {
+  width: 10px;
+  height: 10px;
+
+  flex: 0 0 10px;
+
+  border-radius: 50%;
+
+  position: relative;
+}
+
+.order-dot.pickup {
+  background: #7443d7;
+
+  box-shadow:
+    0 0 0 4px #eee6ff;
+}
+
+.order-dot.delivery {
+  background: #28a76c;
+
+  box-shadow:
+    0 0 0 4px #e1f5eb;
+}
+
+.location-content {
+  min-width: 0;
+}
+
+.location-content small {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #918b9d;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.location-content strong {
+  display: block;
+
+  color: #262238;
+
+  font-size: 11px;
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+.location-content em {
+  color: #817b8e;
+
+  font-style: normal;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   ROUTE LINE
+   ========================================================= */
+
+.order-location-line {
+  width: 1px;
+  height: 18px;
+
+  margin-left: 4px;
+
+  border-left: 1px dashed #bbb5c9;
+}
+
+
+/* =========================================================
+   INFO GRID
+   ========================================================= */
+
+.order-info-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 13px;
+}
+
+.order-info-item {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.info-icon {
+  width: 27px;
+  height: 27px;
+
+  flex: 0 0 27px;
+
+  border-radius: 8px;
+
+  background: #eee8fb;
+
+  color: #7141c8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.order-info-item > div {
+  min-width: 0;
+}
+
+.order-info-item small {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #9691a2;
+
+  font-size: 7px;
+  font-weight: 600;
+}
+
+.order-info-item strong {
+  display: block;
+
+  color: #29263a;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  word-break: break-word;
+}
+
+.purple-text {
+  color: #6e3bd0 !important;
+}
+
+
+/* =========================================================
+   RESPONSE AREA
+   ========================================================= */
+
+.respond-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 18px;
+
+  color: #9a96a7;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.respond-arrow {
+  color: #a49ead;
+
+  font-size: 15px;
+  line-height: 1;
+}
+
+.respond-subtitle {
+  margin-top: 5px;
+
+  text-align: center;
+
+  color: #aaa6b3;
+
+  font-size: 8px;
+  font-weight: 500;
+}
+
+.respond-subtitle span {
+  margin: 0 5px;
+
+  color: #c3bfca;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.order-actions {
+  display: grid;
+
+  grid-template-columns: 56px minmax(80px, 1fr) 56px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 13px 14px 17px;
+}
+
+
+/* =========================================================
+   DECLINE / ACCEPT BUTTONS
+   ========================================================= */
+
+.decline-button,
+.accept-button {
+  width: 56px;
+  height: 58px;
+
+  border: 0;
+
+  border-radius: 13px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.decline-button:active,
+.accept-button:active {
+  transform: scale(0.95);
+}
+
+.decline-button {
+  background: #fff0f0;
+
+  color: #e54848;
+
+  border: 1px solid #ffd9d9;
+}
+
+.accept-button {
+  background: #7540d5;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px rgba(117, 64, 213, 0.28);
+}
+
+.action-icon {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+.decline-button .action-icon {
+  background: #ffe0e0;
+}
+
+.accept-button .action-icon {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.decline-button small,
+.accept-button small {
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   SWIPE TRACK
+   ========================================================= */
+
+.swipe-track {
+  height: 46px;
+
+  position: relative;
+
+  border-radius: 24px;
+
+  background: #f2eff8;
+
+  border: 1px solid #e6e1f0;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-track-line {
+  position: absolute;
+
+  left: 17px;
+  right: 17px;
+
+  height: 2px;
+
+  background: #d7d1e2;
+}
+
+.swipe-dot {
+  width: 26px;
+  height: 26px;
+
+  position: relative;
+
+  z-index: 2;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  border: 1px solid #ddd6e9;
+
+  box-shadow:
+    0 3px 8px rgba(44, 31, 71, 0.12);
+}
+
+.swipe-arrow {
+  position: absolute;
+
+  right: 12px;
+
+  z-index: 3;
+
+  color: #7a4bd0;
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (width >= 480px) {
+  .new-order-page {
+    padding: 25px 16px 40px;
+  }
+
+  .new-order-card {
+    max-width: 390px;
+  }
+
+  .order-details-card {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .order-actions {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (width >= 768px) {
+  .new-order-page {
+    min-height: 100vh;
+
+    align-items: center;
+
+    padding: 40px 20px;
+  }
+
+  .new-order-card {
+    max-width: 420px;
+
+    border-radius: 25px;
+  }
+
+  .new-order-bell {
+    width: 60px;
+    height: 60px;
+
+    margin-top: 28px;
+  }
+
+  .new-order-heading h1 {
+    font-size: 20px;
+  }
+
+  .new-order-heading p {
+    font-size: 12px;
+  }
+
+  .order-details-card {
+    margin-left: 20px;
+    margin-right: 20px;
+
+    padding: 18px;
+  }
+
+  .direct-match {
+    font-size: 10px;
+  }
+
+  .estimated-earning strong {
+    font-size: 16px;
+  }
+
+  .location-content strong {
+    font-size: 12px;
+  }
+
+  .order-info-item strong {
+    font-size: 10px;
+  }
+
+  .order-actions {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 22px;
+
+    grid-template-columns: 64px minmax(100px, 1fr) 64px;
+  }
+
+  .decline-button,
+  .accept-button {
+    width: 64px;
+    height: 62px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (width < 340px) {
+  .new-order-page {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .new-order-card {
+    border-radius: 18px;
+  }
+
+  .order-details-card {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 12px;
+  }
+
+  .order-info-grid {
+    gap: 7px;
+  }
+
+  .order-info-item {
+    gap: 5px;
+  }
+
+  .info-icon {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+
+  .order-actions {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    grid-template-columns: 52px minmax(70px, 1fr) 52px;
+    gap: 7px;
+  }
+
+  .decline-button,
+  .accept-button {
+    width: 52px;
+    height: 55px;
+  }
+}
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e

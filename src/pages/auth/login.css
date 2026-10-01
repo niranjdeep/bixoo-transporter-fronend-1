@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+* {
+  box-sizing: border-box;
+}
+
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 .bixoo-login {
   width: 100%;
   min-height: 100vh;
@@ -7,16 +14,27 @@
 
 /* LEFT */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .login-left {
   width: 52%;
   min-height: 100vh;
   background: var(--ui-purple-soft);
+=======
+.login-left {
+  width: 52%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #061a35, #0b3d68, #087db8);
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   color: white;
   position: relative;
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .left-content {
+=======
+.left-content {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 100%;
   min-height: 100vh;
   padding: 55px 65px;
@@ -24,6 +42,7 @@
   z-index: 2;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .bixoo-logo {
   font-size: 48px;
   font-weight: 700;
@@ -45,21 +64,53 @@
   padding-left: 14px;
   border-left: 3px solid #18b2fa;
   font-size: var(--font-meta);
+=======
+.bixoo-logo {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.bixoo-logo span {
+  color: #19b5ff;
+}
+
+.portal-name {
+  font-size: 17px;
+  margin-top: 4px;
+  color: #d5e8f6;
+}
+
+.tagline-small {
+  margin-top: 35px;
+  padding-left: 14px;
+  border-left: 3px solid #18b2fa;
+  font-size: 13px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   letter-spacing: 1.5px;
   font-weight: 700;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .hero-content {
   margin-top: 80px;
 }
 
 :where(.bixoo-login) .hero-content h1 {
+=======
+.hero-content {
+  margin-top: 80px;
+}
+
+.hero-content h1 {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   margin: 0;
   font-size: 58px;
   line-height: 1.05;
   letter-spacing: -3px;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .hero-content h1 span {
   color: var(--ui-purple);
 }
@@ -68,18 +119,36 @@
   margin-top: 25px;
   color: var(--ui-purple-soft);
   font-size: var(--font-card);
+=======
+.hero-content h1 span {
+  color: #19b5ff;
+}
+
+.hero-content p {
+  margin-top: 25px;
+  color: #d5e8f6;
+  font-size: 18px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   line-height: 1.6;
 }
 
 /* TRUCK */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .transport-visual {
+=======
+.transport-visual {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   position: relative;
   height: 150px;
   margin-top: 30px;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .road {
+=======
+.road {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   position: absolute;
   bottom: 15px;
   left: -80px;
@@ -88,7 +157,11 @@
   background: rgba(0, 0, 0, 0.25);
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .road::after {
+=======
+.road::after {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   content: "";
   position: absolute;
   top: 28px;
@@ -97,7 +170,11 @@
   border-top: 3px dashed rgba(255, 255, 255, 0.5);
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .truck {
+=======
+.truck {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   position: absolute;
   right: 15%;
   bottom: 35px;
@@ -106,14 +183,22 @@
 
 /* BENEFITS */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .benefits {
+=======
+.benefits {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 15px;
   max-width: 680px;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .benefit {
+=======
+.benefit {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: flex;
   align-items: center;
   gap: 10px;
@@ -121,6 +206,7 @@
   border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .benefit:first-child {
   padding-left: 0;
 }
@@ -130,6 +216,17 @@
 }
 
 :where(.bixoo-login) .benefit-icon {
+=======
+.benefit:first-child {
+  padding-left: 0;
+}
+
+.benefit:last-child {
+  border-right: none;
+}
+
+.benefit-icon {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 36px;
   height: 36px;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -137,6 +234,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   color: var(--ui-purple);
 }
 
@@ -159,13 +257,41 @@
   margin-top: 50px;
   color: var(--ui-purple-soft);
   font-size: var(--font-secondary);
+=======
+  color: #19b5ff;
+}
+
+.benefit strong,
+.benefit small {
+  display: block;
+}
+
+.benefit strong {
+  font-size: 13px;
+}
+
+.benefit small {
+  margin-top: 4px;
+  color: #c9deed;
+  font-size: 11px;
+}
+
+.left-footer {
+  margin-top: 50px;
+  color: #c9deed;
+  font-size: 14px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   font-style: italic;
 }
 
 
 /* RIGHT */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .login-right {
+=======
+.login-right {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 48%;
   min-height: 100vh;
   background: #f4f7fb;
@@ -176,6 +302,7 @@
   position: relative;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .language {
   position: absolute;
   top: 30px;
@@ -213,10 +340,50 @@
 }
 
 :where(.bixoo-login) .welcome {
+=======
+.language {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 14px;
+  color: #344054;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  border-radius: 24px;
+  padding: 45px 50px;
+  box-shadow: 0 20px 60px rgba(20, 50, 80, 0.12);
+}
+
+.card-logo {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 900;
+  color: #14213d;
+  letter-spacing: -3px;
+}
+
+.card-logo span {
+  color: #087fd1;
+}
+
+.card-portal {
+  text-align: center;
+  margin-top: 4px;
+  color: #68758a;
+  font-size: 15px;
+}
+
+.welcome {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   text-align: center;
   margin: 38px 0 30px;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .welcome h2 {
   margin: 0;
   color: var(--ui-text);
@@ -227,21 +394,42 @@
   margin-top: 9px;
   color: var(--ui-purple);
   font-size: var(--font-secondary);
+=======
+.welcome h2 {
+  margin: 0;
+  color: #14213d;
+  font-size: 34px;
+}
+
+.welcome p {
+  margin-top: 9px;
+  color: #68758a;
+  font-size: 14px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 /* FIELD */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .field {
   margin-bottom: 20px;
 }
 
 :where(.bixoo-login) .field-header {
+=======
+.field {
+  margin-bottom: 20px;
+}
+
+.field-header {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 9px;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .field-header label {
   font-size: var(--font-secondary);
   font-weight: 700;
@@ -257,6 +445,23 @@
 }
 
 :where(.bixoo-login) .mobile-field {
+=======
+.field-header label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17233a;
+}
+
+.email-link {
+  border: none;
+  background: transparent;
+  color: #087fd1;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mobile-field {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 100%;
   height: 56px;
   display: flex;
@@ -265,7 +470,11 @@
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .country {
+=======
+.country {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 115px;
   flex-shrink: 0;
   display: flex;
@@ -276,34 +485,57 @@
   border-right: 1px solid #d8dee6;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .country .arrow {
+=======
+.country .arrow {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   margin-left: auto;
   color: #777;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .mobile-field input {
+=======
+.mobile-field input {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   flex: 1;
   min-width: 0;
   border: none;
   outline: none;
   padding: 0 15px;
+<<<<<<< HEAD
   font-size: var(--font-secondary);
+=======
+  font-size: 15px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 /* BUTTON */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .continue-btn {
+=======
+.continue-btn {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 100%;
   height: 56px;
   border: none;
   border-radius: 10px;
+<<<<<<< HEAD
   background: var(--ui-purple);
   color: white;
   font-size: var(--font-secondary);
+=======
+  background: #087fd1;
+  color: white;
+  font-size: 16px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   font-weight: 700;
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .continue-btn:hover {
   background: var(--ui-purple);
 }
@@ -311,56 +543,98 @@
 :where(.bixoo-login) .button-arrow {
   margin-left: 12px;
   font-size: var(--font-secondary);
+=======
+.continue-btn:hover {
+  background: #066caf;
+}
+
+.button-arrow {
+  margin-left: 12px;
+  font-size: 20px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 /* DIVIDER */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .or-divider {
+=======
+.or-divider {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 25px 0;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .or-divider span {
+=======
+.or-divider span {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   flex: 1;
   height: 1px;
   background: #e2e7ed;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .or-divider p {
   margin: 0;
   color: var(--ui-purple);
+=======
+.or-divider p {
+  margin: 0;
+  color: #8a94a4;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 /* WHATSAPP */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .whatsapp-btn {
+=======
+.whatsapp-btn {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 100%;
   height: 54px;
   border: none;
   border-radius: 10px;
   background: #edf9f4;
+<<<<<<< HEAD
   color: var(--ui-text);
   cursor: pointer;
   font-size: var(--font-secondary);
+=======
+  color: #17233a;
+  cursor: pointer;
+  font-size: 14px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .whatsapp-icon {
   color: #18a957;
 }
 
 :where(.bixoo-login) .wa-arrow {
+=======
+.whatsapp-icon {
+  color: #18a957;
+}
+
+.wa-arrow {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   margin-left: auto;
   margin-right: 15px;
 }
 
 /* REGISTER */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .register {
   text-align: center;
   margin-top: 25px;
@@ -372,6 +646,19 @@
   border: none;
   background: none;
   color: var(--ui-purple);
+=======
+.register {
+  text-align: center;
+  margin-top: 25px;
+  color: #68758a;
+  font-size: 14px;
+}
+
+.register button {
+  border: none;
+  background: none;
+  color: #087fd1;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   font-weight: 700;
   cursor: pointer;
   margin-left: 5px;
@@ -379,7 +666,11 @@
 
 /* SECURITY */
 
+<<<<<<< HEAD
 :where(.bixoo-login) .security {
+=======
+.security {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 28px;
@@ -387,11 +678,16 @@
   border-top: 1px solid #e5e9ee;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .security div {
+=======
+.security div {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   text-align: center;
   border-right: 1px solid #e5e9ee;
 }
 
+<<<<<<< HEAD
 :where(.bixoo-login) .security div:last-child {
   border-right: none;
 }
@@ -406,6 +702,22 @@
 :where(.bixoo-login) .security small {
   color: var(--ui-purple);
   font-size: var(--font-meta);
+=======
+.security div:last-child {
+  border-right: none;
+}
+
+.security span {
+  display: block;
+  color: #087fd1;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.security small {
+  color: #68758a;
+  font-size: 10px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   line-height: 1.4;
 }
 
@@ -417,16 +729,31 @@
     display: block;
   }
 
+<<<<<<< HEAD
   :where(.bixoo-login) .login-left {
     display: none;
   }
 
   :where(.bixoo-login) .login-right {
+=======
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
     width: 100%;
     padding: 30px 20px;
   }
 
+<<<<<<< HEAD
   :where(.bixoo-login) .login-card {
     max-width: 500px;
   }
 }
+=======
+  .login-card {
+    max-width: 500px;
+  }
+}
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e

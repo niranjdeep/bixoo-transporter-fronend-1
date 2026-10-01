@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import api from "../../services/api";
 import { errorMessage } from "../../services/session";
 import Button from "../../components/ui/Button";
 
 import "./onboarding.css";
+=======
+
+import "./Onboarding.css";
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
 function Onboarding() {
   const navigate = useNavigate();
@@ -13,16 +18,22 @@ function Onboarding() {
     name: "",
     mobile: "",
     email: "",
+<<<<<<< HEAD
     password: "",
+=======
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
     vehicleType: "",
     vehicleNumber: "",
     capacity: "",
     city: "",
     state: "",
   });
+<<<<<<< HEAD
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+=======
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,6 +44,7 @@ function Onboarding() {
     }));
   };
 
+<<<<<<< HEAD
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (loading) return;
@@ -44,6 +56,17 @@ function Onboarding() {
       navigate("/login", { replace: true, state: { notice: "Registration successful. Sign in with the email and password you just registered." } });
     } catch (err) { setError(errorMessage(err)); }
     finally { setLoading(false); }
+=======
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    localStorage.setItem(
+      "transporter_profile",
+      JSON.stringify(formData)
+    );
+
+    navigate("/dashboard");
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   };
 
   return (
@@ -66,7 +89,10 @@ function Onboarding() {
         </div>
 
         <form onSubmit={handleSubmit}>
+<<<<<<< HEAD
           {error && <p className="registration-error" role="alert">{error}</p>}
+=======
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
           <div className="form-section">
 
@@ -75,9 +101,15 @@ function Onboarding() {
             <div className="form-grid">
 
               <div className="form-field">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-name">Full Name</label>
 
               <input id="onboarding-name"
+=======
+                <label>Full Name</label>
+
+                <input
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   name="name"
                   type="text"
                   placeholder="Enter your full name"
@@ -88,15 +120,24 @@ function Onboarding() {
               </div>
 
               <div className="form-field">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-mobile">Mobile Number</label>
 
               <input id="onboarding-mobile"
+=======
+                <label>Mobile Number</label>
+
+                <input
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   name="mobile"
                   type="tel"
                   placeholder="Enter mobile number"
                   maxLength="10"
+<<<<<<< HEAD
                   pattern="[0-9]{10}"
                   autoComplete="tel-national"
+=======
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   value={formData.mobile}
                   onChange={(event) =>
                     setFormData({
@@ -109,12 +150,20 @@ function Onboarding() {
               </div>
 
               <div className="form-field full-width">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-email">Email Address</label>
 
               <input id="onboarding-email"
                   name="email"
                   type="email"
                   autoComplete="email"
+=======
+                <label>Email Address</label>
+
+                <input
+                  name="email"
+                  type="email"
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={handleChange}
@@ -129,6 +178,7 @@ function Onboarding() {
 
           <div className="form-section">
 
+<<<<<<< HEAD
             <h3>Account Security</h3>
             <div className="form-grid">
               <div className="form-field">
@@ -143,14 +193,22 @@ function Onboarding() {
             </div>
           </div>
           <div className="form-section">
+=======
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
             <h3>Transport Details</h3>
 
             <div className="form-grid">
 
               <div className="form-field">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-vehicleType">Vehicle Type</label>
 
               <select id="onboarding-vehicleType"
+=======
+                <label>Vehicle Type</label>
+
+                <select
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   name="vehicleType"
                   value={formData.vehicleType}
                   onChange={handleChange}
@@ -183,9 +241,15 @@ function Onboarding() {
               </div>
 
               <div className="form-field">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-vehicleNumber">Vehicle Number</label>
 
               <input id="onboarding-vehicleNumber"
+=======
+                <label>Vehicle Number</label>
+
+                <input
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   name="vehicleNumber"
                   type="text"
                   placeholder="TN 00 AB 0000"
@@ -196,9 +260,15 @@ function Onboarding() {
               </div>
 
               <div className="form-field">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-capacity">Vehicle Capacity</label>
 
               <select id="onboarding-capacity"
+=======
+                <label>Vehicle Capacity</label>
+
+                <select
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   name="capacity"
                   value={formData.capacity}
                   onChange={handleChange}
@@ -238,9 +308,15 @@ function Onboarding() {
             <div className="form-grid">
 
               <div className="form-field">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-city">City</label>
 
               <input id="onboarding-city"
+=======
+                <label>City</label>
+
+                <input
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   name="city"
                   type="text"
                   placeholder="Enter city"
@@ -251,9 +327,15 @@ function Onboarding() {
               </div>
 
               <div className="form-field">
+<<<<<<< HEAD
                 <label htmlFor="onboarding-state">State</label>
 
               <input id="onboarding-state"
+=======
+                <label>State</label>
+
+                <input
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
                   name="state"
                   type="text"
                   placeholder="Enter state"
@@ -268,6 +350,7 @@ function Onboarding() {
           </div>
 
 
+<<<<<<< HEAD
           <div style={{ marginTop: "32px", display: "flex", flexDirection: "column", gap: "16px" }}>
             <Button
               type="submit"
@@ -291,6 +374,26 @@ function Onboarding() {
               </Button>
             </p>
           </div>
+=======
+          <button
+            type="submit"
+            className="onboarding-submit"
+          >
+            Continue →
+          </button>
+
+          <p className="login-link">
+            Already have an account?
+
+            <button
+              type="button"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+          </p>
+
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
         </form>
 
       </div>
@@ -299,4 +402,8 @@ function Onboarding() {
   );
 }
 
+<<<<<<< HEAD
 export default Onboarding;
+=======
+export default Onboarding;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e

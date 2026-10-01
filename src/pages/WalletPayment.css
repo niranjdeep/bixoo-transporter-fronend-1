@@ -6,18 +6,38 @@
 
   padding: 18px 13px 90px;
 
+<<<<<<< HEAD
   background: var(--ui-purple-soft);
+=======
+  background: linear-gradient(
+    180deg,
+    #dbc4f8 0%,
+    #d8c0f5 48%,
+    #d7bef4 100%
+  );
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   color: #1b1728;
 
   font-family:
+<<<<<<< HEAD
     var(--font-family);
+=======
+    "Poppins",
+    "Inter",
+    Arial,
+    sans-serif;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 
 /* HEADER */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .wallet-payment-header {
+=======
+.wallet-payment-header {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: flex;
   align-items: flex-start;
 
@@ -26,7 +46,11 @@
   margin-bottom: 17px;
 }
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-back {
+=======
+.payment-back {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 31px;
   height: 31px;
 
@@ -37,13 +61,20 @@
 
   background: #ffffff;
 
+<<<<<<< HEAD
   color: var(--ui-purple);
 
   font-size: var(--font-card);
+=======
+  color: #6540bb;
+
+  font-size: 17px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   cursor: pointer;
 
   box-shadow:
+<<<<<<< HEAD
     var(--ui-shadow);
 }
 
@@ -52,10 +83,21 @@
 
   font-size: var(--font-meta);
   font-weight: 700;
+=======
+    0 4px 10px rgba(73, 47, 105, 0.07);
+}
+
+.wallet-payment-header span {
+  color: #7547c9;
+
+  font-size: 7px;
+  font-weight: 800;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   letter-spacing: 1px;
 }
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .wallet-payment-header h1 {
   margin: 3px 0 0;
 
@@ -71,21 +113,47 @@
   color: var(--ui-muted);
 
   font-size: var(--font-meta);
+=======
+.wallet-payment-header h1 {
+  margin: 3px 0 0;
+
+  color: #18152a;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.wallet-payment-header p {
+  margin: 4px 0 0;
+
+  color: #817888;
+
+  font-size: 8px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 
 /* AMOUNT */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-amount-card {
+=======
+.payment-amount-card {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   padding: 16px;
 
   margin-bottom: 18px;
 
+<<<<<<< HEAD
   border-radius: var(--ui-radius);
+=======
+  border-radius: 15px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   background: #ffffff;
 
   box-shadow:
+<<<<<<< HEAD
     var(--ui-shadow);
 }
 
@@ -98,10 +166,25 @@
 }
 
 :where(.wallet-payment-page) .payment-amount-card strong {
+=======
+    0 5px 13px rgba(73, 47, 105, 0.06);
+}
+
+.payment-amount-card small {
+  display: block;
+
+  color: #91899a;
+
+  font-size: 7px;
+}
+
+.payment-amount-card strong {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: block;
 
   margin-top: 4px;
 
+<<<<<<< HEAD
   color: var(--ui-purple);
 
   font-size: 28px;
@@ -109,12 +192,22 @@
 }
 
 :where(.wallet-payment-page) .payment-amount-card span {
+=======
+  color: #6540bb;
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.payment-amount-card span {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: inline-block;
 
   margin-top: 5px;
 
   padding: 4px 7px;
 
+<<<<<<< HEAD
   border-radius: var(--ui-radius);
 
   background: var(--ui-purple-soft);
@@ -122,12 +215,22 @@
   color: var(--ui-purple);
 
   font-size: var(--font-meta);
+=======
+  border-radius: 6px;
+
+  background: #f0e8ff;
+
+  color: #7547c9;
+
+  font-size: 6px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   font-weight: 700;
 }
 
 
 /* SECTION */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-method-section {
   margin-bottom: 15px;
 }
@@ -137,23 +240,47 @@
 
   font-size: var(--font-meta);
   font-weight: 700;
+=======
+.payment-method-section {
+  margin-bottom: 15px;
+}
+
+.payment-section-label {
+  color: #7547c9;
+
+  font-size: 7px;
+  font-weight: 800;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   letter-spacing: 0.8px;
 }
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-method-section h2 {
+=======
+.payment-method-section h2 {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   margin: 3px 0 10px;
 
   color: #30283b;
 
+<<<<<<< HEAD
   font-size: var(--font-secondary);
   font-weight: 700;
+=======
+  font-size: 14px;
+  font-weight: 800;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 
 /* METHOD CARD */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-method-card {
+=======
+.payment-method-card {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 100%;
 
   min-height: 60px;
@@ -170,28 +297,47 @@
   margin-bottom: 9px;
 
   border: 1px solid transparent;
+<<<<<<< HEAD
   border-radius: var(--ui-radius);
+=======
+  border-radius: 13px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   background: #ffffff;
 
   cursor: pointer;
 
   box-shadow:
+<<<<<<< HEAD
     var(--ui-shadow);
+=======
+    0 5px 13px rgba(73, 47, 105, 0.055);
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   transition: 0.2s ease;
 }
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-method-card.active {
+=======
+.payment-method-card.active {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   border-color: #9a78dc;
 
   background: #fbf9ff;
 
   box-shadow:
+<<<<<<< HEAD
     var(--ui-shadow);
 }
 
 :where(.wallet-payment-page) .payment-method-card input {
+=======
+    0 0 0 2px rgba(117, 71, 201, 0.06);
+}
+
+.payment-method-card input {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   position: absolute;
 
   opacity: 0;
@@ -202,7 +348,11 @@
 
 /* ICON */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-method-icon {
+=======
+.payment-method-icon {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 34px;
   height: 34px;
 
@@ -214,6 +364,7 @@
 
   border-radius: 9px;
 
+<<<<<<< HEAD
   background: var(--ui-purple-soft);
 
   color: var(--ui-purple);
@@ -224,40 +375,78 @@
 
 :where(.wallet-payment-page) .card-icon {
   font-size: var(--font-card);
+=======
+  background: #eee4ff;
+
+  color: #7547c9;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.card-icon {
+  font-size: 18px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 
 /* CONTENT */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-method-content {
+=======
+.payment-method-content {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   flex: 1;
 
   min-width: 0;
 }
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-method-content strong {
+=======
+.payment-method-content strong {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: block;
 
   color: #30283b;
 
+<<<<<<< HEAD
   font-size: var(--font-meta);
   font-weight: 700;
 }
 
 :where(.wallet-payment-page) .payment-method-content span {
+=======
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.payment-method-content span {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   display: block;
 
   margin-top: 3px;
 
+<<<<<<< HEAD
   color: var(--ui-muted);
 
   font-size: var(--font-meta);
+=======
+  color: #91899a;
+
+  font-size: 6px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 
 /* CHECK */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-check {
+=======
+.payment-check {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 18px;
   height: 18px;
 
@@ -270,6 +459,7 @@
 
   color: #ffffff;
 
+<<<<<<< HEAD
   font-size: var(--font-meta);
 }
 
@@ -277,12 +467,25 @@
   border-color: #7547c9;
 
   background: var(--ui-purple);
+=======
+  font-size: 9px;
+}
+
+.payment-method-card.active .payment-check {
+  border-color: #7547c9;
+
+  background: #7547c9;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 
 /* BUTTON */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-continue {
+=======
+.payment-continue {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 100%;
   height: 41px;
 
@@ -295,6 +498,7 @@
   border: none;
   border-radius: 10px;
 
+<<<<<<< HEAD
   background: var(--ui-purple);
 
   color: #ffffff;
@@ -303,21 +507,43 @@
 
   font-size: var(--font-meta);
   font-weight: 700;
+=======
+  background: #7547c9;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 750;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   cursor: pointer;
 
   box-shadow:
+<<<<<<< HEAD
     var(--ui-shadow);
 }
 
 :where(.wallet-payment-page) .payment-continue span {
   font-size: var(--font-meta);
+=======
+    0 6px 14px rgba(117, 71, 201, 0.22);
+}
+
+.payment-continue span {
+  font-size: 13px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 }
 
 
 /* BACK */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-back-wallet {
+=======
+.payment-back-wallet {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
   width: 100%;
 
   margin-top: 8px;
@@ -328,11 +554,19 @@
 
   background: transparent;
 
+<<<<<<< HEAD
   color: var(--ui-purple);
 
   font-family: var(--font-family);
 
   font-size: var(--font-meta);
+=======
+  color: #756b80;
+
+  font-family: inherit;
+
+  font-size: 8px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   cursor: pointer;
 }
@@ -340,12 +574,21 @@
 
 /* SECURE */
 
+<<<<<<< HEAD
 :where(.wallet-payment-page) .payment-secure-note {
   margin-top: 12px;
 
   color: var(--ui-muted);
 
   font-size: var(--font-meta);
+=======
+.payment-secure-note {
+  margin-top: 12px;
+
+  color: #8b8295;
+
+  font-size: 6px;
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
 
   text-align: center;
 }
@@ -362,6 +605,7 @@
     background: #f5f7fb;
   }
 
+<<<<<<< HEAD
   :where(.wallet-payment-page) .wallet-payment-header h1 {
     font-size: 28px;
   }
@@ -378,11 +622,30 @@
   }
 
   :where(.wallet-payment-page) .payment-method-card {
+=======
+  .wallet-payment-header h1 {
+    font-size: 28px;
+  }
+
+  .wallet-payment-header p {
+    font-size: 12px;
+  }
+
+  .payment-amount-card,
+  .payment-method-section,
+  .payment-continue,
+  .payment-back-wallet {
+    max-width: 760px;
+  }
+
+  .payment-method-card {
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
     min-height: 68px;
 
     padding: 14px;
   }
 
+<<<<<<< HEAD
   :where(.wallet-payment-page) .payment-method-content strong {
     font-size: var(--font-meta);
   }
@@ -391,3 +654,13 @@
     font-size: var(--font-meta);
   }
 }
+=======
+  .payment-method-content strong {
+    font-size: 11px;
+  }
+
+  .payment-method-content span {
+    font-size: 8px;
+  }
+}
+>>>>>>> d82ff6af125ddd25a44cbd605d543ce98ff9543e
